@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
+use App\Models\Bug;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $bugs = Bug::all();
+    $resolved = Bug::whereNotNull('resolved_by');
+    return view('dashboard', compact('bugs', 'resolved'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
