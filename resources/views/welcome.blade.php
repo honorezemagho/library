@@ -1,7 +1,5 @@
 <x-frontend-header/>
 
-
-
 <div class="w-full md:w-12/12 lg:w-12/12 xl:w-12/12 pt-24">
         <div class="sm:pt-0 text-center">
             <h2 class="font-semibold text-4xl text-gray-700">H-BUG</h2>
