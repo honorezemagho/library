@@ -1,5 +1,6 @@
 <x-frontend-header/>
 
+<x-display-messages/>
 <div class=" my-24   flex flex-col md:mx-64 ">
 
        <h1 class="md:text-gray-700 text-3xl pb-12  text-center"> Report us Your Bug</h1>
