@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
 {
+    public function __construct(){
+        if(!auth()->check()){
+            abort(403);
+        }
+    }
     /**
      * Display the registration view.
      *
