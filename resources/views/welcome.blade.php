@@ -6,7 +6,7 @@
             <p class="my-4 text-lg leading-relaxed text-gray-600 md:mx-48">A BUG TRACKER for clients to report any errors or bugs that they encountered<!-- -->
                         It's really simple just click on Report a Bug and report it.</p>
                 <div class="my-12">
-                <a href="{{route('create-bug')}}" class="github-star ml-1 text-white font-bold px-6 py-4  rounded outline-none focus:outline-none  bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg" target="_blank">Report a bug</a>
+                <a href="{{route('create-bug')}}" class="github-star ml-1 text-white font-bold px-6 py-4  rounded outline-none focus:outline-none  bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg">Report a bug</a>
         </div>
     </div>
 </div>
