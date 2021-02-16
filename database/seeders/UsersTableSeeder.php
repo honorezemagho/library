@@ -17,23 +17,23 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('users')->insert(
-            [
-            'name' => 'Fred Free',
-            'email' => "zankafred@gmail.com",
-            'email_verified_at' => now(),
-            'password' => Hash::make('07081999A'),
-            'remember_token' => Str::random(10),
-            'role_id' => 3
-            ],
-              [
-            'name' => 'Free tasco',
-            'email' => "free@free.fr",
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-            'remember_token' => Str::random(10),
-            'role_id' => 3
-            ]
-            );
+        DB::table('users')->insert( [
+                [
+                'name' => 'Fred Free',
+                'email' => "zankafred@gmail.com",
+                'email_verified_at' => now(),
+                'password' => Hash::make('07081999A'),
+                'remember_token' => Str::random(10),
+                'role_id' => 3
+                ],
+                [
+                'name' => 'Free tasco',
+                'email' => "free@free.fr",
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'remember_token' => Str::random(10),
+                'role_id' => 3
+                ]
+            ]);
     }
 }
