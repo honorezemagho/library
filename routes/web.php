@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
+use App\Http\Controllers\AdminController;
 use App\Models\Bug;
 
 /*
@@ -20,13 +21,22 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/dashboard', function () {
-    $bugs = Bug::all();
-    $resolved = Bug::whereNotNull('resolved_by');
+    $bugs = Bug::orderBy('id', 'DESC')->get();
+    $resolved = Bug::whereNotNull('resolved_by')->orderBy('id', 'DESC')->get();
     return view('dashboard', compact('bugs', 'resolved'));
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
+Route::get('/dashboard/qa', [AdminController::class, 'qaDashboard'])->name('qa-dashboard');
+
+
+
 Route::get('/user/report-bug', [BugController::class, 'create'])->name('create-bug');
 
 Route::post('/user/report-bug', [BugController::class, 'store'])->name('save-bug');
+
+Route::post('/admin/markas-resolved', [AdminController::class, 'resolveBug'])->middleware(['auth'])->name('mark-as-resolved');
+
+
+Route::post('/admin/approved', [AdminController::class, 'approve'])->middleware(['auth'])->name('approve-solution');
