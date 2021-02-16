@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisteredUserController extends Controller
 {
-    public function __construct(){
-        if(!auth()->check()){
-            abort(403);
-        }
-    }
     /**
      * Display the registration view.
      *
@@ -43,14 +38,14 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        Auth::login($user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]));
+        ]);
 
         event(new Registered($user));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->back();
     }
 }
