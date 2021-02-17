@@ -64,7 +64,7 @@
 
             <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10">
                 <span href="#" class="block px-4 py-2 text-sm text-gray-700">Name: {{ Auth::user()->name }}</span>
-                <span href="#" class="block px-4 py-2 text-sm text-gray-700">Email: {{ Auth::user()->role->name }}</span>
+                <span href="#" class="block px-4 py-2 text-sm text-gray-700">Role: {{ Auth::user()->role->name }}</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
