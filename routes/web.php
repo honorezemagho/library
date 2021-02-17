@@ -30,7 +30,12 @@ require __DIR__.'/auth.php';
 
 Route::get('/dashboard/qa', [AdminController::class, 'qaDashboard'])->name('qa-dashboard');
 
-
+Route::get('/admin/bugs', function () {
+        if(auth()->user()->role->name == 'Developer'){
+            return redirect(route('dashboard'));
+        }
+        return redirect(route('qa-dashboard'));
+})->middleware(['auth'])->name('bugs-dashboard');
 
 Route::get('/user/report-bug', [BugController::class, 'create'])->name('create-bug');
 
