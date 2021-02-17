@@ -65,8 +65,9 @@ class AdminController extends Controller
 
     public function qaDashboard(){
         $bugs = Bug::orderBy('id', 'DESC')->get();
-        $resolved = Bug::where('status',0)->orderBy('id', 'DESC')->get();
-        return view('dashboard-qa', compact('bugs', 'resolved'));
+        $resolved = Bug::where('status',1)->orderBy('id', 'DESC')->get();
+        $unresolved = Bug::where('status',0)->orderBy('id', 'DESC')->get();
+        return view('dashboard-qa', compact('bugs', 'resolved', 'unresolved'));
     }
 
 

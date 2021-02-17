@@ -13,8 +13,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{count($resolved)}}</h4>
-                        <div class="text-gray-500">{{ count($resolved) > 1 ? 'Bugs' : "Bug" }} waiting for your approval</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{count($unresolved)}}</h4>
+                        <div class="text-gray-500">{{ count($unresolved) > 1 ? 'Bugs' : "Bug" }} waiting for your approval</div>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{count($bugs)}}</h4>
-                        <div class="text-gray-500"> {{ count($bugs) > 1 ? 'Approved Solutions' : "Approved Solution" }}</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{count($resolved)}}</h4>
+                        <div class="text-gray-500"> {{ count($resolved) > 1 ? 'Approved Solutions' : "Approved Solution" }}</div>
                     </div>
                 </div>
             </div>
