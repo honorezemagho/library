@@ -1,6 +1,6 @@
 <x-app-layout>
   @section('body')
-    <h3 class="text-gray-700 text-3xl font-medium">H-TODO</h3>
+    <h3 class="text-gray-700 text-3xl font-medium">Bugs</h3>
 
 
 

@@ -1,6 +1,6 @@
 <x-app-layout>
   @section('body')
-    <h3 class="text-gray-700 text-3xl font-medium">H-TODO</h3>
+    <h3 class="text-gray-700 text-3xl font-medium">Bugs</h3>
 
 
 
@@ -13,8 +13,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{count($bugs)}}</h4>
-                        <div class="text-gray-500">{{ count($bugs) > 1 ? 'Bugs' : "Bug" }}</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{count($unresolved)}}</h4>
+                        <div class="text-gray-500">{{ count($unresolved) > 1 ? 'Bugs' : "Bug" }} in the System</div>
                     </div>
                 </div>
             </div>
