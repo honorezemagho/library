@@ -1,0 +1,40 @@
+<template>
+    <app-layout>
+        <Hero />  
+        <div class="py-8 sm:py-8 px-4 sm:px-0 container mx-auto">
+            <works :reports="worksList" />
+             <testimonials />        
+        </div>
+    </app-layout>
+</template>
+
+<script>
+    import AppLayout from '@/Layouts/AppLayout'
+    import Works from '@/Components/Works'
+    import Testimonials from '@/Components/Testimonials'
+    import Hero from './Hero'
+    export default {
+        components: {
+            AppLayout,
+            Hero,
+            Works,
+            Testimonials
+        },
+        mounted() {
+        console.log("Index Mounted !");
+        console.log(this.reports);
+        },
+        props: {
+            canLogin: Boolean,
+            canRegister: Boolean,
+            laravelVersion: String,
+            phpVersion: String,
+            reports :Object,
+        },
+        data() {
+            return {
+                worksList : this.reports
+            }
+        },
+    }
+</script>
