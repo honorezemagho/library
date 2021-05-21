@@ -60,9 +60,9 @@ export default {
          });
       });
     });
-    var app = $(".MainApp__app___1_k3Y").hide();
-    console.log(app);
-    
+    var img = $(".MainApp__app___1_k3Y").html();
+    console.log("__________________________________________________");
+    console.log(img);
     
   },
 
