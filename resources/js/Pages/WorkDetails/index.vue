@@ -60,7 +60,9 @@ export default {
          });
       });
     });
-    document.getElementsByClassName("sdk-Branding-branding").style.display="none";
+    var app = $(".MainApp__app___1_k3Y").hide();
+    console.log(app);
+    
     
   },
 

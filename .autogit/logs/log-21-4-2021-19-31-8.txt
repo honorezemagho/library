@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Fri May 21 2021 19:31:08 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Subjects.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* resources/views/livewire/subjects.blade.php
+
+
+Created files:
+* .autogit/logs/log-21-4-2021-5-46-30.txt
+
+
+Deleted files:
+
+
+Renamed files:
