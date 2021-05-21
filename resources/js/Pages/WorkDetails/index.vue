@@ -60,10 +60,7 @@ export default {
          });
       });
     });
-    var img = $(".MainApp__app___1_k3Y").html();
-    console.log("__________________________________________________");
-    console.log(img);
-    
+   
   },
 
   data() {
