@@ -82,9 +82,9 @@
         <!-- Modal create Subject-->
 <x-jet-dialog-modal :maxWidth="'5xl'" class="z-40" wire:model="showModalForm">
     @if($subject_id)
-        <x-slot name="title">Update Student Subject</x-slot>
+        <x-slot name="title">Update Subject</x-slot>
     @else
-        <x-slot name="title">Create Student Subject</x-slot>
+        <x-slot name="title">Create Subject</x-slot>
     @endif
  <x-slot name="content">
    <div class="space-y-4 divide-y divide-gray-200">
@@ -149,7 +149,11 @@
                             <x-jet-label for="author" value="{{ __('Author') }}" />
                             <select id="author" wire:model="author" name="author" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
                                 @if($this->author == null)
-                                    <option selected value="Null">{{ __('Choose an author') }}</option>
+                                    <option selected value="Null">{{ __('Choose an author') }}
+                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </option>
                                 @endif
                                 @foreach ($authors as $author)
                                     @if ($this->author && $this->author == $author->id )
@@ -162,9 +166,19 @@
                              @error('author') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
 
-                        <div class="col-span-2 sm:col-span-2"> 
+                        <div class="col-span-2 sm:col-span-2"
+                        x-data="{ isUploading: false, progress: 0 }"
+                        x-on:livewire-upload-start="isUploading = true"
+                        x-on:livewire-upload-finish="isUploading = false"
+                        x-on:livewire-upload-error="isUploading = false"
+                        x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        > 
                             <x-jet-label for="url" value="{{ __('File') }}" />
                             <input type="file" id="url" wire:model="url" name="url" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                            <!-- Progress Bar -->
+                            <div x-show="isUploading">
+                                <progress max="100" x-bind:value="progress"></progress>
+                            </div>  
                             @error('url') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
                     </div> 
