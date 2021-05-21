@@ -43,13 +43,12 @@ export default {
 
   props: {work : Object},
   mounted() {
-    console.log(this.myWork.url);
+
     var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
 		var previewFilePromise = adobeDCView.previewFile({
 			content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
 			metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
 		}, viewerConfig);
-
     const allowTextSelection = false;
     previewFilePromise.then(adobeViewer => {
       adobeViewer.getAnnotationManager().then(annotationManager => {
@@ -61,6 +60,8 @@ export default {
          });
       });
     });
+    document.getElementsByClassName("sdk-Branding-branding").style.display="none";
+    
   },
 
   data() {

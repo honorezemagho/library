@@ -97,28 +97,14 @@ class Subjects extends Component
             'url' => ['required','file', 'mimes:pdf', 'max:50000']
             ]);
 
-      if ($this->url) {
-        Storage::delete('public/', $this->new_url);
-        $this->new_url = 'subjects'.'/'.Str::random(40).'.'.$this->url->getClientOriginalExtension();
-        $this->url->storeAs('public/', $this->new_url);
-    }
 
-    if ($this->cover) {
-        $cover_name = '';
-    }else{
-        $cover_name = '';
-   
-    }
-    if ($this->cover) {
-        $url_name = '';
-   
-    }else{
-        $url_name = ''; 
-    }
+    $cover_name = '';
+    $url_name = '';
 
     if ($this->url) {
-        Storage::delete('public/', $this->new_url);
-        Storage::delete('public/', $this->cover);
+        dd($this->new_url.'     '.$this->cover);
+        Storage::delete('public/storage/', $this->new_url);
+        Storage::delete('public/storage/', $this->cover);
        
         $url_extension = $this->url->getClientOriginalExtension();
         $url_name = 'subjects'.'/'.Str::random(40).'.'.$url_extension;
@@ -174,6 +160,7 @@ class Subjects extends Component
         $this->author =  $subject->author->id;
         $this->academic_year =  $subject->academic_year;
         $this->url = $subject->url;
+        $this->cover = $subject->cover;
         $this->field = $subject->field->id;;
         $this->period = $subject->period->id;;
         $this->level = $subject->level->id;;

@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Fri May 21 2021 05:46:30 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/StudentReports.php
+* app/Http/Livewire/Subjects.php
+
+
+Created files:
+* .autogit/logs/log-21-4-2021-5-14-18.txt
+
+
+Deleted files:
+
+
+Renamed files:
