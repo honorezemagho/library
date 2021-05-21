@@ -52,9 +52,11 @@ class StudentReports extends Component
         $url_name = '';
         if ($this->url) {
             $url_extension = $this->url->getClientOriginalExtension();
-            $url_file_name = 'reports'.'\\'.Str::random(40);
+            $url_file_name = 'reports'.'/'.Str::random(40);
             $url_name = $url_file_name.'.'.$url_extension;
-            $this->url->storeAs('public\\', $url_name);
+            $url_name = 'storage/'. $url_name;
+
+            $this->url->storeAs('public/', $url_name);
             if ($this->cover) {
                 $cover_extension = $this->cover->getClientOriginalExtension();
                 $cover_name = 'reports'.'/'.Str::random(40).'.'.$cover_extension;
@@ -66,7 +68,7 @@ class StudentReports extends Component
                 $cover_name = 'storage/reports'.'/'.Str::random(40).'.png';
         
                 $Imagick = new \Imagick();
-                $Imagick->readImage($base_final_path.'/public/storage/'.$url_name.'[0]');  
+                $Imagick->readImage($base_final_path.'/public'.'/'.$url_name.'[0]');  
                 $Imagick->setImageFormat('png');
                 $Imagick->writeImage($base_final_path.'/public'.'/'.$cover_name);
 

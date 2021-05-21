@@ -45,15 +45,16 @@ class Subjects extends Component
         $this->validate([
             'title' => ['required', 'string', 'max:255'],
             'author' => ['required', 'string', 'max:255'],
-            'url' => ['required','file', 'mimes:pdf', 'max:10000']
+            'url' => ['required','file', 'mimes:pdf', 'max:50000']
             ]);
 
         $cover_name = '';
         $url_name = '';
         if ($this->url) {
             $url_extension = $this->url->getClientOriginalExtension();
-            $url_name = 'subjects'.'\\'.Str::random(40).'.'.$url_extension;
-            $this->url->storeAs('public\\', $url_name);
+            $url_name = 'subjects'.'/'.Str::random(40).'.'.$url_extension;
+            $this->url->storeAs('public/', $url_name);
+            $url_name = 'storage/'.$url_name;
 
             if ($this->cover) {
                 $cover_extension = $this->cover->getClientOriginalExtension();
@@ -66,14 +67,13 @@ class Subjects extends Component
                 $cover_name = 'storage/subjects'.'/'.Str::random(40).'.png';
         
                 $Imagick = new \Imagick();
-                $Imagick->readImage($base_final_path.'/public/storage/'.$url_name.'[0]');  
+                $Imagick->readImage($base_final_path.'/public'.'/'.$url_name.'[0]');  
                 $Imagick->setImageFormat('png');
                 $Imagick->writeImage($base_final_path.'/public'.'/'.$cover_name);
 
             }
             
         }
-
       
         $subject = Subject::create([
             'title' => $this->title,
@@ -94,7 +94,7 @@ class Subjects extends Component
     {
         $this->validate([
             'title' => ['required', 'string', 'max:255'],
-            'url' => ['required','file', 'mimes:pdf', 'max:10000']
+            'url' => ['required','file', 'mimes:pdf', 'max:50000']
             ]);
 
       if ($this->url) {
@@ -103,10 +103,52 @@ class Subjects extends Component
         $this->url->storeAs('public/', $this->new_url);
     }
 
+    if ($this->cover) {
+        $cover_name = '';
+    }else{
+        $cover_name = '';
+   
+    }
+    if ($this->cover) {
+        $url_name = '';
+   
+    }else{
+        $url_name = ''; 
+    }
+
+    if ($this->url) {
+        Storage::delete('public/', $this->new_url);
+        Storage::delete('public/', $this->cover);
+       
+        $url_extension = $this->url->getClientOriginalExtension();
+        $url_name = 'subjects'.'/'.Str::random(40).'.'.$url_extension;
+        $this->url->storeAs('public/', $url_name);
+        $url_name = 'storage/'.$url_name;
+
+        if ($this->cover) {
+            $cover_extension = $this->cover->getClientOriginalExtension();
+            $cover_name = 'subjects'.'/'.Str::random(40).'.'.$cover_extension;
+            $this->cover->storeAs('public/',  $cover_name);
+        }else{
+            //Path
+            $base_path = base_path();
+            $base_final_path = str_replace("\\", "/", $base_path);
+            $cover_name = 'storage/subjects'.'/'.Str::random(40).'.png';
+    
+            $Imagick = new \Imagick();
+            $Imagick->readImage($base_final_path.'/public'.'/'.$url_name.'[0]');  
+            $Imagick->setImageFormat('png');
+            $Imagick->writeImage($base_final_path.'/public'.'/'.$cover_name);
+
+        }
+        
+    }
+
         Subject::find($this->subject_id)->update([
             'title' => $this->title,
             'academic_year' => $this->academic_year,
-            'url' => $this->url,
+            'url' => $url_name,
+            'cover' => $cover_name,
             'level_id' => $this->level,
             'field_id' => $this->field,
             'period_id' => $this->period,
@@ -130,6 +172,7 @@ class Subjects extends Component
         $subject = Subject::findOrFail($this->subject_id);
         $this->title =  $subject->title;
         $this->author =  $subject->author->id;
+        $this->academic_year =  $subject->academic_year;
         $this->url = $subject->url;
         $this->field = $subject->field->id;;
         $this->period = $subject->period->id;;
