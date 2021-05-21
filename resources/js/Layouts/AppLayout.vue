@@ -178,15 +178,15 @@
               </div>
 
               <!-- Responsive Navigation Menu -->
-              <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="md:hidden">
+              <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                   <div class="pt-2 pb-3 space-y-1">
                       <jet-responsive-nav-link :href="route('home')" :active="route().current('home')">
                           Home
                       </jet-responsive-nav-link>
-                       <jet-responsive-nav-link :href="route('login')" :active="route().current('login')">
+                       <jet-responsive-nav-link :href="route('about')" :active="route().current('about')">
                           About
                       </jet-responsive-nav-link>
-                       <jet-responsive-nav-link :href="route('login')" :active="route().current('login')">
+                       <jet-responsive-nav-link :href="route('help')" :active="route().current('help')">
                           Help
                       </jet-responsive-nav-link>
                       
