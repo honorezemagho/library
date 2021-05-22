@@ -47,6 +47,8 @@ Route::get('/help', function () {
 })->name('help');
 
 //Work page 
+Route::get('/works/{type}/{search}', [WorkController::class, 'works'])->name('works_full');
+Route::get('/works/{type}/', [WorkController::class, 'works'])->name('works_type');
 Route::get('/works', [WorkController::class, 'works'])->name('works');
 
 //fetch work 

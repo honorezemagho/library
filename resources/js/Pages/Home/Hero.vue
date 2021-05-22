@@ -86,14 +86,14 @@ export default {
           return {
               form: {
                   search: null,
-                  work_type: null,
+                  work_type: 'all',
               },
           }
         },
    methods: {
         submit() {
-            this.$inertia.get('/works', { search: 'John' }, { preserveState: true })
-            this.$inertia.get('/works/', this.courseData);
+            //this.$inertia.get('/works/'+this.form.work_type+'/'+this.form.search)
+            this.$inertia.visit('/works/'+this.form.work_type+'/'+this.form.search)
         },
 
         add(){

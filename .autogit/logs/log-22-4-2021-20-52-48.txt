@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 22 2021 20:52:48 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Components/Work.vue
+* resources/js/Pages/Home/Hero.vue
+
+
+Created files:
+* .autogit/logs/log-22-4-2021-20-17-40.txt
+* public/dist/images/error-illustration.svg
+
+
+Deleted files:
+
+
+Renamed files:

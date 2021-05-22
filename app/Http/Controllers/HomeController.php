@@ -41,15 +41,12 @@ class HomeController extends Controller
    
        if ($type == "report") {
             $work = Report::where('id', $id)->with('authors')->with('field')->with('level')->first();
-            $work->type = 'Report';
      
         }elseif ($type == "book") {
             $work = Book::where('id', $id)->with('authors')->with('publisher')->first();
-            $work->type = 'Book';
      
         }elseif ($type == "subject") {
             $work = Subject::with('authors')->with('field')->with('level')->first();
-            $work->type = 'Subject';
         }
 
         return Inertia::render('WorkDetails/index', [

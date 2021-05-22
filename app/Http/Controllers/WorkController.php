@@ -33,8 +33,17 @@ class WorkController extends Controller
         $works = $reports->slice((($page - 1)*$per_page), $per_page);
         return json_encode($works);
     }
-    public function works(){
 
+    public function works($type="all", $search=""){
+        $search = '%'.$search.'%';
+        $books = Book::where('title','like',$search)->with('authors')->with('publisher')->with('format')->with('type')->orderBy('id', 'DESC')->get();
+        $reports = Report::where('title','like',$search)->with('authors')->with('field')->with('level')->orderBy('id', 'DESC')->get();
+        $subjects = Subject::where('title','like',$search)->with('author')->with('field')->with('period')->with('level')->orderBy('id', 'DESC')->get();
+        $works = new \Illuminate\Database\Eloquent\Collection; 
+        $works = $works->concat($books);
+        $works = $works->concat($reports);
+        $works = $works->concat($subjects);
+        $works = $works->shuffle();
         return Inertia::render('Works/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
