@@ -24,10 +24,6 @@ mix.js('resources/js/app.js', 'public/js').vue()
     .copyDirectory('resources/images', 'public/dist/images')
     .copyDirectory('node_modules/slick-carousel/slick/ajax-loader.gif', 'public/dist/css')
     .copyDirectory('node_modules/summernote/dist/font/summernote.woff', 'public/dist/fonts/summernote')
-    .browserSync({
-        proxy: 'mydigitallibrary.test',
-        files: ['resources/**/*.*']
-    })
     .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {

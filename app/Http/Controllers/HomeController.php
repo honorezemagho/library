@@ -16,6 +16,15 @@ use Mockery\Matcher\Subset;
 class HomeController extends Controller
 {
     public function home(){
+        $books = Book::with('authors')->with('publisher')->with('format')->with('type')->limit(10)->orderBy('id', 'DESC')->get();
+        $reports = Report::with('authors')->with('field')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
+        $subjects = Subject::with('author')->with('field')->with('period')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
+
+        $works = new \Illuminate\Database\Eloquent\Collection; 
+        $works = $works->concat($books);
+        $works = $works->concat($reports);
+        $works = $works->concat($subjects);
+        $works = $works->shuffle();
         $reports = Report::with('authors')->with('field')->with('level')->limit(4)->orderBy('id', 'DESC')->get();
         return Inertia::render('Home/index', [
             'auth' => Auth::check(),
