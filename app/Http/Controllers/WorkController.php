@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Report;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;

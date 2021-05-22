@@ -34,6 +34,7 @@
 
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
+import Work from "@/Components/Work";
 import SideMenu from "./SideMenu";
 import AppLayout from "@/Layouts/AppLayout";
 import ScrollLoader from "vue-scroll-loader"  
@@ -44,34 +45,33 @@ export default {
     InnerPageHero,
     AppLayout,
     SideMenu,
-    ScrollLoader
+    ScrollLoader,
+    Work
   },
    data() {
       return {
         loadMore: true,
-        page: 1,
+        page: 0,
         pageSize: 15,
         works: [],
       }
     },
     methods: {
       getWorksInfo() {
-
-         axios.get('https://mydigitallibrary.test/fetch_works/', {
-            params: {
-              page: this.page++,
-              per_page: this.pageSize,
-            }
-          })
+          console.log('https://mydigitallibrary.test/fetch_works/'+(this.page++)+'/'+this.pageSize);
+         axios.get('https://mydigitallibrary.test/fetch_works/'+(this.page++)+'/'+this.pageSize)
           .then(res => {
-            this.works.concat(res.data)       
+            this.works.push(res.data)       
             // Stop scroll-loader
-             console.log(res.data);
+            console.log("Result--------------------------------");
+            console.log(res.data);
+            console.log("Works---------------------------------");
+            console.log(this.works);
             res.data.length < this.pageSize && (this.loadMore = false)
           })
           .catch(error => {
             console.log(error);
-          })
+          });
       }
     },
     mounted() {

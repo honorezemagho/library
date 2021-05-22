@@ -50,7 +50,7 @@ Route::get('/help', function () {
 Route::get('/works', [WorkController::class, 'works'])->name('works');
 
 //fetch work 
-Route::get('/fetch_works/{page}/{per_page}', [WorkController::class, 'works'])->name('fetch_works');
+Route::get('/fetch_works/{page}/{per_page}', [WorkController::class, 'fetch_works'])->name('fetch_works');
 
 
 //Work page with books selected
