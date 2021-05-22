@@ -32,7 +32,7 @@ class WorkController extends Controller
     public function fetch_reports($page, $per_page){
         $reports = Report::with('authors')->with('field')->with('level')->orderBy('id', 'DESC')->get();
         $works = $reports->slice((($page - 1)*$per_page), $per_page);
-        return $works;
+        return json_encode($works);
     }
     public function works(){
 

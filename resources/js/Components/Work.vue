@@ -22,7 +22,7 @@
                   <a class="flex items-center no-underline hover:underline text-black" href="#">
                       <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="ml-2 sm:text-xs text-lg ">
-                          By {{ report.authors[0].name }}
+                          By
                       </p>
                   </a>
                   <a class="no-underline text-grey-darker hover:text-red-dark" href="#">

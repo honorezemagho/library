@@ -18,12 +18,13 @@
             </div>
              <div id="boxWork" class="col-span-1 rounded border-2 shadow-xm">
                 <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                  <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
-                      <work :report="work" />
-                    </div>
+                
                    <scroll-loader
                     :loader-method="getWorksInfo" :loader-enable="loadMore"
                     >
+                      <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+                        <work :report="work" />
+                      </div>
                     
                     <div>Loading...</div>
                   </scroll-loader>
@@ -57,16 +58,17 @@ export default {
       return {
         loadMore: true,
         page: 1,
-        pageSize: 4,
-        works: [],
+        pageSize: 24,
+        works: {},
       }
     },
     methods: {
       getWorksInfo() {
-          console.log('https://mydigitallibrary.test/fetch_reports/'+(this.page++)+'/'+this.pageSize);
-         axios.get('https://mydigitallibrary.test/fetch_reports/'+(this.page++)+'/'+this.pageSize)
+          console.log('https://mydigitallibrary.test/fetch_reports/'+(1)+'/'+this.pageSize);
+         axios.get('https://mydigitallibrary.test/fetch_reports/'+(this.page)+'/'+this.pageSize)
           .then(res => {
-            this.works = res.data      
+          this.works =  res.data
+          
             // Stop scroll-loader
             console.log("Result--------------------------------");
             console.log(res.data);
