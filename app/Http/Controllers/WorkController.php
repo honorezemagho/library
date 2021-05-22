@@ -25,8 +25,14 @@ class WorkController extends Controller
         $works = $works->concat($subjects);
         $works = $works->shuffle();
         $works = $works->slice((($page - 1)*$per_page), $per_page);
+        dd($works);
+        return $works;
+    }
 
-        return json_encode($works);
+    public function fetch_reports($page, $per_page){
+        $reports = Report::with('authors')->with('field')->with('level')->orderBy('id', 'DESC')->get();
+        $works = $reports->slice((($page - 1)*$per_page), $per_page);
+        return $works;
     }
     public function works(){
 
