@@ -6,7 +6,6 @@ require('alpinejs');
 import { createApp, h } from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-import ScrollLoader from 'vue-scroll-loader' 
 
 
 import highlight from './highlight'
@@ -47,7 +46,6 @@ createApp({
 })
     .mixin({ methods: { route } })
     .use(InertiaPlugin)
-    .use(ScrollLoader)
     .mount(el);
 
     InertiaProgress.init({ color: '#2563eb' });

@@ -18,13 +18,13 @@
             </div>
              <div id="boxWork" class="col-span-1 rounded border-2 shadow-xm">
                 <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                 
-                   <scroll-loader
-                    :loader-method="getWorksInfo" :loader-enable="loadMore" :loader-viewport="relative"
-                    >
-                     <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+                  <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
                       <work :report="work" />
                     </div>
+                   <scroll-loader
+                    :loader-method="getWorksInfo" :loader-enable="loadMore"
+                    >
+                    
                     <div>Loading...</div>
                   </scroll-loader>
                 </div>
@@ -41,6 +41,8 @@ import InnerPageHero from "@/Components/InnerPageHero";
 import Work from "@/Components/Work";
 import SideMenu from "./SideMenu";
 import AppLayout from "@/Layouts/AppLayout";
+import ScrollLoader from 'vue-scroll-loader' 
+
 
 
 export default {
@@ -54,7 +56,7 @@ export default {
    data() {
       return {
         loadMore: true,
-        page: 0,
+        page: 1,
         pageSize: 4,
         works: [],
       }
