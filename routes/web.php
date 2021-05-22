@@ -49,6 +49,10 @@ Route::get('/help', function () {
 //Work page 
 Route::get('/works', [WorkController::class, 'works'])->name('works');
 
+//fetch work 
+Route::get('/fetch_works/{page}/{per_page}', [WorkController::class, 'works'])->name('fetch_works');
+
+
 //Work page with books selected
 Route::get('/books', [WorkController::class, 'books'])->name('books');
 

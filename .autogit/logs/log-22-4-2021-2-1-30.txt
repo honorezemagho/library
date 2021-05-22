@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 22 2021 02:01:30 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* app/Models/Report.php
+* public/js/app.js
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-22-4-2021-1-27-8.txt
+
+
+Deleted files:
+
+
+Renamed files:
+* [object Object]
+* [object Object]

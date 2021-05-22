@@ -13,7 +13,7 @@ use Illuminate\Foundation\Application;
 
 class WorkController extends Controller
 {
-    public function works(){
+    public function fetch_works($page, $per_page){
         $books = Book::with('authors')->with('publisher')->with('format')->with('type')->orderBy('id', 'DESC')->get();
         $reports = Report::with('authors')->with('field')->with('level')->orderBy('id', 'DESC')->get();
         $subjects = Subject::with('author')->with('field')->with('period')->with('level')->orderBy('id', 'DESC')->get();
@@ -22,14 +22,19 @@ class WorkController extends Controller
         $works = $works->concat($books);
         $works = $works->concat($reports);
         $works = $works->concat($subjects);
-      
+        $works = $works->shuffle();
+        $works = $works->slice((($page - 1)*$per_page), $per_page);
+
+        return json_encode($works);
+    }
+    public function works(){
+
         return Inertia::render('Works/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'works' =>  $works
         ]);
     }
 }

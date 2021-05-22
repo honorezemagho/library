@@ -14,12 +14,17 @@
         
             </div>
              <div class="col-span-1 rounded border-2  shadow-xm">
-                <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
-                    <div>Loading...</div>
-                </scroll-loader>
+              
             </div>
              <div class="col-span-1 rounded border-2 h-24 shadow-xm">
-        
+                <div class="flex flex-wrap -mx-1 lg:-mx-4">
+                  <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+                      <work :report="work" />
+                  </div>
+                </div>
+                <scroll-loader :loader-method="getWorksInfo" :loader-enable="loadMore">
+                    <div>Loading...</div>
+                </scroll-loader>
             </div>
         </div>
      </div>
@@ -31,14 +36,15 @@
 import InnerPageHero from "@/Components/InnerPageHero";
 import SideMenu from "./SideMenu";
 import AppLayout from "@/Layouts/AppLayout";
-import ScrollLoader from 'vue-scroll-loader'  
+import ScrollLoader from "vue-scroll-loader"  
 
 
 export default {
   components: {
     InnerPageHero,
     AppLayout,
-    SideMenu
+    SideMenu,
+    ScrollLoader
   },
    data() {
       return {
@@ -49,17 +55,18 @@ export default {
       }
     },
     methods: {
-      getImagesInfo() {
-        axios.get('https://api.example.com/', {
+      getWorksInfo() {
+
+         axios.get('https://mydigitallibrary.test/fetch_works/', {
             params: {
               page: this.page++,
               per_page: this.pageSize,
             }
           })
           .then(res => {
-            this.images.concat(res.data)
-            
+            this.works.concat(res.data)       
             // Stop scroll-loader
+             console.log(res.data);
             res.data.length < this.pageSize && (this.loadMore = false)
           })
           .catch(error => {
@@ -68,7 +75,7 @@ export default {
       }
     },
     mounted() {
-      this.getImagesInfo()
+      this.getWorksInfo()
     },
   props: {},
 
