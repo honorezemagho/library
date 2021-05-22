@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\WorkController;
 use App\Http\Controllers\RolePermissionController;
 
 /*
@@ -46,50 +47,18 @@ Route::get('/help', function () {
 })->name('help');
 
 //Work page 
-Route::get('/works', function () {
-    return Inertia::render('Works/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('works');
+Route::get('/works', [WorkController::class, 'works'])->name('works');
 
 //Work page with books selected
-Route::get('/books', function () {
-    return Inertia::render('Works/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('books');
+Route::get('/books', [WorkController::class, 'books'])->name('books');
 
 //Work page with reports selected
-Route::get('/reports', function () {
-    return Inertia::render('Works/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('reports');
+Route::get('/reports',[WorkController::class, 'reports'])->name('reports');
 
 //Work page with subjects selected
-Route::get('/subjects', function () {
-    return Inertia::render('Works/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('subjects');
+Route::get('/subjects', [WorkController::class, 'subjects'])->name('subjects');
 
-//Work details page conserning the reports
+//Work details page conserning the work details
 Route::get('/work-details/{type}/{id}', [HomeController::class, 'work_details'])->name('work_details');
 
 

@@ -12,11 +12,17 @@ class Report extends Model
     protected $table = 'reports';
     protected $name = 'Report';
     protected $guarded = ['created_at'];
+    //Add extra attribute
+    protected $attributes = ['model_name'];
 
-    public function modelName(){
+    //Make it available in the json response
+    protected $appends = ['model_name'];
+
+    //implement the attribute
+    public function getModelNameAttribute()
+    {
         return 'Report';
     }
-
     public function authors(){
         return $this->morphToMany(Author::class,'author_work');
     }

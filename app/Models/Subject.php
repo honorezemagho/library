@@ -11,6 +11,17 @@ class Subject extends Model
 
     protected $table = 'subjects';
     protected $guarded = ['created_at'];
+    //Add extra attribute
+    protected $attributes = ['model_name'];
+
+    //Make it available in the json response
+    protected $appends = ['model_name'];
+
+    //implement the attribute
+    public function getModelNameAttribute()
+    {
+        return 'Subject';
+    }
 
     public function author(){
         return $this->belongsTo(Author::class);
