@@ -10,7 +10,6 @@ class Report extends Model
     use HasFactory;
 
     protected $table = 'reports';
-    protected $name = 'Report';
     protected $guarded = ['created_at'];
     //Add extra attribute
     protected $attributes = ['model_name'];

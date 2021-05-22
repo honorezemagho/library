@@ -14,7 +14,9 @@
         
             </div>
              <div class="col-span-1 rounded border-2  shadow-xm">
-        
+                <scroll-loader :loader-method="getImagesInfo" :loader-enable="loadMore">
+                    <div>Loading...</div>
+                </scroll-loader>
             </div>
              <div class="col-span-1 rounded border-2 h-24 shadow-xm">
         
@@ -27,8 +29,9 @@
 
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
-import SideMenu from "@/Components/SideMenu";
+import SideMenu from "./SideMenu";
 import AppLayout from "@/Layouts/AppLayout";
+import ScrollLoader from 'vue-scroll-loader'  
 
 
 export default {
@@ -37,7 +40,36 @@ export default {
     AppLayout,
     SideMenu
   },
-
+   data() {
+      return {
+        loadMore: true,
+        page: 1,
+        pageSize: 15,
+        works: [],
+      }
+    },
+    methods: {
+      getImagesInfo() {
+        axios.get('https://api.example.com/', {
+            params: {
+              page: this.page++,
+              per_page: this.pageSize,
+            }
+          })
+          .then(res => {
+            this.images.concat(res.data)
+            
+            // Stop scroll-loader
+            res.data.length < this.pageSize && (this.loadMore = false)
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      }
+    },
+    mounted() {
+      this.getImagesInfo()
+    },
   props: {},
 
   setup() {},

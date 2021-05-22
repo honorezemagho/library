@@ -22,15 +22,14 @@ class WorkController extends Controller
         $works = $works->concat($books);
         $works = $works->concat($reports);
         $works = $works->concat($subjects);
-        dd($works);
-
+      
         return Inertia::render('Works/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'reports' =>  $reports
+            'works' =>  $works
         ]);
     }
 }

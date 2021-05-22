@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 22 2021 01:27:08 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* app/Models/Book.php
+* app/Models/Report.php
+* app/Models/Subject.php
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-22-4-2021-0-52-9.txt
+
+
+Deleted files:
+
+
+Renamed files:
