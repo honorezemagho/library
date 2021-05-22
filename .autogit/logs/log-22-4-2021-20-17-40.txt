@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 22 2021 20:17:40 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/HomeController.php
+* app/Http/Controllers/WorkController.php
+* public/js/app.js
+* resources/js/Components/Work.vue
+* resources/js/Pages/Works/index.vue
+* webpack.mix.js
+
+
+Created files:
+* .autogit/logs/log-22-4-2021-6-8-59.txt
+
+
+Deleted files:
+* public/dist/images/error-illustration.svg
+
+
+Renamed files:

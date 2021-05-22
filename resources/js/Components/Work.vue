@@ -11,7 +11,8 @@
               <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                    <h1 class="text-md">
                       <inertia-link  class="no-underline hover:underline text-gray-900 tex-bold" 
-                      :href="route('work_details',['report',report.id])">{{ report.title }}</inertia-link>
+                      :href="route('work_details',['report',report.id])">{{ report.title }}
+                      </inertia-link>
                   </h1>
                   <p class="text-grey-darker text-sm">
                       <!--  {{ report.academic_year }} -->
@@ -23,10 +24,10 @@
                       <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="ml-2 sm:text-xs text-lg ">
                         <span v-if="report.model_name == 'Subject'">
-                             By {{ report.author ? report.author.name : ''  }}
+                             By {{ report.author ? report.author.name : 'Not Availlable'  }}
                         </span>
                         <span v-else>
-                             By {{ report.authors[0] ? report.authors[0].name : '' }}
+                             By {{ report.authors[0] ? report.authors[0].name : 'Not Availlable' }}
                         </span>
                       </p>
                   </a>
