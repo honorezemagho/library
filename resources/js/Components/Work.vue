@@ -1,11 +1,11 @@
 <template>
     <!--START Column -->
           <!-- Article -->
-          <article class="overflow-hidden rounded-lg shadow-lg">
+          <article class="border border-gray-300 overflow-hidden rounded-lg shadow-lg">
 
             <div class="shadow-xl">
                 <a @click="() => showSingle()" class="c-card pic">
-                  <img  alt="Placeholder" class="block h-56 w-full" :src="report.cover">
+                  <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+report.cover">
               </a>
 
               <header class="flex items-center justify-between leading-tight p-2 md:p-4">

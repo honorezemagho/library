@@ -9,16 +9,16 @@
       <div class="col-span-5 sm:col-span-1 rounded border-gray-300 dark:border-gray-700 border-2 h-24 shadow-lg">
         
         </div>
-        <div class="col-span-5 sm:col-span-4 container mx-auto grid  grid-cols-1 mb-4 gap-2 rounded">
+        <div class="col-span-5 sm:col-span-4 rounded border-2 shadow-xm container mx-auto grid  grid-cols-1 mb-4 gap-2 rounded">
             <div class="col-span-1 rounded border-2 shadow-xm">
         
             </div>
              <div class="col-span-1 rounded border-2  shadow-xm">
               
             </div>
-             <div id="boxWork" class="col-span-1 rounded border-2 shadow-xm">
-                <div class="flex flex-wrap -mx-1 lg:-mx-4">
-                  <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+             <div id="boxWork" class="col-span-1 mt-2">
+                <div class="flex flex-wrap">
+                  <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 lg:mb-4 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
                         <work :report="work" />
                       </div>
                   
@@ -48,12 +48,13 @@ export default {
     ScrollLoader,
     Work
   },
+  props: {works:Object},
    data() {
       return {
         loadMore: true,
         page: 1,
         pageSize: 30,
-        works: [],
+        works: this.works,
       }
     },
     methods: {
@@ -76,9 +77,8 @@ export default {
       }
     },
     mounted() {
-      this.getWorksInfo()
+      //this.getWorksInfo()
     },
-  props: {},
 
   setup() {},
 };

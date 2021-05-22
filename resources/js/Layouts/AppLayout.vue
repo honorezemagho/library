@@ -45,14 +45,14 @@
                                   </template>
 
                                   <template #content>
-                                     <jet-dropdown-link class="nav-link" :href="route('books')">
+                                     <jet-dropdown-link class="nav-link" :href="route('works_type',['books'])">
                                             <span :class="{'sm:text-gray-800': !showWhiteBackground}">Books</span>         
                                       </jet-dropdown-link>
-                                      <jet-dropdown-link :href="route('reports')">
+                                      <jet-dropdown-link :href="route('works_type',['reports'])">
                                             <span :class="{'sm:text-gray-800': !showWhiteBackground}">Reports</span>         
                                       </jet-dropdown-link>
 
-                                      <jet-dropdown-link :href="route('subjects')">
+                                      <jet-dropdown-link :href="route('works_type',['subjects'])">
                                             <span :class="{'sm:text-gray-800': !showWhiteBackground}">Subjects</span>         
                                       </jet-dropdown-link>
 

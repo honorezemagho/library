@@ -14,7 +14,7 @@
               </svg>
                 <form @submit.prevent="submit" class="w-full">
                   <input class="w-full p-2 border-2 border-gray-300 bg-white h-14  px-6 pr-16 rounded-lg text-sm focus:outline-none"
-                  type="search" name="search" v-model="form.search" placeholder="Title, Author">
+                  type="search" name="search" v-model="form.search" placeholder="Title of the book, report, subject">
                   <button type="submit" class="bg-blue-800 h-14 absolute right-0 top-0 mt-2 mr-4">
                   <svg class="mr-4  ml-2 mb-2 text-gray-100 h-5 w-5  fill-current" xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
@@ -92,19 +92,9 @@ export default {
         },
    methods: {
         submit() {
-            //this.$inertia.get('/works/'+this.form.work_type+'/'+this.form.search)
-            this.$inertia.visit('/works/'+this.form.work_type+'/'+this.form.search)
+          this.$inertia.get('/works/'+this.form.work_type+'/'+this.form.search)
         },
 
-        add(){
-          
-            this.courseData.episodes.push({ titre : null,  description : null, video_url : null });
-        },
-
-        remove(index){
-          
-            this.courseData.episodes.pop();
-        }
     },
   setup () {}
 }

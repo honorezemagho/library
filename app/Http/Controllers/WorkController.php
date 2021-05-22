@@ -50,6 +50,7 @@ class WorkController extends Controller
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
+            'works' => $works,
         ]);
     }
 }
