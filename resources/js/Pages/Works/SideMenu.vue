@@ -112,34 +112,12 @@ $white: #ffffff;
 </style>
 
 <script>
-
-export default {
-  components: {
-  },
-
-  props: ['results'],
-   mounted() {
-      console.log("Works Mounted !");
-    },
-  setup(props) {
-   
-    return {
-    
-    };
-  },
-};
-</script>
-
-<script>
-
-
-const exampleData1 = [
+const accordion_filter = [
   {
     id: 1,
     active: true,
-    title: 'Crushing Spirits',
+    title: 'Adanced search',
     details: `
-      <p>You can crush me but you can't crush my spirit! Are you crazy? I can't swallow that. Who's brave enough to fly into something we all keep calling a death sphere? It doesn't look so shiny to me.</p>
       <ul>
         <li>I just want to talk.</li>
         <li>It has nothing to do with mating.</li>
@@ -150,51 +128,21 @@ const exampleData1 = [
   {
     id: 2,
     active: false,
-    title: 'Soundtracks',
+    title: 'Filter Type',
     details: `
-      <p>Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel ways about stuff!</p>
-    `
+      <ul>
+        <li>I just want to talk.</li>
+        <li>It has nothing to do with mating.</li>
+        <li>Fry, that doesn't make sense.</li>
+      </ul>  `
   },
-  {
-    id: 3,
-    active: false,
-    title: `The Letter Shaped Like a Man Wearing a Hat`,
-    details: `
-      <p>And then the battle's not so bad? You'll have all the Slurm you can drink when you're partying with Slurms McKenzie! Say it in Russian!</p>
-      <p>Morbo can't understand his teleprompter because he forgot how you say that letter that's shaped like a man wearing a hat.</p>
-    `
-  }
-]
-const exampleData2 = [
-  {
-    id: 1,
-    active: false,
-    title: 'Celebration',
-    details: `
-      <p>Come on, this is a Bluth family celebration. It's no place for children.</p>
-    `
-  },
-  {
-    id: 2,
-    active: false,
-    title: 'Lighter Fluid and Wine',
-    details: `
-      <p>But where did the lighter fluid come from? Wine only turns to alcohol if you let it sit. But anyhoo, can you believe that the only reason the club is going under is because it's in a terrifying neighborhood?</p>
-    `
-  },
-  {
-    id: 3,
-    active: false,
-    title: `What's in Oscar's box?`,
-    details: `
-      <p>In fact, it was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed.</p>
-      <p>Great, now I'm gonna smell to high heaven like a tuna melt!</p>
-    `
-  }
-]
+];
 
-Vue.component('accordion', {
+export default {
+  components: {
+  },
   props: {
+    results : Object,
     content: {
       type: Array,
       required: true
@@ -209,6 +157,7 @@ Vue.component('accordion', {
       groupId: null
     }
   },
+  
   template: `
     <dl class="accordion box" role="presentation">
       <accordion-item
@@ -223,7 +172,7 @@ Vue.component('accordion', {
   mounted() {
     this.groupId = this.$el.id
   }
-})
+};
 
 Vue.component('accordion-item', {
   props: ['item', 'multiple', 'groupId'],
