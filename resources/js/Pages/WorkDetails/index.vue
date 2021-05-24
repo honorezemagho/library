@@ -9,14 +9,20 @@
           <h1 v-if="myWork.model_name == 'Report'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Student Report on Title "<span class="uppercase">{{ myWork.title }}</span>"</h1>   
           <h1 v-else-if="myWork.model_name == 'Book'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
           <h1 v-else-if="myWork.model_name == 'Subject'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
-          <h1 v-else class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Work Title</h1>   
-       
+          <h1 v-else class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Work Title</h1>     
       </div>
+      <works 
+      :works="Work"
+      :title="'Similars Works'"
+      :second_title="'Some work related to the current one.'"
+        />
+      
    </app-layout>
 </template>
 
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
+import Works from "@/Components/Works";
 import AppLayout from "@/Layouts/AppLayout";
 
 var viewerConfig = {
@@ -38,7 +44,8 @@ var viewerConfig = {
 export default {
   components: {
     InnerPageHero,
-    AppLayout
+    AppLayout,
+    Works,
   },
 
   props: {work : Object},

@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="text-center w-full">
-       <div class="text-center font-extrabold text-gray-800 text-3xl mb-4">Ours Latest Works</div>
-          <p class="text-xl text-gray-600 mx-auto text-center">Some recent book report and subject added in our library</p>
+       <div class="text-center font-extrabold text-gray-800 text-3xl mb-4">{{ title }}</div>
+          <p class="text-xl text-gray-600 mx-auto text-center">{{ second_title }}</p>
      </div>
 
     <div class="container my-12 mx-auto px-4 md:px-12">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
-          <div v-for="report in reports"  v-bind:key="report.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
-               <work :report="report" />
+          <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+               <work :work="work" />
           </div>
         </div>
       </div>
@@ -35,7 +35,9 @@ export default {
   },
 
   props: {
-    reports: Object,
+    works: Object,
+    title : String,
+    second_title : String,
     showViewAll: {
       type: Boolean,
       default: true,

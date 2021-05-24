@@ -25,14 +25,14 @@ class HomeController extends Controller
         $works = $works->concat($reports);
         $works = $works->concat($subjects);
         $works = $works->shuffle();
-        $reports = Report::with('authors')->with('field')->with('level')->limit(4)->orderBy('id', 'DESC')->get();
+        $works = $works->slice(0,4);
         return Inertia::render('Home/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'reports' =>  $reports
+            'works' =>  $works
         ]);
     }
 

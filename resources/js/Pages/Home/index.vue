@@ -2,7 +2,11 @@
     <app-layout>
         <Hero />  
         <div class="py-8 sm:py-8 px-4 sm:px-0 container mx-auto">
-            <works :reports="worksList" />
+            <works 
+            :works="worksList"
+            :title="'Ours Latest Works'"
+            :second_title="'Some recent book work and subject added in our library'"
+             />
              <testimonials />        
         </div>
     </app-layout>
@@ -22,18 +26,17 @@
         },
         mounted() {
         console.log("Index Mounted !");
-        console.log(this.reports);
         },
         props: {
             canLogin: Boolean,
             canRegister: Boolean,
             laravelVersion: String,
             phpVersion: String,
-            reports :Object,
+            works :Object,
         },
         data() {
             return {
-                worksList : this.reports
+                worksList : this.works
             }
         },
     }

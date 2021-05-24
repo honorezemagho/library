@@ -55,7 +55,7 @@
              <div id="boxWork" class="col-span-1 mt-2">
                 <div class="flex flex-wrap">
                   <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 lg:mb-4 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
-                        <work :report="work" />
+                        <work :work="work" />
                       </div>
                   
                 </div>
