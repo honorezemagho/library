@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+  <div class="">
     <!--First section show the number of the result -->
     <div class="content-center ml-4 mt-2">
         <span class="text-center xs:text-sm text-2xl">{{ results }}</span>
@@ -8,212 +8,87 @@
      <!--First section show the number of the result -->
 
     <!--Advance search section -->
-    <div class="content-center ml-4 mt-2">
-        <span class="text-center xs:text-xl text-base mt-2 ml-2"> Advanced Search</span>     
+    <div class="content-center mt-4 mr-2 w-full">
+      <vue-collapsible-panel-group >
+        <vue-collapsible-panel  class="mb-2" :expanded="true">
+            <template #title>
+              Advanced Search
+            </template>
+            <template #content>
+              <form @submit.prevent="submit" class="flex flex-col">
+                <input class="w-full p-2 border-2 border-gray-300 bg-white h-10  rounded-lg text-sm focus:outline-none"
+                type="search" name="search" v-model="form.search" placeholder="Work title" autocomplete="search">
+                <button type="submit" class="content-center text-center w-auto ml-4 mr-4 mt-3 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Search</span>
+                 </button>
+            </form>
+            </template>
+        </vue-collapsible-panel >
+        <vue-collapsible-panel class="mb-2" :expanded="true">
+            <template #title>
+                Filter Work
+            </template>
+            <template #content>
+               <div class="flex flex-col">
+                  <label for="radio-a" class="flex items-center">
+                    <span class="">
+                      <input id="radio-a" value="A" type="radio" name="radio" class="">
+                    </span>
+                    <span class="ml-4">All</span>
+                  </label>
+                  <label for="radio-b" class="flex items-center">
+                    <span class="">
+                      <input id="radio-b" value="B" type="radio" name="radio" class="">
+                    </span>
+                    <span class="ml-4">Books</span>
+                  </label>
+                  <label for="radio-c" class="flex items-center">
+                    <span class="">
+                      <input id="radio-c" value="C" type="radio" name="radio" class="">
+                    </span>
+                    <span class="ml-4">Reports</span>
+                  </label>
+                  <label for="radio-d" class="flex items-center">
+                    <span class="">
+                      <input id="radio-d" value="D" type="radio" name="radio" class="">
+                    </span>
+                    <span class="ml-4">Subjects</span>
+                  </label>
+                </div>
+            </template>
+        </vue-collapsible-panel>
+      </vue-collapsible-panel-group>   
     </div>
      <!--Advance search section -->
   </div>
 </template>
-<style lang="sass" scoped>
-  
-$browser-context: 16;
-$blue: #1779ba;
-$gray: #cacaca;
-$red: #cc4b37;
-$white: #ffffff;
-
-@function em($pixels, $context: $browser-context) {
-  @return #{$pixels/$context}em;
-}
-
-#app {
-  margin: em(60) auto;
-  padding: em(12);
-  max-width: em(800);
-}
-
-.container {
-  margin-bottom: em(24);
-}
-
-.btn-action-delete {
-  color: $red;
-  cursor: pointer;
-}
-
-.accordion {
-  padding: 0;
-  
-  div:not(:last-child) {
-    border-bottom: 1px solid rgba(10, 10, 10, 0.1);
-  }
-  
-  div:last-child .accordion-item-details {
-    border-radius: 5px;
-  }
-  
-  dd {
-    margin-left: 0;
-  }
-}
-
-.accordion-item-trigger,
-.accordion-item-details-inner {
-  padding: 0.75rem 1.25rem;
-}
-
-.accordion-item-title {
-  position: relative;
-  
-  h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0;
-    padding-right: 1.25rem;
-  }
-}
-
-.accordion-item-trigger {
-  width: 100%;
-  text-align: left;
-  background-color: transparent;
-  border: none;
-}
-
-.accordion-item-trigger-icon {
-  $size: 8px;
-  display: block;
-  position: absolute;
-  top: 0; right: 1.25rem; bottom: 0;
-  margin: auto;
-  width: $size;
-  height: $size;
-  border-right: 2px solid #363636;
-  border-bottom: 2px solid #363636;
-  transform: translateY(-$size / 4) rotate(45deg);
-  transition: transform 0.2s ease;
-  
-  .is-active & {
-    transform: translateY($size / 4) rotate(225deg);
-  }
-}
-
-.accordion-item-details {
-  overflow: hidden;
-  background-color: whitesmoke;
-}
-
-.accordion-item-enter-active, .accordion-item-leave-active {
-  will-change: height;
-  transition: height 0.2s ease;
-}
-.accordion-item-enter, .accordion-item-leave-to {
-  height: 0 !important;
-}
-</style>
 
 <script>
-const accordion_filter = [
-  {
-    id: 1,
-    active: true,
-    title: 'Adanced search',
-    details: `
-      <ul>
-        <li>I just want to talk.</li>
-        <li>It has nothing to do with mating.</li>
-        <li>Fry, that doesn't make sense.</li>
-      </ul>
-    `
-  },
-  {
-    id: 2,
-    active: false,
-    title: 'Filter Type',
-    details: `
-      <ul>
-        <li>I just want to talk.</li>
-        <li>It has nothing to do with mating.</li>
-        <li>Fry, that doesn't make sense.</li>
-      </ul>  `
-  },
-];
+
+import {VueCollapsiblePanelGroup,  VueCollapsiblePanel,} from '@dafcoe/vue-collapsible-panel'
+import '@dafcoe/vue-collapsible-panel/dist/vue-collapsible-panel.css'
 
 export default {
   components: {
+    VueCollapsiblePanelGroup,
+    VueCollapsiblePanel
   },
   props: {
     results : Object,
-    content: {
-      type: Array,
-      required: true
-    },
-    multiple: {
-      type: Boolean,
-      default: false
-    }
   },
   data() {
     return {
-      groupId: null
+      form: this.$inertia.form({
+          search: null,
+          work_type: 'all',
+        })
     }
   },
-  
-  template: `
-    <dl class="accordion box" role="presentation">
-      <accordion-item
-        v-for="item in content"
-        :multiple="multiple"
-        :item="item"
-        :groupId="groupId"
-        :key="item.id">
-      </accordion-item>
-    </dl>
-  `,
-  mounted() {
-    this.groupId = this.$el.id
+  methods: {
+    submit() {
+      this.$inertia.get('/works/'+this.form.work_type+'/'+this.form.search)
+    }
   }
 };
 
-Vue.component('accordion-item', {
-  props: ['item', 'multiple', 'groupId'],
-  template: `
-    <div :id="groupId + '-' + item.id" class="accordion-item" :class="{'is-active': item.active}">
-      <dt class="accordion-item-title">
-        <button @click="toggle" class="accordion-item-trigger">
-          <h4 class="accordion-item-title-text">{{item.title}}</h4>
-          <span class="accordion-item-trigger-icon"></span>
-        </button>
-      </dt>
-      <transition
-        name="accordion-item"
-        @enter="startTransition"
-        @after-enter="endTransition"
-        @before-leave="startTransition"
-        @after-leave="endTransition">
-        <dd v-if="item.active" class="accordion-item-details">
-          <div v-html="item.details" class="accordion-item-details-inner"></div>
-        </dd>
-      </transition>
-    </div>
-  `,
-  methods: {
-    toggle(event) {
-      if (this.multiple) this.item.active = !this.item.active
-      else {
-        this.$parent.$children.forEach((item, index) => {
-          if (item.$el.id === event.currentTarget.parentElement.parentElement.id) item.item.active = !item.item.active
-          else item.item.active = false
-        }) 
-      }
-    },
-    
-    startTransition(el) {
-      el.style.height = el.scrollHeight + 'px'
-    },
-    
-    endTransition(el) {
-      el.style.height = ''
-    }
-  }
-})
 </script>

@@ -6,7 +6,7 @@
      </div>
      <div>
       <div class="container mx-auto grid  grid-cols-1 sm:grid-cols-5 pt-2 mb-6 gap-2">
-        <div class="col-span-5 sm:col-span-1 rounded border-gray-300 dark:border-gray-700 border-2 h-24 shadow-lg">
+        <div class="col-span-5 sm:col-span-1 rounded border-gray-300 dark:border-gray-700 border-2 shadow-lg">
             <side-menu
               :results="works.length"
              >
@@ -62,8 +62,8 @@ export default {
     },
     methods: {
       getWorksInfo() {
-          console.log('https://mydigitallibrary.test/fetch_reports/'+(1)+'/'+this.pageSize);
-         axios.get('https://mydigitallibrary.test/fetch_works/'+(this.page)+'/'+this.pageSize)
+        console.log('https://mydigitallibrary.test/fetch_reports/'+(1)+'/'+this.pageSize);
+        axios.get('https://mydigitallibrary.test/fetch_works/'+(this.page)+'/'+this.pageSize)
           .then(res => {
           this.works =  res.data
           

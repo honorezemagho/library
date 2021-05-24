@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 23 2021 15:55:36 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/Works/SideMenu.vue
+
+
+Created files:
+* .autogit/logs/log-23-4-2021-15-23-50.txt
+* resources/js/Components/AccordionItem.vue
+
+
+Deleted files:
+
+
+Renamed files:
