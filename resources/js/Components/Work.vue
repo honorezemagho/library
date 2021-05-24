@@ -24,10 +24,10 @@
                       <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="ml-2 sm:text-xs text-lg ">
                         <span v-if="report.model_name == 'Subject'">
-                             By {{ report.author ? report.author.name : 'Not Availlable'  }}
+                            {{ report.author ? 'By '+report.author.name : 'Not Availlable'  }}
                         </span>
                         <span v-else>
-                             By {{ report.authors[0] ? report.authors[0].name : 'Not Availlable' }}
+                            {{ report.authors[0] ? 'By '+report.authors[0].name : 'Not Availlable' }}
                         </span>
                       </p>
                   </a>

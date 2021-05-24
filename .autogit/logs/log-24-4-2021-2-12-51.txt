@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 24 2021 02:12:51 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* package.json
+* public/js/app.js
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-24-4-2021-1-37-51.txt
+
+
+Deleted files:
+
+
+Renamed files:
