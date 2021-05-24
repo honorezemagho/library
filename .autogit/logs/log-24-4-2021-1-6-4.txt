@@ -1,0 +1,23 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 24 2021 01:06:04 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* public/js/app.js
+* resources/js/Components/AccordionItem.vue
+* resources/js/Components/Testimonial.vue
+* resources/js/Pages/Home/Hero.vue
+* resources/js/Pages/Works/SideMenu.vue
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-23-4-2021-15-55-36.txt
+
+
+Deleted files:
+
+
+Renamed files:

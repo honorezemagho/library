@@ -6,9 +6,9 @@
       <div id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
       <!--Documents Viewer -->
       <div class="container mx-auto px-4 sm:px-0 py-8 sm:py-20">
-          <h1 v-if="myWork.type == 'Report'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Student Report on Title <span class="uppercase">{{ myWork.title }}</span></h1>   
-          <h1 v-else-if="myWork.type == 'Book'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
-          <h1 v-else-if="myWork.type == 'Subject'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
+          <h1 v-if="myWork.model_name == 'Report'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Student Report on Title "<span class="uppercase">{{ myWork.title }}</span>"</h1>   
+          <h1 v-else-if="myWork.model_name == 'Book'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
+          <h1 v-else-if="myWork.model_name == 'Subject'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
           <h1 v-else class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Work Title</h1>   
        
       </div>

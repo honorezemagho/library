@@ -1,5 +1,5 @@
 <template>
-    <div class="z-0 hero-height relative pt-20 pb-32 sm:pb-40 sm:pt-24 lg:pt-32 lg:pb-56">
+    <div class="z-0 hero-height relative pt-20 pb-32 sm:pb-40 xs:pt-10 sm:pt-24 lg:pt-32 lg:pb-56">
         <img class="block absolute inset-0 object-cover h-full w-full" src="/dist/images/hero.jpg" alt=""/>
         <div class="absolute inset-0 bg-gray-800 bg-opacity-75"/>
         <div class="relative max-w-screen-xl  mt-12  margin-top-15-percent mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
