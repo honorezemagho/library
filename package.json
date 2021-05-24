@@ -51,7 +51,6 @@
         "summernote": "^0.8.18",
         "tailwindcss-shadow-outline-colors": "0.0.8",
         "tooltipster": "^4.2.8",
-        "vue-easy-lightbox": "^1.2.0",
-        "vue-scroll-loader": "^2.2.0"
+        "vue-easy-lightbox": "^1.2.0"
     }
 }
