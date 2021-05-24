@@ -109,7 +109,7 @@ export default {
     },
     methods: {
       showSingle() {
-        this.imgs = this.report.cover,
+        this.imgs = '/'+this.report.cover,
 
         this.show()
      },
