@@ -65,6 +65,7 @@
                                     <i data-feather="users" class="report-box__icon text-theme-9"></i>
                                     <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="22% Higher than last month">
+                                            5%
                                         </div>
                                     </div>
                                 </div>
