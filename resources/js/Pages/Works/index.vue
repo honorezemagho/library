@@ -71,8 +71,6 @@ import InnerPageHero from "@/Components/InnerPageHero";
 import Work from "@/Components/Work";
 import SideMenu from "./SideMenu";
 import AppLayout from "@/Layouts/AppLayout";
-import ScrollLoader from 'vue-scroll-loader' 
-
 
 
 export default {
@@ -80,7 +78,6 @@ export default {
     InnerPageHero,
     AppLayout,
     SideMenu,
-    ScrollLoader,
     Work
   },
   props: {works:Object},
