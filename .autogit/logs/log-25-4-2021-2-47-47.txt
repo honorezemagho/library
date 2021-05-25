@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 25 2021 02:47:47 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+
+
+Deleted files:
+* resources/js/Pages/WorkDetails/WorkDetail.vue
+
+
+Renamed files:
