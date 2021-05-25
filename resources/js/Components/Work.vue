@@ -1,50 +1,17 @@
 <template>
     <!--START Column -->
           <!-- Article -->
-        <div class="">
-          <div class="">
-            <Skeletor height="200" />
-          </div>
-
-          <div class="">
-            <div class="card__avatar">
-              <Skeletor circle size="48" class="post__avatar" />
-            </div>
-
-            <div class="card__meta">
-              <h2>
-                <Skeletor width="50%" />
-              </h2>
-
-              <p>
-                <Skeletor width="75%" />
-              </p>
-            </div>
-          </div>
-
-        
-
-          <div class="card__actions">
-
-            <Skeletor width="96" height="36" pill />
-          </div>
-        </div>
-           
-          <article class="border border-gray-300 overflow-hidden rounded-lg shadow-lg">
-            
+       <article class="border border-gray-300 overflow-hidden rounded-lg shadow-lg">
             <div class="shadow-xl">
-             
                 <a @click="() => showSingle()" class="c-card pic">
                   <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+work.cover">
                 </a>
                <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-4">
                    <h1 class="item__title text-md">
-                      <PuSkeleton>
                           <inertia-link  class="no-underline hover:underline text-gray-900 tex-bold" 
                           :href="route('work_details',[work.model_name.toLowerCase() ,work.id])">{{ work.title }}
                           </inertia-link>
-                      </PuSkeleton>
-                    
+ 
                   </h1>
                   <p class="text-grey-darker text-sm">
                       <!--  {{ work.academic_year }} -->
@@ -53,19 +20,14 @@
 
               <footer class="flex items-center justify-between leading-none p-2 md:p-4">
                   <a class="flex items-center no-underline hover:underline text-black" href="#">
-                        <PuSkeleton circle height="32px">
-                          <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
-                        </PuSkeleton>
+                         <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="item__title ml-2 sm:text-xs text-lg ">
-                        <PuSkeleton>
                           <span v-if="work.model_name == 'Subject'">
                             {{ work.author ? 'By '+work.author.name : 'Not Availlable'  }}
                           </span>
                           <span v-else>
                               {{ work.authors[0] ? 'By '+work.authors[0].name : 'Not Availlable' }}
                           </span>
-                        </PuSkeleton>
-    
                       
                       </p>
                   </a>
@@ -168,17 +130,14 @@
 <script>
 import VueEasyLightbox from 'vue-easy-lightbox';
 import 'vue-skeletor/dist/vue-skeletor.css';
-import Skeletor from 'vue-skeletor';
-// Import the composable
-import useSkeletor from 'vue-skeletor'
- 
+
 export default {
   props: {
     work : Object,
   },
   components: {
       VueEasyLightbox,
-      Skeletor,
+
     },
     data() {
       return {
@@ -202,11 +161,10 @@ export default {
  
     },
     
-  setup() { 
-     // In your setup function use the composable
-      const skeletor = useSkeletor()
-      // Set the shimmer config
-      skeletor.shimmer = false
+  setup(props) { 
+    return{
+      
+    }
   },
 };
 </script>

@@ -17,7 +17,8 @@
                                     <i data-feather="book" class="report-box__icon text-theme-10"></i>
                                     <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month">
-                                         </div>
+                                            15%
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{ $books }}</div>
@@ -32,7 +33,8 @@
                                     <i data-feather="book-open" class="report-box__icon text-theme-11"></i>
                                     <div class="ml-auto">
                                         <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="2% Lower than last month">
-                                         </div>
+                                            18%
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{ $reports }}</div>
@@ -46,7 +48,8 @@
                                 <div class="flex">
                                     <i data-feather="book-open" class="report-box__icon text-theme-12"></i>
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator  bg-theme-6 tooltip cursor-pointer" title="12% Higher than last month">
+                                        <div class="report-box__indicator  bg-theme-9 tooltip cursor-pointer" title="12% Higher than last month">
+                                            5%
                                         </div>
                                     </div>
                                 </div>

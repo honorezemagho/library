@@ -2,7 +2,7 @@
   <app-layout>
     <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Research" />
     <div class="text-xl container text-center mx-auto px-4 sm:px-0 py-8 sm:py-10">
-          Welcome to <span class="text-gray-900">My Digital <span class="text-gray-800">Library</span></span> Works collection ! Some Works can be freely read or downloaded, physicals items can be borrowed through this platform.
+          Welcome to <span class="text-gray-900">My Digital <span class="text-gray-800">Library</span></span> Works collection ! Some Works can be freely read or downloaded.
     </div>
     <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-4 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-1 rounded border-gray-300 dark:border-gray-700 border-2 shadow-lg">
