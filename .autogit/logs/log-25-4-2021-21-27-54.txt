@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 25 2021 21:27:54 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* package-lock.json
+* package.json
+* public/js/app.js
+* resources/js/Components/Work.vue
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-25-4-2021-20-56-47.txt
+
+
+Deleted files:
+
+
+Renamed files:

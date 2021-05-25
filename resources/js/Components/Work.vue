@@ -9,7 +9,8 @@
                   <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+work.cover">
                 </a>
               </PuSkeleton>
-
+              <Skeletor width="100"/>
+              <Skeletor :width="100"/>
               <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-4">
                    <h1 class="item__title text-md">
                       <PuSkeleton>
@@ -105,7 +106,8 @@
 
 <script>
 import VueEasyLightbox from 'vue-easy-lightbox';
-import { Skeleton } from 'vue-loading-skeleton';
+import { Skeletor } from 'vue-skeletor';
+import 'vue-skeletor/dist/vue-skeletor.css';
 
 export default {
   props: {
@@ -113,7 +115,7 @@ export default {
   },
   components: {
       VueEasyLightbox,
-      Skeleton,
+      Skeletor,
     },
     data() {
       return {
