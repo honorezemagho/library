@@ -1,17 +1,43 @@
 <template>
     <!--START Column -->
           <!-- Article -->
-          <article class="item border border-gray-300 overflow-hidden rounded-lg shadow-lg">
+        <div class="">
+          <div class="">
+            <Skeletor height="200" />
+          </div>
 
-            <div class="item__photo shadow-xl">
-              <PuSkeleton>
+          <div class="">
+            <div class="card__avatar">
+              <Skeletor circle size="48" class="post__avatar" />
+            </div>
+
+            <div class="card__meta">
+              <h2>
+                <Skeletor width="50%" />
+              </h2>
+
+              <p>
+                <Skeletor width="75%" />
+              </p>
+            </div>
+          </div>
+
+        
+
+          <div class="card__actions">
+
+            <Skeletor width="96" height="36" pill />
+          </div>
+        </div>
+           
+          <article class="border border-gray-300 overflow-hidden rounded-lg shadow-lg">
+            
+            <div class="shadow-xl">
+             
                 <a @click="() => showSingle()" class="c-card pic">
                   <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+work.cover">
                 </a>
-              </PuSkeleton>
-              <Skeletor width="100"/>
-              <Skeletor :width="100"/>
-              <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-4">
+               <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-4">
                    <h1 class="item__title text-md">
                       <PuSkeleton>
                           <inertia-link  class="no-underline hover:underline text-gray-900 tex-bold" 
@@ -102,13 +128,50 @@
     transform: scale(1.05);
   }
 
+  .card {
+  width: 360px;
+  margin: 0 auto;
+}
+
+.card__image {
+  margin-bottom: 12px;
+}
+
+.card__slim {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.card__avatar {
+  margin-right: 12px;
+}
+
+.card__meta {
+  flex-grow: 1;
+}
+
+.card__meta p,
+.card__meta h2 {
+  margin: 0;
+}
+
+.card__text {
+  margin-bottom: 12px;
+}
+
+.card__actions {
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
 
 <script>
 import VueEasyLightbox from 'vue-easy-lightbox';
-import { Skeletor } from 'vue-skeletor';
 import 'vue-skeletor/dist/vue-skeletor.css';
-
+import Skeletor from 'vue-skeletor';
+// Import the composable
+import useSkeletor from 'vue-skeletor'
+ 
 export default {
   props: {
     work : Object,
@@ -139,11 +202,11 @@ export default {
  
     },
     
-  setup(props) {
-   
-    return {
-     
-    }
+  setup() { 
+     // In your setup function use the composable
+      const skeletor = useSkeletor()
+      // Set the shimmer config
+      skeletor.shimmer = false
   },
 };
 </script>
