@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 26 2021 20:31:20 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/StudentReports.php
+* resources/views/livewire/books.blade.php
+* resources/views/livewire/student-reports.blade.php
+
+
+Created files:
+* .autogit/logs/log-26-4-2021-19-56-45.txt
+
+
+Deleted files:
+
+
+Renamed files:

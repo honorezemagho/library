@@ -80,7 +80,7 @@
     </div>
     <!-- END: Datatable -->
         <!-- Modal create Subject-->
-<x-jet-dialog-modal :maxWidth="'5xl'" class="z-40" wire:model="showModalForm">
+<x-jet-dialog-modal :maxWidth="'6xl'" class="z-40" wire:model="showModalForm">
     @if($subject_id)
         <x-slot name="ico">
             <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,7 +110,9 @@
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text sm:pb-4"> 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-4">
-                        <div class="col-span-2 text-lg text-gray-900">Subject Details</div>
+                        <div class="col-span-2 text-xl text-center text-gray-900 font-bold">
+                            Subject Details <hr>
+                        </div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="title" value="{{ __('Title') }}" />
                             <input id="title" name="title" wire:model.lazy="title" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" placeholder="title" required autofocus autocomplete="title">
@@ -118,8 +120,8 @@
                         </div> 
             
                         <div class="col-span-2 sm:col-span-1"> 
-                            <x-jet-label for="academic_year" value="{{ __('Year') }}" />
-                            <input id="academic_year" name="academic_year" wire:model.lazy="academic_year" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" placeholder="Academic Year" required autofocus autocomplete="academic_year">
+                            <x-jet-label for="academic_year" value="{{ __('Academic Yeay') }}" />
+                            <input id="academic_year" name="academic_year" wire:model.lazy="academic_year" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" placeholder="Ex : 2021" required autofocus autocomplete="academic_year">
                       @error('academic_year') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
                         
@@ -201,18 +203,18 @@
                     </div> 
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="col-span-2 text-lg text-gray-900">Cover Photo</div>
+                        <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Cover Photo <hr></div>
                         <div class="col-span-2 border border-gray-200 rounded-md p-5">
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 @if ($cover && !is_string($cover))
-                                <img class="rounded-md" alt="Profile" src="{{ $cover->temporaryUrl() }}">
+                                <img class="rounded-md" alt="subject cover" src="{{ $cover->temporaryUrl() }}">
                                 @else
-                                <img class="rounded-md" alt="Profile" src="/{{ $cover }}">
+                                <img class="rounded-md" alt="subject cover" src="/{{ $cover }}">
                                 @endif
                                 <div class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2 tooltipstered"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> </div>
                             </div>
                             <div class="w-40 mx-auto cursor-pointer relative mt-5">
-                                <button type="button" class="button w-full bg-theme-1 text-white">Change Photo</button>
+                                <button type="button" class="button w-full bg-theme-1 text-white">Change cover</button>
                                 <input type="file" id="cover" wire:model="cover" name="cover" class="w-full h-full top-0 left-0 absolute opacity-0">
                                 @error('cover') <span class="error text-red-600">{{ $message }}</span> @enderror
     
