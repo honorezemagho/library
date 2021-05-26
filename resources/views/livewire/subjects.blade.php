@@ -82,10 +82,27 @@
         <!-- Modal create Subject-->
 <x-jet-dialog-modal :maxWidth="'5xl'" class="z-40" wire:model="showModalForm">
     @if($subject_id)
-        <x-slot name="title">Update Subject</x-slot>
+        <x-slot name="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        </x-slot>
+        <x-slot name="title">Updating a Subject</x-slot>   
     @else
-        <x-slot name="title">Create Subject</x-slot>
+        <x-slot name="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </x-slot>
+        <x-slot name="title">Creation of a Subject</x-slot>  
     @endif
+    <x-slot name="close">
+        <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a> 
+    </x-slot>
  <x-slot name="content">
    <div class="space-y-4 divide-y divide-gray-200">
             <form enctype="multipart/form-data"> 
@@ -217,10 +234,17 @@
  </x-slot>
 </x-jet-dialog-modal>
 
-<x-jet-dialog-modal wire:model="showDeleteModalForm">
-    <x-slot name="title">Delete Subject</x-slot>
+<x-jet-confirmation-modal wire:model="showDeleteModalForm">
+    <x-slot name="title">Deletion of a Subjet</x-slot>
+    <x-slot name="close">
+        <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a> 
+    </x-slot>
     <x-slot name="content">
-        <div class="space-y-8 text-2xl divide-y divide-gray-200 w-1/2 mt-10">
+        <div class="space-y-8 text-2xl divide-y divide-gray-200">
             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                 @if($this->subject_id)
                 <p>Do you really want to delete this <span class="text-gray-900 text-bold">Subject ?</span> This process cannot be undone.</p>
@@ -236,5 +260,5 @@
             Delete
         </x-jet-button>
     </x-slot>
-</x-jet-dialog-modal>
+</x-jet-confirmation-modal>
 </div>

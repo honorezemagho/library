@@ -128,6 +128,13 @@ class Books extends Component
     {
         $this->showModalForm = true;
     }
+
+    public function closeModal()
+    {
+        $this->reset();
+        $this->showDeleteModalForm = false;
+    }
+
     public function updatedShowModalForm()
     {
         $this->reset();

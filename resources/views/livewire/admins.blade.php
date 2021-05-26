@@ -188,19 +188,31 @@
 
 
 <x-jet-dialog-modal wire:model="showDeleteModalForm">
-<x-slot name="title">Delete Admin</x-slot>
+<x-slot name="title">Deletion of an Admin</x-slot>
+<x-slot name="close">
+    <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+        <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </a> 
+</x-slot>
 <x-slot name="content">
-    <div class="space-y-8 text-2xl divide-y divide-gray-200 w-1/2 mt-10">
+    <div class="space-y-8 text-2xl divide-y divide-gray-200 ">
         <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
             @if($this->admin_id)
-            <p>Delete this Admin ? </p>
-        @endif
+            <p>Do you really want to delete this <span class="text-gray-900 text-bold">Admin ?</span> This process cannot be undone.</p>
+            @endif
         </div>      
     </div>
 </x-slot>
 
    <x-slot name="footer">
-       <x-jet-button wire:click="deleteAdmin({{ $this->admin_id }})" class="bg-red-700"> Delete</x-jet-button>
+       <x-jet-button wire:click="deleteAdmin({{ $this->admin_id }})" class="bg-red-700"> 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+         Delete
+        </x-jet-button>
    </x-slot>
 </x-jet-dialog-modal>
 </div>

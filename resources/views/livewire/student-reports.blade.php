@@ -52,8 +52,8 @@
 
                         </td>
                          <td class="border-b">
-                            <div class="font-medium whitespace-no-wrap">{{ $report->authors[0]->name }}</div>
-                            
+                            <div class="font-medium whitespace-no-wrap">{{ $report->authors[0] ? $report->authors[0]->name }}</div>
+                           
                         </td>
                         <td class="text-center border-b">{{ $report->field->abbr }}</td>
                         <td class="text-center border-b">{{ $report->level->abbr }}</td>
@@ -81,10 +81,27 @@
     <!-- Modal create Report-->
 <x-jet-dialog-modal :maxWidth="'5xl'" class="z-40" wire:model="showModalForm">
     @if($report_id)
-        <x-slot name="title">Update Student Report</x-slot>
+        <x-slot name="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        </x-slot>
+        <x-slot name="title">Updating a Student Report</x-slot>   
     @else
-        <x-slot name="title">Create Student Report</x-slot>
+        <x-slot name="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </x-slot>
+        <x-slot name="title">Creation of a Student Report</x-slot>  
     @endif
+    <x-slot name="close">
+        <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a> 
+    </x-slot>
  <x-slot name="content">
    <div class="space-y-4 divide-y divide-gray-200">
             <form enctype="multipart/form-data"> 
@@ -192,17 +209,29 @@
 
 <x-jet-dialog-modal wire:model="showDeleteModalForm">
     <x-slot name="title">Delete Report</x-slot>
+    <x-slot name="close">
+        <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a> 
+    </x-slot>
     <x-slot name="content">
-        <div class="space-y-8 text-2xl divide-y divide-gray-200 w-1/2 mt-10">
+        <div class="space-y-8 text-2xl divide-y divide-gray-200">
             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                 @if($this->report_id)
-                <p>Delete this Report ? </p>
-            @endif
+                <p>Do you really want to delete this <span class="text-gray-900 text-bold">Report ?</span> This process cannot be undone.</p>
+                @endif
             </div>      
         </div>
     </x-slot>
     <x-slot name="footer">
-       <x-jet-button wire:click="deleteReport({{ $this->report_id }})" class="bg-red-700"> Delete</x-jet-button>
+       <x-jet-button wire:click="deleteReport({{ $this->report_id }})" class="bg-red-700"> 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+         Delete
+        </x-jet-button>
     </x-slot>
 </x-jet-dialog-modal>
 </div>

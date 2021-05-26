@@ -17,6 +17,13 @@ class Publishers extends Component
     {
         $this->showModalForm = true;
     }
+
+    public function closeModal()
+    {
+        $this->reset();
+        $this->showDeleteModalForm = false;
+    }
+
     public function updatedShowModalForm()
     {
         $this->reset();
@@ -46,7 +53,7 @@ class Publishers extends Component
         //session()->flash('flash.banner', 'Post Updated Successfully');
     }
 
-    public function showEditAuthorModal($id)
+    public function showEditPublisherModal($id)
     {
         $this->reset();
         $this->showModalForm = true;
@@ -61,14 +68,14 @@ class Publishers extends Component
         $this->description = $publisher->description;
     }
 
-    public function showDeleteAuthorModal($id)
+    public function showDeletePublisherModal($id)
     {
         $this->reset();
         $this->showDeleteModalForm = true;
         $this->publisher_id = $id;
     }
 
-    public function deleteAuthor($id)
+    public function deletePublisher($id)
     {
         $role = Publisher::find($id);
         $role->delete();

@@ -11,10 +11,10 @@
                 </button>
                 <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
                     <div class="dropdown-box__content box p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
+                        <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
                             <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category
                         </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
+                        <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
                             <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group
                         </a>
                     </div>
@@ -72,9 +72,9 @@
     <!-- Modal create Author-->
 <x-jet-dialog-modal class="z-40" wire:model="showModalForm">
     @if($author_id)
-       <x-slot name="title">Update Author</x-slot>
+       <x-slot name="title">Updating of an Author</x-slot>
     @else
-       <x-slot name="title">Create Author</x-slot>
+       <x-slot name="title">Creation of an Author</x-slot>
     @endif
      <x-slot name="content">
        <div class="space-y-4 divide-y divide-gray-200 ">
@@ -112,7 +112,7 @@
 
  
     <x-jet-confirmation-modal wire:model="showDeleteModalForm">
-    <x-slot name="title">Delete Author</x-slot>
+    <x-slot name="title">Deletion of an Author</x-slot>
     <x-slot name="close">
         <a x-on:click.prevent @click="@this.closeModal()" href=""> 
             <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
