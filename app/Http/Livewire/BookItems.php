@@ -20,7 +20,6 @@ class BookItems extends Component
     public $book_item_id;
     public $book_item_code;
     public $book_format;
-    public $language;
     public $publisher;
     public $publish_date;
     public $publish_country;

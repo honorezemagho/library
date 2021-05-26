@@ -1,6 +1,13 @@
 @props(['id' => null, 'maxWidth' => null])
 
-<x-jet-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}>
+<x-jet-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}
+x-transition:enter="ease-out duration-300"
+x-transition:enter-start="opacity-0"
+x-transition:enter-end="opacity-100"
+x-transition:leave="ease-in duration-200"
+x-transition:leave-start="opacity-100"
+x-transition:leave-end="opacity-0"
+>
     <div class="">
         <div class="bg-blue-800 text-lg text-blue-50 px-4 pt-3 pb-3 sm:pt-3 sm:pb-2">
             <div class="flex justify-between">
