@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="text-center w-full">
-       <div class="text-center font-extrabold text-gray-800 text-3xl mb-4">{{ title }}</div>
+        <div class="text-center font-extrabold text-gray-800 text-3xl">{{ title }}</div>
+        <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
           <p class="text-xl text-gray-600 mx-auto text-center">{{ second_title }}</p>
      </div>
 
@@ -15,7 +16,7 @@
 
     <div v-if="showViewAll" class="flex place-items-center mt-6 sm:mt-8">
          <a href="#" class="flex items-center no-underline">
-            <span class="hover:text-blue-800 px-4 py-2 text-center  rounded focus:outline-none text-gray-800 text-3xl mb-4">Browse All Titles
+            <span class="hover:text-blue-800 px-4 py-2 text-center mx-auto rounded focus:outline-none text-gray-800 text-3xl mb-4">Browse All Titles
             </span>
            <svg xmlns="http://www.w3.org/2000/svg" class="text-center text-blue-800 animate-bounce h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

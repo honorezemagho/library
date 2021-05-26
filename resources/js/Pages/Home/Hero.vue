@@ -4,7 +4,7 @@
         <div class="absolute inset-0 bg-gray-800 bg-opacity-75"/>
         <div class="relative max-w-screen-xl  mt-12  margin-top-15-percent mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
           <div class="relative sm:text-center w-full lg:max-w-3xl mx-auto">
-            <h1 class="text-white text-3xl leading-8 sm:text-4xl sm:text-center text-center font-extrabold lg:text-5xl lg:leading-none lg:max-w-2xl lg:mx-auto">Search <span class="text-blue-800">Works</span></h1>
+            <h1 class="text-white text-4xl leading-8 sm:text-4xl sm:text-center text-center font-extrabold lg:text-5xl lg:leading-none lg:max-w-2xl lg:mx-auto">Search <span class="text-blue-800">Works</span></h1>
             <p class="mt-6 text-gray-200 font-medium text-lg leading-6 sm:text-lg sm:leading-7">Welcome to My DigitalLibrary
              By just a few word, find all digital documents like students report, books, magazines, subjects etc.</p>
          
