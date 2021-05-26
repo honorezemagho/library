@@ -111,7 +111,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-4">
                         <div class="col-span-2 text-xl text-center text-gray-900 font-bold">
-                            Subject Details <hr>
+                            Subject Details <hr class="mt-2">
                         </div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="title" value="{{ __('Title') }}" />

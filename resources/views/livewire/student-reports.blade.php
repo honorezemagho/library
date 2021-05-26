@@ -115,7 +115,7 @@
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text sm:pb-4"> 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-4">
-                        <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Report Details <hr></div>
+                        <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Report Details <hr class="mt-2"></div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="title" value="{{ __('Title') }}" />
                             <input id="title" name="title" wire:model.lazy="title" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" placeholder="title" required autofocus autocomplete="title">
@@ -213,7 +213,7 @@
                     </div> 
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Cover Photo <hr></div>
+                        <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Cover Photo <hr class="mt-2"></div>
                         <div class="col-span-2 border border-gray-200 rounded-md p-5">
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 @if ($cover)

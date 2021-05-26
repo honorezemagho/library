@@ -261,8 +261,12 @@ class Books extends Component
         $this->ISSN =  $book->ISSN;
         $this->language =  $book->title;
         $this->number_of_pages =  $book->number_of_pages;
-        $this->author_1 =  $book->author_1;
-        $this->author_2 =  $book->author_2;
+        if(!empty($book->authors[0])){
+            $this->author_1 =  $book->authors[0]->id;
+        }
+        if(!empty($book->authors[1])){
+            $this->author_2 =  $book->authors[1]->id;
+        }
         $this->cover = $book->cover;
     }
 

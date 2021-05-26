@@ -168,9 +168,9 @@ class Subjects extends Component
         $this->academic_year =  $subject->academic_year;
         $this->url = $subject->url;
         $this->cover = $subject->cover;
-        $this->field = $subject->field->id;;
-        $this->period = $subject->period->id;;
-        $this->level = $subject->level->id;;
+        $this->field = $subject->field->id;
+        $this->period = $subject->period->id;
+        $this->level = $subject->level->id;
     }
 
     public function showDeleteSubjectModal($id)

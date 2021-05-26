@@ -153,11 +153,15 @@ class StudentReports extends Component
         $report = Report::findOrFail($this->report_id);
         $this->title =  $report->title;
         $this->number_of_pages =  $report->number_of_pages;
-        $this->author_1 =  $report->author_1;
-        $this->author_2 =  $report->author_2;
+        if(!empty($report->authors[0])){
+            $this->author_1 =  $report->authors[0]->id;
+        }
+        if(!empty($report->authors[1])){
+            $this->author_2 =  $report->authors[1]->id;
+        }
         $this->url = $report->url;
-        $this->field = $report->field;
-        $this->level = $report->level;
+        $this->field = $report->field->id;
+        $this->level = $report->level->id;
     }
 
     public function showDeleteReportModal($id)
