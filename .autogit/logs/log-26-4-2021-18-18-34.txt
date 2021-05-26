@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 26 2021 18:18:34 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Authors.php
+* resources/views/layouts/components/top-bar.blade.php
+* resources/views/livewire/authors.blade.php
+* resources/views/livewire/dashboard.blade.php
+* resources/views/livewire/subjects.blade.php
+* resources/views/vendor/jetstream/components/dialog-modal.blade.php
+
+
+Created files:
+* .autogit/logs/log-26-4-2021-6-11-31.txt
+
+
+Deleted files:
+
+
+Renamed files:
