@@ -11,9 +11,7 @@ class Report extends Model
 
     protected $table = 'reports';
     protected $guarded = ['created_at'];
-    //Add extra attribute
-    protected $attributes = ['model_name'];
-
+    
     //Make it available in the json response
     protected $appends = ['model_name'];
 

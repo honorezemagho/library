@@ -171,7 +171,7 @@ class Books extends Component
         if(!$this->ISBN){
             $this->ISBN = '';
         }
-        $publisher= Publisher::where('name', 'like','%'.$this->publisher.'%')->first();
+        $publisher= Publisher::where('name', 'like','%'.$this->publisher.'%')->orwhere('id', $this->publisher)->first();
         $author_1= Author::where('name', 'like','%'.$this->author_1.'%')->first();
       
         $book = Book::create([
