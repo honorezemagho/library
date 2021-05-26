@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 26 2021 23:56:02 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* public/mix-manifest.json
+* resources/css/app.css
+* resources/js/Components/Testimonials.vue
+* resources/js/Components/Works.vue
+* resources/js/Pages/Home/Hero.vue
+
+
+Created files:
+* .autogit/logs/log-26-4-2021-23-14-48.txt
+
+
+Deleted files:
+
+
+Renamed files:
