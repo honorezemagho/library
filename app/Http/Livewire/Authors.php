@@ -68,6 +68,12 @@ class Authors extends Component
         $this->author_id = $id;
     }
 
+    public function closeModal()
+    {
+        $this->reset();
+        $this->showDeleteModalForm = false;
+    }
+
     public function deleteAuthor($id)
     {
         $role = Author::find($id);

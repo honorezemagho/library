@@ -1,7 +1,7 @@
 <!-- BEGIN: Top Bar -->
-<div class="top-bar z-10">
+<div class="top-bar relative z-20">
     <!-- BEGIN: Breadcrumb -->
-    <div class="-intro-x breadcrumb mr-auto hidden sm:flex z-10">
+    <div class="-intro-x breadcrumb mr-auto hidden sm:flex relative z-20">
         <a href="" class="">Application</a>
         @if($first_page_name)
             <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -24,7 +24,7 @@
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
-    <div class="intro-x relative mr-3 sm:mr-6 z-10">
+    <div class="intro-x mr-3 sm:mr-6  relative z-20">
         <div class="search hidden sm:block">
             <input type="text" class="search__input input placeholder-theme-13" placeholder="Search...">
             <i data-feather="search" class="search__icon"></i>
@@ -78,7 +78,7 @@
     </div>
     <!-- END: Search -->
     <!-- BEGIN: Notifications -->
-    <div class="intro-x dropdown relative mr-auto sm:mr-6 z-10">
+    <div class="intro-x dropdown relative mr-auto sm:mr-6 z-20">
         <div class="dropdown-toggle notification notification--bullet cursor-pointer">
             <i data-feather="bell" class="notification__icon "></i>
         </div>
@@ -103,7 +103,7 @@
     </div>
     <!-- END: Notifications -->
     <!-- BEGIN: Account Menu -->
-    <div class="intro-x dropdown w-8 h-8 relative">
+    <div class="intro-x dropdown w-8 h-8 relative z-20">
         <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in">
             <img alt="Midone Laravel Admin Dashboard Starter Kit" src="{{ asset('dist/images/profile-3.jpg') }}">
         </div>

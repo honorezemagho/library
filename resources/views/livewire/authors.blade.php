@@ -114,9 +114,11 @@
     <x-jet-confirmation-modal wire:model="showDeleteModalForm">
     <x-slot name="title">Delete Author</x-slot>
     <x-slot name="close">
-        <svg wire:clik="closeModal()" xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </a> 
     </x-slot>
     <x-slot name="content">
         <div class="space-y-8 text-2xl divide-y divide-gray-200">
