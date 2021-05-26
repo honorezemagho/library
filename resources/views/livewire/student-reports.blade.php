@@ -52,7 +52,13 @@
 
                         </td>
                          <td class="border-b">
-                            <div class="font-medium whitespace-no-wrap">{{ $report->authors[0] ? $report->authors[0]->name }}</div>
+                            <div class="font-medium whitespace-no-wrap">
+                                @if (!empty($report->authors[0]))      
+                                     {{ $report->authors[0]->name }}
+                                @else
+                                    "Undefined"
+                                @endif 
+                            </div>
                            
                         </td>
                         <td class="text-center border-b">{{ $report->field->abbr }}</td>
@@ -207,7 +213,7 @@
  </x-slot>
 </x-jet-dialog-modal>
 
-<x-jet-dialog-modal wire:model="showDeleteModalForm">
+<x-jet-confirmation-modal wire:model="showDeleteModalForm">
     <x-slot name="title">Delete Report</x-slot>
     <x-slot name="close">
         <a x-on:click.prevent @click="@this.closeModal()" href=""> 
@@ -233,5 +239,5 @@
          Delete
         </x-jet-button>
     </x-slot>
-</x-jet-dialog-modal>
+</x-jet-confirmation-modal>
 </div>

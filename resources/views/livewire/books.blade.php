@@ -84,10 +84,27 @@
     <!-- Modal: Add Books -->
     <x-jet-dialog-modal :maxWidth="'5xl'" class="z-40" wire:model="showModalForm">
         @if($book_id)
-            <x-slot name="title">Update Student Book</x-slot>
+        <x-slot name="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        </x-slot>
+        <x-slot name="title">Updating a Book</x-slot>   
         @else
-            <x-slot name="title">Create Student Book</x-slot>
+            <x-slot name="ico">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </x-slot>
+            <x-slot name="title">Creation of a  new Book</x-slot>  
         @endif
+        <x-slot name="close">
+            <a x-on:click.prevent @click="@this.closeModal()" href=""> 
+                <svg xmlns="http://www.w3.org/2000/svg" class="mt-1 ml-2 text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </a> 
+        </x-slot>
      <x-slot name="content">
        <div class="space-y-4 divide-y divide-gray-200">
                 <form enctype="multipart/form-data"> 
@@ -217,4 +234,4 @@
     </x-jet-confirmation-modal>
 </div>
 
-@livewire('book-intems', ['book_id' => $this->book_id], key($this->book_id->id))
+{{-- @livewire('book-intems', ['book_id' => $this->book_id], key($this->book_id->id)) --}}

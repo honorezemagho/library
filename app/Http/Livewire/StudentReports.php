@@ -41,6 +41,12 @@ class StudentReports extends Component
         $this->reset();
     }
 
+    public function closeModal()
+    {
+        $this->reset();
+        $this->showDeleteModalForm = false;
+    }
+
     public function storeReport()
     {
         $this->validate([
