@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 26 2021 22:12:26 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Books.php
+* app/Models/Book.php
+* app/Models/Report.php
+* app/Models/Subject.php
+
+
+Created files:
+* .autogit/logs/log-26-4-2021-21-40-7.txt
+
+
+Deleted files:
+
+
+Renamed files:
