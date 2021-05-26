@@ -111,7 +111,7 @@
  </x-jet-dialog-modal>
 
 
-    <x-jet-dialog-modal wire:model="showDeleteModalForm">
+    <x-jet-confirmation-modal wire:model="showDeleteModalForm">
     <x-slot name="title">Delete Author</x-slot>
     <x-slot name="content">
         <div class="space-y-8 text-2xl divide-y divide-gray-200 w-1/2 mt-10">
@@ -126,6 +126,6 @@
        <x-slot name="footer">
            <x-jet-button wire:click="deleteAuthor({{ $this->author_id }})" class="bg-red-700"> Delete</x-jet-button>
        </x-slot>
-   </x-jet-dialog-modal>
+   </x-jet-confirmation-modal>
 </div>
 
