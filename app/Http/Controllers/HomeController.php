@@ -46,7 +46,7 @@ class HomeController extends Controller
             $work = Book::where('id', $id)->with('authors')->with('publisher')->first();
      
         }elseif ($type == "subject") {
-            $work = Subject::with('authors')->with('field')->with('level')->first();
+            $work = Subject::with('author')->with('field')->with('level')->first();
         }
 
         return Inertia::render('WorkDetails/index', [

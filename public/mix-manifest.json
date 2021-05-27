@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/dist/js/alpine.js": "/dist/js/alpine.js",
     "/dist/json/location.json": "/dist/json/location.json",
     "/dist/images/awaiting_cover.jpg": "/dist/images/awaiting_cover.jpg",
@@ -19,6 +20,5 @@
     "/dist/images/user_default.png": "/dist/images/user_default.png",
     "/dist/images/user_profile.png": "/dist/images/user_profile.png",
     "/dist/css/ajax-loader.gif": "/dist/css/ajax-loader.gif",
-    "/dist/fonts/summernote/summernote.woff": "/dist/fonts/summernote/summernote.woff",
-    "/css/app.css": "/css/app.css"
+    "/dist/fonts/summernote/summernote.woff": "/dist/fonts/summernote/summernote.woff"
 }

@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu May 27 2021 02:21:19 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-27-4-2021-1-39-42.txt
+* resources/js/Pages/WorkDetails/ViewBook.vue
+* resources/js/Pages/WorkDetails/ViewReport.vue
+* resources/js/Pages/WorkDetails/ViewSubject.vue
+
+
+Deleted files:
+
+
+Renamed files:

@@ -149,7 +149,6 @@ export default {
     methods: {
       showSingle() {
         this.imgs = '/'+this.work.cover,
-
         this.show()
      },
       show() {

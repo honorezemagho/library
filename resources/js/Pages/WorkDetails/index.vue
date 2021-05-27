@@ -17,32 +17,40 @@
 
             <div class="text-lg xl:text-xl mb-1">
               <span class="font-semibold">Author(s): </span>
-              <span class="text-gray-600" v-if="myWork.model_name == 'Subject'">
+              <span v-if="myWork.model_name == 'Subject'" class="text-gray-600" >
                 {{ myWork.author ? myWork.author.name : 'Not Availlable'  }}
               </span>
-              <span class="text-gray-700" v-else>
+              <span v-else class="text-gray-700" >
                   {{ myWork.authors[0] ? myWork.authors[0].name : 'Not Availlable' }}
                   {{ myWork.authors[1] ? ', '+myWork.authors[1].name : '' }}
               </span>
             </div>
             <!-- General informations -->
-            <div v-if="myWork.model_name == 'Book'" class="text-lg xl:text-xl">
+            <div v-if="myWork.model_name == 'Book'" class="text-base xl:text-lg">
                   <ViewBook :work="myWork" />
             </div>
-            <div v-else-if="myWork.model_name == 'Report'" class="text-lg xl:text-xl">
+            <div v-else-if="myWork.model_name == 'Report'" class="text-base xl:text-lg">
                   <ViewReport :work="myWork" />
             </div>
-            <div v-else-if="myWork.model_name == 'Subject'" class="text-lg xl:text-xl">
+            <div v-else-if="myWork.model_name == 'Subject'" class="text-base xl:text-lg">
                   <ViewSubject :work="myWork" />
             </div>
           
            </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-1 border-2 shadow-xm mx-auto rounded">    
-            <a class="shadow-lg">
-              <img  alt="Placeholder" class="block h-96 w-full" :src="'/'+myWork.cover">
+            <a  @click="() => showSingle()" class="shadow-lg">
+              <img  alt="Placeholder" class="c-card pic block h-96 w-full" :src="'/'+myWork.cover">
             </a>
         </div>
+        <teleport to='body'>
+          <vue-easy-lightbox
+            :visible="visible"
+            :imgs="imgs"
+            :index="index"
+            @hide="handleHide">
+          </vue-easy-lightbox>
+        </teleport>
       </div>
       <!--Book details section -->
 
@@ -64,6 +72,8 @@ import ViewBook from "./ViewBook";
 import ViewReport from "./ViewReport";
 import ViewSubject from "./ViewReport";
 import AppLayout from "@/Layouts/AppLayout";
+import VueEasyLightbox from 'vue-easy-lightbox';
+
 
 var viewerConfig = {
   showAnnotationTools: false,
@@ -88,7 +98,8 @@ export default {
     Work,
     ViewBook,
     ViewReport,
-    ViewSubject
+    ViewSubject,
+    VueEasyLightbox,
   },
 
   props: {work : Object},
@@ -112,10 +123,25 @@ export default {
     });
    
   },
-
+   methods: {
+      showSingle() {
+        this.imgs = '/'+this.work.cover,
+        this.show()
+     },
+      show() {
+        this.visible = true
+      },
+      handleHide() {
+        this.visible = false
+      },
+ 
+    },
   data() {
     return {
       myWork :this.work,
+      imgs: '', // Img Url , string or Array of string
+      visible: false,
+      index: 0 // default: 0
     }
   },
 
