@@ -15,7 +15,7 @@
                 <span>{{ myWork.title }}</span>
             </div>
 
-            <div class="text-lg xl:text-xl">
+            <div class="text-lg xl:text-xl mb-1">
               <span class="font-semibold">Author(s): </span>
               <span class="text-gray-600" v-if="myWork.model_name == 'Subject'">
                 {{ myWork.author ? myWork.author.name : 'Not Availlable'  }}
@@ -26,34 +26,16 @@
               </span>
             </div>
             <!-- General informations -->
-            
-            <!-- only book informations -->
             <div v-if="myWork.model_name == 'Book'" class="text-lg xl:text-xl">
-              <span class="font-semibold">ISBN: </span>
-              <span class="text-gray-700">
-                {{ myWork.ISBN ? myWork.ISBN : 'Not Availlable'  }}
-              </span>
+                  <ViewBook :work="myWork" />
             </div>
-
-            <div v-if="myWork.model_name == 'Book'" class="text-lg xl:text-xl">
-              <span class="font-semibold">Publisher: </span>
-              <span class="text-gray-700">
-                {{ myWork.publisher.name ? myWork.publisher.nam : 'Not Availlable'  }}
-              </span>
+            <div v-else-if="myWork.model_name == 'Report'" class="text-lg xl:text-xl">
+                  <ViewReport :work="myWork" />
             </div>
-
-            <div class="text-lg xl:text-xl">
-              <span class="font-semibold">Language: </span>
-              <span class="text-gray-700">
-                {{ myWork.language ? myWork.language : 'Not Availlable'  }}
-              </span>
+            <div v-else-if="myWork.model_name == 'Subject'" class="text-lg xl:text-xl">
+                  <ViewSubject :work="myWork" />
             </div>
-           <!-- only book informations -->
-
-            <div>
-              <span>Description: </span>
-               <span></span>
-            </div>
+          
            </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-1 border-2 shadow-xm mx-auto rounded">    
@@ -78,6 +60,9 @@
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
 import Work from "@/Components/Work";
+import ViewBook from "./ViewBook";
+import ViewReport from "./ViewReport";
+import ViewSubject from "./ViewReport";
 import AppLayout from "@/Layouts/AppLayout";
 
 var viewerConfig = {
@@ -100,7 +85,10 @@ export default {
   components: {
     InnerPageHero,
     AppLayout,
-    Work
+    Work,
+    ViewBook,
+    ViewReport,
+    ViewSubject
   },
 
   props: {work : Object},
