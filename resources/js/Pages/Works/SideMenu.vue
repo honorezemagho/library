@@ -3,7 +3,7 @@
     <!--First section show the number of the result -->
     <div class="content-center ml-4 mt-2">
         <span class="text-center xs:text-sm text-2xl">{{ results }}</span>
-        <span class="text-center xs:text-xl text-base mt-2 ml-2"> RESULTS</span>     
+        <span class="text-center xs:text-xl text-base mt-2 ml-2">{{ results >= 2 ?  'RESULTS' : 'RESULT' }} </span>     
     </div>
      <!--First section show the number of the result -->
 

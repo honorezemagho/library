@@ -38,24 +38,30 @@ class HomeController extends Controller
 
     public function work_details($type,$id){
         $work = null;
-   
+        $related = null;
        if ($type == "report") {
             $work = Report::where('id', $id)->with('authors')->with('field')->with('level')->first();
-     
+            $related = Report::where('title','like','%'.$work->title.'%')->with('authors')->with('field')->with('level')->get();
+      
         }elseif ($type == "book") {
             $work = Book::where('id', $id)->with('authors')->with('publisher')->first();
-     
+            $related = Book::where('title','like','%'.$work->title.'%')->with('authors')->with('publisher')->get();
+      
         }elseif ($type == "subject") {
-            $work = Subject::with('author')->with('field')->with('level')->first();
+            $work = Subject::where('id', $id)->with('author')->with('field')->with('level')->first();
+            $related = Subject::where('title','like','%'.$work->title.'%')->with('author')->with('field')->with('level')->get();
         }
-
+    
+        $related = $related->slice(0, 4);
+     
         return Inertia::render('WorkDetails/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'work' =>  $work
+            'work' =>  $work,
+            'related' =>  $related
         ]);
     }
 }

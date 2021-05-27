@@ -56,7 +56,7 @@
 
       <!--Similar Works -->
       <works 
-      :works="Work"
+      :works="myWorks"
       :title="'Similars Works'"
       :second_title="'Some work related to the current one.'"
         />
@@ -67,7 +67,7 @@
 
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
-import Work from "@/Components/Work";
+import Works from "@/Components/Works";
 import ViewBook from "./ViewBook";
 import ViewReport from "./ViewReport";
 import ViewSubject from "./ViewReport";
@@ -95,14 +95,14 @@ export default {
   components: {
     InnerPageHero,
     AppLayout,
-    Work,
+    Works,
     ViewBook,
     ViewReport,
     ViewSubject,
     VueEasyLightbox,
   },
 
-  props: {work : Object},
+  props: {work : Object, related:Object},
   mountede() {
 
     var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
@@ -139,6 +139,7 @@ export default {
   data() {
     return {
       myWork :this.work,
+      myWorks :this.related,
       imgs: '', // Img Url , string or Array of string
       visible: false,
       index: 0 // default: 0

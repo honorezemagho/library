@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu May 27 2021 02:57:41 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/HomeController.php
+* public/js/app.js
+* public/mix-manifest.json
+* resources/js/Components/Work.vue
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-27-4-2021-2-21-19.txt
+
+
+Deleted files:
+
+
+Renamed files:
