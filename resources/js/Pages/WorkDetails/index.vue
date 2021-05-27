@@ -5,18 +5,12 @@
       <!--Documents Viewer -->
       <div id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
       <!--Documents Viewer -->
-      <div class="container mx-auto px-4 sm:px-0 py-8 sm:py-8">
-          <h1 v-if="myWork.model_name == 'Report'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Student Report on Title "<span class="uppercase">{{ myWork.title }}</span>"</h1>   
-          <h1 v-else-if="myWork.model_name == 'Book'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
-          <h1 v-else-if="myWork.model_name == 'Subject'" class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4"><span class="uppercase">{{ myWork.title }}</span></h1>   
-          <h1 v-else class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center  pb-4">Work Title</h1>     
-      </div>
 
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-4 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-3 rounded border-gray-300 dark:border-gray-700 border-2 shadow-lg">
-            <div>
-                <span>Title: </span>
+           <div class="container ml-4 mt-2">
+             <div class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center pb-2">
                 <span>{{ myWork.title }}</span>
             </div>
 
@@ -29,9 +23,12 @@
               <span>Description: </span>
                <span></span>
             </div>
+           </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-2 border-2 shadow-xm mx-auto rounded">    
-          <work :work="myWork"></work>
+            <a class="shadow-lg">
+              <img  alt="Placeholder" class="block h-72 w-full" :src="'/'+myWork.cover">
+            </a>
         </div>
       </div>
       <!--Book details section -->
