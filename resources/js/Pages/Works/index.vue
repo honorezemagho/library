@@ -87,6 +87,8 @@ export default {
         page: 1,
         pageSize: 30,
         works: this.works,
+        curWorks : this.works,
+        selectedTypeWork: "All"
       }
     },
     methods: {
@@ -95,17 +97,16 @@ export default {
         axios.get('https://mydigitallibrary.test/fetch_works/'+(this.page)+'/'+this.pageSize)
           .then(res => {
           this.works =  res.data
-          
-            // Stop scroll-loader
-            console.log("Result--------------------------------");
-            console.log(res.data);
-            console.log("Works---------------------------------");
-            console.log(this.works);
-            res.data.length < this.pageSize && (this.loadMore = false)
           })
           .catch(error => {
             console.log(error);
           });
+      }
+    },
+    computed: {
+      filteredTypeWork : function () 
+      {
+
       }
     },
     mounted() {

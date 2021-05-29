@@ -16,13 +16,13 @@
       </div>
 
     <div v-if="showViewAll" class="flex place-items-center mt-6 sm:mt-8">
-         <a href="#" class="flex items-center no-underline">
-            <span class="hover:text-blue-800 px-4 py-2 text-center mx-auto rounded focus:outline-none text-gray-800 text-3xl mb-4">Browse All Titles
-            </span>
-           <svg xmlns="http://www.w3.org/2000/svg" class="text-center text-blue-800 animate-bounce h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <inertia-link class="flex items-center no-underline" :href="route('works_type',['all'])">
+              <span class="hover:text-blue-800 px-4 py-2 text-center mx-auto rounded focus:outline-none text-gray-800 text-3xl mb-4">Browse All Titles
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-center text-blue-800 animate-bounce h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </inertia-link>        
     </div>
   </div>
 </template>

@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 29 2021 20:51:49 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Admins.php
+* app/Http/Livewire/Members.php
+* resources/views/layouts/components/top-bar.blade.php
+* resources/views/livewire/admins.blade.php
+* resources/views/livewire/members.blade.php
+* resources/views/livewire/permissions.blade.php
+* resources/views/livewire/roles.blade.php
+
+
+Created files:
+* .autogit/logs/log-29-4-2021-20-13-45.txt
+
+
+Deleted files:
+
+
+Renamed files:

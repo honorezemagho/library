@@ -32,25 +32,25 @@
                <div class="flex flex-col">
                   <label for="radio-a" class="flex items-center">
                     <span class="">
-                      <input id="radio-a" value="A" type="radio" name="radio" class="">
+                      <input id="radio-a" v-model="selectedTypeWork" value="All" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">All</span>
                   </label>
                   <label for="radio-b" class="flex items-center">
                     <span class="">
-                      <input id="radio-b" value="B" type="radio" name="radio" class="">
+                      <input id="radio-b" v-model="selectedTypeWork" value="Books" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Books</span>
                   </label>
                   <label for="radio-c" class="flex items-center">
                     <span class="">
-                      <input id="radio-c" value="C" type="radio" name="radio" class="">
+                      <input id="radio-c" v-model="selectedTypeWork" value="Reports" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Reports</span>
                   </label>
                   <label for="radio-d" class="flex items-center">
                     <span class="">
-                      <input id="radio-d" value="D" type="radio" name="radio" class="">
+                      <input id="radio-d" v-model="selectedTypeWork" value="Subjects" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Subjects</span>
                   </label>
