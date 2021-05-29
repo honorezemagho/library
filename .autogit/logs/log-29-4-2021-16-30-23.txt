@@ -1,0 +1,27 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 29 2021 16:30:23 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* database/seeders/AuthorSeeder.php
+* database/seeders/DatabaseSeeder.php
+* public/js/app.js
+* resources/js/Components/Works.vue
+* resources/js/Layouts/AppLayout.vue
+* resources/js/Pages/Home/Hero.vue
+
+
+Created files:
+* .autogit/logs/log-27-4-2021-7-14-17.txt
+* database/seeders/AuthorWorkSeeder.php
+* database/seeders/BookSeeder.php
+* database/seeders/PublisherSeeder.php
+* database/seeders/ReportSeeder.php
+* database/seeders/SubjectSeeder.php
+* database/seeders/UserSeeder.php
+
+
+Deleted files:
+
+
+Renamed files:

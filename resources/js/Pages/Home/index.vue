@@ -5,7 +5,7 @@
             <works 
             :works="worksList"
             :title="'Ours Latest Works'"
-            :second_title="'Some recent book work and subject added in our library'"
+            :second_title="'Some recent works added in our library'"
              />
              <testimonials />        
         </div>
