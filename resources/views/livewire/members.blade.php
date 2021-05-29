@@ -151,8 +151,8 @@
                     </div>    
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 col-span-1 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-4">
                         <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Additional Details <hr class="mt-2"></div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="role" value="{{ __('Phone') }}" />
@@ -175,10 +175,10 @@
                             @error('name') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
                     </div> 
-                     <div class="grid grid-cols-1 sm:grid-cols-2 col-span-1 gap-4">
+                     <div class="grid grid-cols-1 col-span-1">
                         <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Roles & Permissions <hr class="mt-2"></div>
-                        <div class="col-span-2 sm:col-span-1"> 
-                            <select id="role" wire:model="role" name="role" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
+                        <div class="col-span-2 sm:-mt-9"> 
+                            <select id="role" wire:model="role" name="role" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 @if($this->role == null)
                                     <option selected value="Null">{{ __('Choose a role') }}</option>
                                 @endif
@@ -188,7 +188,6 @@
                             </select>      
                             @error('role') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
-                       
                     </div> 
                 </div>
             </div> 

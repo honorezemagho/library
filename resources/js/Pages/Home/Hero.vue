@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <section class="pb-5 bg-gray-50 -mt-24">
+      <section class="pb-5 bg-gray-50 sm:-mt-24">
         <div class="container mx-auto px-4">
           <div class="flex flex-wrap">
             <div class="transform duration-500 hover:-translate-y-2 lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
