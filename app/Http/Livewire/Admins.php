@@ -27,6 +27,9 @@ class Admins extends Component
     public $matricule;
     public $name;
     public $email;
+    public $phone;
+    public $country;
+    public $city;
     public $date_of_birth;
     public $role;
     public $image;  
@@ -51,17 +54,23 @@ class Admins extends Component
         $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'image' => 'required|image|max:1024',
+            'image' => 'image|max:1024|nullable',
             'password' => $this->passwordRules(),
         ]);
 
-        $image_name = $this->image->getClientOriginalName();
-        $this->image->storeAs('public/profile-photos/', Str::random(40));
+        $url_image ="";
+        if ($this->image) {
+                $url_extension = $this->image->getClientOriginalExtension();
+                $image_name = 'profile-photos'.'/'.Str::random(40);
+                $image_name = $image_name.'.'.$url_extension;
+                $url_image = 'storage/'. $image_name;
+                $this->image->storeAs('public/', $image_name );
+            }
         $admin = User::create([
             'matricule' => $this->matricule,
             'name' => $this->name,
             'date_of_birth' => $this->date_of_birth,
-            'profile_photo_url' => $image_name,
+            'profile_photo_url' => $url_image,
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);

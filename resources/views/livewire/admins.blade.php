@@ -155,23 +155,23 @@
                         <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Additional Details <hr class="mt-2"></div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="role" value="{{ __('Phone') }}" />
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="matricule" placeholder="Matricul" wire:model="matricule"> 
-                            @error('matricule') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            <input type="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                            id="phone" placeholder="Phone" wire:model="phone"> 
+                            @error('phone') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div> 
             
                         <div class="col-span-2 sm:col-span-1"> 
-                            <x-jet-label for="role" value="{{ __('Country') }}" />
+                            <x-jet-label for="country" value="{{ __('Country') }}" />
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="name" placeholder="Name" wire:model="name"> 
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            id="country" placeholder="Country" wire:model="country"> 
+                            @error('country') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
     
                         <div class="col-span-2 sm:col-span-1"> 
-                            <x-jet-label for="role" value="{{ __('City') }}" />
+                            <x-jet-label for="city" value="{{ __('City') }}" />
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="name" placeholder="Name" wire:model="name"> 
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            id="city" placeholder="City" wire:model="city"> 
+                            @error('city') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
                     </div> 
                      <div class="grid grid-cols-2 gap-4">

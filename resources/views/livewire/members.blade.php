@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden md:block mx-auto text-gray-600">Showing 1 to 10 of 20 entries</div>
+            <div class="hidden md:block mx-auto text-gray-600">Showing 1 to 1 of 1 entries</div>
             <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
                 <div class="w-56 relative text-gray-700">
                     <input type="text" class="input w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
@@ -156,23 +156,23 @@
                         <div class="col-span-2 text-xl text-center text-gray-800 font-bold">Additional Details <hr class="mt-2"></div>
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="role" value="{{ __('Phone') }}" />
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="phone" placeholder="Matricul" wire:model="matricule"> 
-                            @error('matricule') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            <input type="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                            id="phone" placeholder="Phone" wire:model="phone"> 
+                            @error('phone') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div> 
             
                         <div class="col-span-2 sm:col-span-1"> 
-                            <x-jet-label for="role" value="{{ __('Country') }}" />
+                            <x-jet-label for="country" value="{{ __('Country') }}" />
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="country" placeholder="Name" wire:model="name"> 
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            id="country" placeholder="Country" wire:model="country"> 
+                            @error('country') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
     
                         <div class="col-span-2 sm:col-span-1"> 
-                            <x-jet-label for="role" value="{{ __('City') }}" />
+                            <x-jet-label for="city" value="{{ __('City') }}" />
                             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                            id="city" placeholder="Name" wire:model="name"> 
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            id="city" placeholder="City" wire:model="city"> 
+                            @error('city') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
                     </div> 
                      <div class="grid grid-cols-1 col-span-1">
