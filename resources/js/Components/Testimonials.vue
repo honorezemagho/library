@@ -8,16 +8,16 @@
         <section id="carousel">
             <figure class="visible">
                 <div class="flex flex-wrap justify-around">
-                    <Testimonial />
-                    <Testimonial />
-                    <Testimonial />
+                    <Testimonial class="transform duration-500 hover:-translate-y-1" />
+                    <Testimonial class="transform duration-500 hover:-translate-y-1" />
+                    <Testimonial class="transform duration-500 hover:-translate-y-1" />
                 </div>
             </figure>
             <figure class="hidden">
                 <div class="flex flex-wrap justify-around">
-                    <Testimonial />
-                    <Testimonial />
-                    <Testimonial />
+                    <Testimonial class="transform duration-500 hover:-translate-y-1"/>
+                    <Testimonial class="transform duration-500 hover:-translate-y-1" />
+                    <Testimonial class="transform duration-500 hover:-translate-y-1" />
                 </div>
             </figure>
         </section>
