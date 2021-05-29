@@ -7,11 +7,11 @@
       Documents Viewer -->
 
       <!--Book details section -->
-      <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-4 gap-2 ml-5 mr-5">
-        <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-lg">
+      <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
+        <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
            <div class="container ml-4 mt-3">
               <!-- General informations -->
-             <div class="text-3xl xl:text-4xl font-semibold uppercase font-sans text-gray-800 mx-auto text-center pb-2">
+             <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
                 <span>{{ myWork.title }}</span>
             </div>
 
@@ -38,8 +38,8 @@
           
            </div>
         </div>
-        <div class="col-span-1  w-full sm:col-span-1 border-2 shadow-xm mx-auto rounded">    
-            <a  @click="() => showSingle()" class="shadow-lg">
+        <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
+            <a  @click="() => showSingle()" class="">
               <img  alt="Placeholder" class="c-card pic block h-96 w-full" :src="'/'+myWork.cover">
             </a>
         </div>
@@ -55,7 +55,7 @@
       <!--Book details section -->
 
       <!--Similar Works -->
-      <works 
+      <works
       :works="myWorks"
       :title="'Similars Works'"
       :second_title="'Some work related to the current one.'"
