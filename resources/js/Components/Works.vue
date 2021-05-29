@@ -9,9 +9,10 @@
     <div class="container my-12 mx-auto px-4 md:px-12">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
            <div v-for="work in works"  v-bind:key="work.id" class="transform duration-500 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
-                <work :work="work" />
+                  <work :work="work" />
             </div>
          </div>
+      
       </div>
 
     <div v-if="showViewAll" class="flex place-items-center mt-6 sm:mt-8">
@@ -28,14 +29,10 @@
 
 <script>
 import Work from "@/Components/Work";
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   components: {
     Work,
-    VueSlickCarousel,
   },
 
   props: {
