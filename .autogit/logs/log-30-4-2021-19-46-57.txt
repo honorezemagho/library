@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 30 2021 19:46:57 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Components/Testimonials.vue
+* resources/js/Components/Works.vue
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-30-4-2021-19-16-54.txt
+
+
+Deleted files:
+
+
+Renamed files:
