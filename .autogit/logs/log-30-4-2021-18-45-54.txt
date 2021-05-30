@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 30 2021 18:45:54 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/Works/SortBar.vue
+
+
+Created files:
+* .autogit/logs/log-30-4-2021-18-15-53.txt
+
+
+Deleted files:
+
+
+Renamed files:
