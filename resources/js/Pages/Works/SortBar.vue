@@ -1,6 +1,6 @@
 <template>
    <div class="flex flex-row h-11 mt-4 row-span-1 mx-auto rounded border-2 shadow-xl ">
-        <div class="ml-3 mr-6 mt-2">
+        <div class="ml-3 mr-4 mt-2  pr-4 border-r border-gray-300">
             <a href="#" class="flex items-center no-underline">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 000-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM13 16a1 1 0 102 0v-5.586l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L13 10.414V16z" />
@@ -11,7 +11,7 @@
             <span class="text-gray-800 ml-1"> SORT BY</span>
             </a>
         </div>
-        <div class="mr-4 mt-2">
+        <div class="mr-4 mt-2 pr-4 border-r border-gray-300">
             <a href="#" class="flex items-center no-underline">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -20,7 +20,7 @@
             <span class="text-gray-800 ml-1"> VIEW</span>
             </a>
         </div>
-        <div class="mr-4 mt-2">
+        <div class="mr-4 mt-2 pr-4 border-r border-gray-300">
             <a href="#" class="flex items-center no-underline">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
