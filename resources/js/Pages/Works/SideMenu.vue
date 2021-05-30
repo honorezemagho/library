@@ -2,8 +2,8 @@
   <div class="">
     <!--First section show the number of the result -->
     <div class="text-center mx-auto mt-2">
-        <span class="text-center xs:text-sm text-2xl">{{ results }}</span>
-        <span class="text-center xs:text-xl text-base mt-2 ml-2">{{ results >= 2 ?  'RESULTS' : 'RESULT' }} </span>     
+        <span class="text-center xs:text-sm text-2xl">{{ updatedWork.length }}</span>
+        <span class="text-center xs:text-xl text-base mt-2 ml-2">{{ updatedWork.length >= 2 ?  'RESULTS' : 'RESULT' }} </span>     
     </div>
      <!--First section show the number of the result -->
 
@@ -38,19 +38,19 @@
                   </label>
                   <label for="radio-b" class="flex items-center">
                     <span class="">
-                      <input id="radio-b"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Books" type="radio" name="radio" class="">
+                      <input id="radio-b"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Book" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Books</span>
                   </label>
                   <label for="radio-c" class="flex items-center">
                     <span class="">
-                      <input id="radio-c"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Reports" type="radio" name="radio" class="">
+                      <input id="radio-c"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Report" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Reports</span>
                   </label>
                   <label for="radio-d" class="flex items-center">
                     <span class="">
-                      <input id="radio-d"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Subjects" type="radio" name="radio" class="">
+                      <input id="radio-d"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Subject" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Subjects</span>
                   </label>
@@ -80,7 +80,8 @@ export default {
   data() {
     return {
       selectedTypeWork: 'All',
-      actualWorks : this.curWorks,
+      actualWorks :this.curWorks,
+      updatedWork : this.curWorks,
       form: this.$inertia.form({
           search: null,
           work_type: 'all',
@@ -92,7 +93,11 @@ export default {
       {
         console.log("Selected")
         console.log(this.selectedTypeWork)
-        console.log(this.actualWork)
+        console.log(this.actualWorks)
+        this.updatedWork = this.actualWorks.filter(actualWork => actualWork.model_name == this.selectedTypeWork);
+        console.log(this.updatedWork)
+        this.$emit('onUpdateWork', this.updatedWork)
+     
       }
     },
   methods: {

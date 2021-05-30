@@ -6,21 +6,20 @@
                 <a @click="() => showSingle()" class="c-card pic">
                   <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+work.cover">
                 </a>
-               <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-4">
+               <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-2">
                    <h1 class="item__title text-md">
                           <inertia-link  class="no-underline hover:underline text-gray-900 tex-bold" 
                           :href="route('work_details',[work.model_name.toLowerCase() ,work.id])">{{ work.title }}
                           </inertia-link>
- 
                   </h1>
                   <p class="text-grey-darker text-sm">
                       <!--  {{ work.academic_year }} -->
                   </p>
               </header>
 
-              <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+              <footer class="flex items-center justify-between leading-none p-2 md:p-2">
                   <a class="flex items-center no-underline hover:underline text-black" href="#">
-                         <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
+                      <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="item__title ml-2 sm:text-xs text-lg ">
                           <span v-if="work.model_name == 'Subject'">
                             {{ work.author ? 'By '+work.author.name : 'Not Availlable'  }}

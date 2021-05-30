@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Sun May 30 2021 08:32:51 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* resources/js/Pages/Works/SideMenu.vue
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-29-4-2021-21-30-52.txt
+
+
+Deleted files:
+
+
+Renamed files:
