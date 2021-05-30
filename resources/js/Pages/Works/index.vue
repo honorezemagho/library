@@ -8,6 +8,7 @@
         <div class="col-span-1 sm:col-span-1 rounded border-gray-300 dark:border-gray-700 border-2 shadow-lg">
             <side-menu
               :results="works.length"
+              :curWorks="curWorks"
              >
             </side-menu>
         </div>
@@ -88,8 +89,7 @@ export default {
         pageSize: 30,
         works: this.works,
         curWorks : this.works,
-        selectedTypeWork: "All"
-      }
+       }
     },
     methods: {
       getWorksInfo() {
@@ -103,12 +103,7 @@ export default {
           });
       }
     },
-    computed: {
-      filteredTypeWork : function () 
-      {
-
-      }
-    },
+    
     mounted() {
       //this.getWorksInfo()
     },

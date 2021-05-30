@@ -2,10 +2,8 @@
   <app-layout>
      <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Details" />
      
-      <!--Documents Viewer 
       <div id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
-      Documents Viewer -->
-
+    
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
@@ -103,7 +101,7 @@ export default {
   },
 
   props: {work : Object, related:Object},
-  mountede() {
+  mounted() {
 
     var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
 		var previewFilePromise = adobeDCView.previewFile({

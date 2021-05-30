@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <!--First section show the number of the result -->
-    <div class="content-center ml-4 mt-2">
+    <div class="text-center mx-auto mt-2">
         <span class="text-center xs:text-sm text-2xl">{{ results }}</span>
         <span class="text-center xs:text-xl text-base mt-2 ml-2">{{ results >= 2 ?  'RESULTS' : 'RESULT' }} </span>     
     </div>
@@ -32,25 +32,25 @@
                <div class="flex flex-col">
                   <label for="radio-a" class="flex items-center">
                     <span class="">
-                      <input id="radio-a" v-model="selectedTypeWork" value="All" type="radio" name="radio" class="">
+                      <input id="radio-a" @change="filteredTypeWork" v-model="selectedTypeWork" value="All" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">All</span>
                   </label>
                   <label for="radio-b" class="flex items-center">
                     <span class="">
-                      <input id="radio-b" v-model="selectedTypeWork" value="Books" type="radio" name="radio" class="">
+                      <input id="radio-b"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Books" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Books</span>
                   </label>
                   <label for="radio-c" class="flex items-center">
                     <span class="">
-                      <input id="radio-c" v-model="selectedTypeWork" value="Reports" type="radio" name="radio" class="">
+                      <input id="radio-c"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Reports" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Reports</span>
                   </label>
                   <label for="radio-d" class="flex items-center">
                     <span class="">
-                      <input id="radio-d" v-model="selectedTypeWork" value="Subjects" type="radio" name="radio" class="">
+                      <input id="radio-d"  @change="filteredTypeWork" v-model="selectedTypeWork" value="Subjects" type="radio" name="radio" class="">
                     </span>
                     <span class="ml-4">Subjects</span>
                   </label>
@@ -75,15 +75,26 @@ export default {
   },
   props: {
     results : Object,
+    curWorks : Object,
   },
   data() {
     return {
+      selectedTypeWork: 'All',
+      actualWorks : this.curWorks,
       form: this.$inertia.form({
           search: null,
           work_type: 'all',
-        })
+        }),
     }
   },
+  computed: {
+      filteredTypeWork : function () 
+      {
+        console.log("Selected")
+        console.log(this.selectedTypeWork)
+        console.log(this.actualWork)
+      }
+    },
   methods: {
     submit() {
       this.$inertia.get('/works/'+this.form.work_type+'/'+this.form.search)

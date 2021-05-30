@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Sat May 29 2021 21:30:52 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Components/Work.vue
+* resources/js/Components/Works.vue
+* resources/js/Pages/Works/SideMenu.vue
+* resources/js/Pages/Works/index.vue
+* resources/views/livewire/authors.blade.php
+
+
+Created files:
+* .autogit/logs/log-29-4-2021-20-51-49.txt
+
+
+Deleted files:
+
+
+Renamed files:
