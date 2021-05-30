@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="text-center w-full">
-        <div class="text-center font-extrabold text-gray-800 text-3xl">{{ title }}</div>
+        <div class="text-center font-semibold text-gray-800 text-3xl">{{ title }}</div>
         <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
           <p class="text-xl text-gray-600 mx-auto text-center">{{ second_title }}</p>
      </div>

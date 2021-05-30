@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto pt-16">
         <div class="pb-12">
-            <h1 class="text-3xl xl:text-4xl font-extrabold text-gray-800 mx-auto text-center">Testimonials</h1>
+            <h1 class="text-3xl xl:text-4xl font-semibold text-gray-800 mx-auto text-center">Testimonials</h1>
             <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
             <p class="text-xl text-gray-600  w-11/12 mx-auto xl:mx-0 text-center">I just wanted to share a quick note and let you know that you guys do a really good job. I’m glad I decided to work with you. It’s really great how easy your websites are to update.</p>
         </div>

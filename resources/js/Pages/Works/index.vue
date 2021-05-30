@@ -25,8 +25,8 @@
             
              <div id="boxWork" class="col-span-1 mt-2">
                 <div class="flex flex-wrap">
-                <transition-group  name="modal">
-                  <div v-for="work in curWorks"  v-bind:key="work.id" class="transform duration-500 lg:mb-4 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
+                <transition-group  name="list-complete-item" mode="out-in">
+                  <div v-for="work in curWorks"  v-bind:key="work.id" class="list-complete-item transform duration-500 lg:mb-4 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
                       <work :work="work" />
                     </div>
                  </transition-group>
@@ -37,6 +37,26 @@
     </div>
   </app-layout>
 </template>
+
+<style scoped>
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+ }
+.list-complete-item-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.list-complete-item-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.list-complete-item-enter-from,
+.list-complete-item-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
 
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
