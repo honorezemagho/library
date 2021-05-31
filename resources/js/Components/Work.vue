@@ -14,7 +14,7 @@
                             {{ work.title.substring(0, 50) }} .. 
                           </span>
                           <span v-else >
-                            {{ work.title }} ... 
+                            {{ work.title }} 
                           </span>
                           </inertia-link>
                   </h1>
