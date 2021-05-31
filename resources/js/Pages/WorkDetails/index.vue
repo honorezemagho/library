@@ -2,9 +2,9 @@
   <app-layout>
      <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Details" />
      
-      <div v-if="read" id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
-      <div v-else-if="readFull" id="adobe-dc-view" class="container shadow-xl"></div>
-      
+      <div id="adobe-dc-view" v-if="read" style="height : 500px;"  class="w-full" ></div>
+      <div  id="adobe-dc-view" v-else-if="readFull" class="container shadow-xl"></div>
+
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
@@ -34,7 +34,10 @@
             <div v-else-if="myWork.model_name == 'Subject'" class="text-base xl:text-lg">
                   <ViewSubject :work="myWork" />
             </div>
-          
+            <div class="text-center">
+                <button type="button" @click="() => showWork()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Read This Work</span>
+                 </button>    </div>
            </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
@@ -86,23 +89,6 @@ export default {
 
   props: {work : Object, related:Object},
   mounted() {
-
-    var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
-		var previewFilePromise = adobeDCView.previewFile({
-			content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
-			metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
-		}, this.viewerConfig);
-    const allowTextSelection = false;
-    previewFilePromise.then(adobeViewer => {
-      adobeViewer.getAnnotationManager().then(annotationManager => {
-        // All annotation APIs can be invoked here
-         adobeViewer.getAPIs().then(apis => {
-                apis.enableTextSelection(allowTextSelection)
-                        .then(() => console.log("Success"))
-                        .catch(error => console.log(error));
-         });
-      });
-    });
    
   },
    methods: {
@@ -110,6 +96,33 @@ export default {
         this.imgs = '/'+this.work.cover,
         this.show()
      },
+     showWork(){
+       this.read = true,
+        window.scrollTo({
+            top : 0,
+            left:0,
+            behavior :'smooth'
+        })
+        if(!this.read){
+              var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+              var previewFilePromise = adobeDCView.previewFile({
+                content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
+                metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
+              }, this.viewerConfig);
+              const allowTextSelection = false;
+              previewFilePromise.then(adobeViewer => {
+                adobeViewer.getAnnotationManager().then(annotationManager => {
+                  // All annotation APIs can be invoked here
+                  adobeViewer.getAPIs().then(apis => {
+                          apis.enableTextSelection(allowTextSelection)
+                                  .then(() => console.log("Success"))
+                                  .catch(error => console.log(error));
+                  });
+                });
+              });
+        
+        }
+     }, 
       show() {
         this.visible = true
       },
