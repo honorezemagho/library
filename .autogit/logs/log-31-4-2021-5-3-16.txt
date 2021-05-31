@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 31 2021 05:03:16 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/Auth/Login.vue
+* resources/js/Pages/Works/SideMenu.vue
+* resources/js/Pages/Works/index.vue
+
+
+Created files:
+* .autogit/logs/log-31-4-2021-4-32-34.txt
+* public/vendor/livewire-charts/app.js
+* public/vendor/livewire-charts/app.js.LICENSE.txt
+
+
+Deleted files:
+
+
+Renamed files:

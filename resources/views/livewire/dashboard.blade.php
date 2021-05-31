@@ -75,6 +75,17 @@
                         </div>
                     </div>
                 </div>
+
+                 <div class="grid grid-cols-12 gap-6 mt-5">
+                    <div class="col-span-12 sm:col-span-6 intro-y">
+                        <div class="p-6 m-20 bg-white rounded shadow">
+                            {!! $categoryWorkChart->container() !!}
+                        </div>
+                    </div>
+                    <div class="col-span-12 sm:col-span-6 intro-y">
+                      
+                    </div>
+                </div>
             </div>
             <!-- END: General Report -->
             <!-- BEGIN: Sales Report -->
@@ -100,4 +111,7 @@
             <!-- END: Weekly Top Seller -->
         </div>
     </div>
+    
+    <script src="{{ LarapexChart::cdn() }}"></script>
+    {{ $categoryWorkChart->script() }}
 </div>
