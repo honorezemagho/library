@@ -6,24 +6,22 @@
                 <a @click="() => showSingle()" class="c-card pic">
                   <img  alt="Placeholder" class="block h-56 w-full" :src="'/'+work.cover">
                 </a>
-               <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-2">
-                   <h1 class="item__title text-md">
-                          <inertia-link  class="break-normal md:break-all no-underline hover:underline text-gray-900 tex-bold" 
+               <header class="leading-tight text-center mx-auto p-2 md:p-2 font-bold">
+                   <h1 class="text-md">
+                          <inertia-link  class=" no-underline hover:underline hover:text-blue-500 text-gray-900" 
                           :href="route('work_details',[work.model_name.toLowerCase() ,work.id])">
-                          <span v-if="work.title.length > 20" >
-                            {{ work.title.substring(0, 50) }} .. 
+                          <span v-if="work.title.length > 25" >
+                            {{ work.title.substring(0, 25) }} ... 
                           </span>
                           <span v-else >
                             {{ work.title }} 
                           </span>
                           </inertia-link>
                   </h1>
-                  <p class="text-grey-darker text-sm">
-                      <!--  {{ work.academic_year }} -->
-                  </p>
+                 
               </header>
 
-              <footer class="flex items-center justify-between leading-none p-2 md:p-2">
+              <footer class="flex items-center justify-between leading-none p-1">
                   <a class="flex items-center no-underline hover:underline text-black" href="#">
                       <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random">
                       <p class="item__title ml-2 sm:text-xs text-lg ">
@@ -40,6 +38,9 @@
                       <span class="hidden">Like</span>
                       <i class="fa fa-heart"></i>
                   </a>
+                   <p v-if="work.academic_year" class="inline-block bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700 mr-2 mb-2 text-grey-darker text-sm">
+                      {{ work.academic_year.substring(0, 4) }}
+                  </p>
               </footer>
             </div>
               <PuSkeleton :count="2">
