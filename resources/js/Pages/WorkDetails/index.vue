@@ -2,9 +2,7 @@
   <app-layout>
      <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Details" />
      
-      <div id="adobe-dc-view" v-if="read" style="height : 500px;"  class="w-full" ></div>
-      <div  id="adobe-dc-view" v-else-if="readFull" class="container shadow-xl"></div>
-
+      <div id="adobe-dc-view" :class="{'h-96 w-full':read, 'h-0':!read, 'container shadow-xl':readFull}" ></div>
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
@@ -97,12 +95,12 @@ export default {
         this.show()
      },
      showWork(){
-       this.read = true,
         window.scrollTo({
             top : 0,
             left:0,
             behavior :'smooth'
         })
+        console.log(this.read)
         if(!this.read){
               var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
@@ -120,7 +118,9 @@ export default {
                   });
                 });
               });
-        
+              this.read = true
+        }else{
+          this.read = true
         }
      }, 
       show() {
