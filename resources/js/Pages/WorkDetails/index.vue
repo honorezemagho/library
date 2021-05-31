@@ -2,8 +2,9 @@
   <app-layout>
      <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Details" />
      
-      <div id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
-    
+      <div v-if="read" id="adobe-dc-view" style="height : 500px;"  class="w-full" ></div>
+      <div v-else-if="readFull" id="adobe-dc-view" class="container shadow-xl"></div>
+      
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
@@ -72,23 +73,6 @@ import ViewSubject from "./ViewReport";
 import AppLayout from "@/Layouts/AppLayout";
 import VueEasyLightbox from 'vue-easy-lightbox';
 
-
-var viewerConfig = {
-  showAnnotationTools: false,
-  enableFormFilling: false,
-  showLeftHandPanel: true,
-  showDownloadPDF: false,
-  showPrintPDF: false,
-  showPageControls: true,
-  dockPageControls: true,
-  enableLinearization: true,
-  embedMode: "",
-  enableAnnotationAPIs: true,
-  defaultViewMode: "", /* Allowed possible values are "FIT_PAGE", "FIT_WIDTH" or "". */
-
-};
-
-
 export default {
   components: {
     InnerPageHero,
@@ -107,7 +91,7 @@ export default {
 		var previewFilePromise = adobeDCView.previewFile({
 			content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
 			metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
-		}, viewerConfig);
+		}, this.viewerConfig);
     const allowTextSelection = false;
     previewFilePromise.then(adobeViewer => {
       adobeViewer.getAnnotationManager().then(annotationManager => {
@@ -136,11 +120,26 @@ export default {
     },
   data() {
     return {
-      myWork :this.work,
-      myWorks :this.related,
+      read : false,
+      readFull : false,
+      myWork : this.work,
+      myWorks : this.related,
       imgs: '', // Img Url , string or Array of string
       visible: false,
-      index: 0 // default: 0
+      index: 0 ,// default: 0
+      viewerConfig : {
+        showAnnotationTools: false,
+        enableFormFilling: false,
+        showLeftHandPanel: true,
+        showDownloadPDF: false,
+        showPrintPDF: false,
+        showPageControls: true,
+        dockPageControls: true,
+        enableLinearization: true,
+        embedMode: "", //IN_LINE
+        enableAnnotationAPIs: true,
+        defaultViewMode: "", /* Allowed possible values are "FIT_PAGE", "FIT_WIDTH" or "". */
+      }
     }
   },
 
