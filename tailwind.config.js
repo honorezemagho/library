@@ -80,6 +80,9 @@ module.exports = {
         '1/4': '25%',
         '1/2': '50%',
         '3/4': '75%'
+         },
+      height: {
+      viewer: '500px',
       },
       screens: {
         'sm': '640px',

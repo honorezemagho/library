@@ -2,7 +2,7 @@
   <app-layout>
      <InnerPageHero image-url="/dist/images/banner-book-details.png" title="Work Details" />
      
-      <div id="adobe-dc-view" :class="{'h-96 w-full':read, 'h-0':!read, 'container shadow-xl':readFull}" ></div>
+      <div id="adobe-dc-view" :class="{'h-viewer w-full':read, 'h-0':!read, 'container shadow-2xl':readFull}" ></div>
       <!--Book details section -->
       <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
         <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
@@ -33,9 +33,13 @@
                   <ViewSubject :work="myWork" />
             </div>
             <div class="text-center">
-                <button type="button" @click="() => showWork()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                <button type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read This Work</span>
-                 </button>    </div>
+                 </button> 
+                  <button v-if="read" type="button" @click="() => showWorkFull()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Read In Full</span>
+                 </button>    
+              </div>
            </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
@@ -94,15 +98,45 @@ export default {
         this.imgs = '/'+this.work.cover,
         this.show()
      },
-     showWork(){
+     showWorkFull(){
         window.scrollTo({
             top : 0,
             left:0,
             behavior :'smooth'
         })
-        console.log(this.read)
-        if(!this.read){
-              var adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+       this.read = false
+       this.readFull = true
+       this.adobeDCView = null
+     
+       this.viewerConfig.embedMode = "IN_LINE"
+       this.adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+              var previewFilePromise = adobeDCView.previewFile({
+                content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
+                metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
+              }, this.viewerConfig);
+              const allowTextSelection = false;
+              previewFilePromise.then(adobeViewer => {
+                adobeViewer.getAnnotationManager().then(annotationManager => {
+                  // All annotation APIs can be invoked here
+                  adobeViewer.getAPIs().then(apis => {
+                          apis.enableTextSelection(allowTextSelection)
+                                  .then(() => console.log("Success"))
+                                  .catch(error => console.log(error));
+                  });
+                });
+              });
+     },
+     showWork(){
+        this.readFull = false
+        this.adobeDCView = null
+        this.viewerConfig.embedMode = ""
+        window.scrollTo({
+            top : 0,
+            left:0,
+            behavior :'smooth'
+        })
+         if(!this.read){
+              this.adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
                 content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
                 metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
@@ -135,6 +169,7 @@ export default {
     return {
       read : false,
       readFull : false,
+      adobeDCView : null,
       myWork : this.work,
       myWorks : this.related,
       imgs: '', // Img Url , string or Array of string
