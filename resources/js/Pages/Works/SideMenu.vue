@@ -57,6 +57,35 @@
                 </div>
             </template>
         </vue-collapsible-panel>
+         <vue-collapsible-panel class="mb-2" :expanded="true">
+            <template #title>
+                Category
+            </template>
+            <template #content>
+               <div id="v-model-multiple-checkboxes" class="flex flex-col">
+                  <label for="check-1" class="flex items-center">
+                      <input type="checkbox" @change="filterCategories" id="check-1" value="000" v-model="checkedCategories" />
+                      <span class="ml-4">General</span>
+                  </label>
+                  <label for="check-2" class="flex items-center">
+                      <input type="checkbox" @change="filterCategories" id="check-2" value="100" v-model="checkedCategories" />
+                      <span class="ml-4">philosophy</span>
+                  </label>
+                  <label for="check-3" class="flex items-center">
+                      <input type="checkbox" @change="filterCategories" id="check-3" value="200" v-model="checkedCategories" />
+                      <span class="ml-4">Social Sciences</span>
+                  </label>
+                  <label for="check-4" class="flex items-center">
+                      <input type="checkbox" @change="filterCategories" id="check-4" value="300" v-model="checkedCategories" />
+                      <span class="ml-4">NS & Maths</span>
+                  </label>
+                  <label for="check-5" class="flex items-center">
+                      <input type="checkbox" @change="filterCategories" id="check-5" value="400" v-model="checkedCategories" />
+                      <span class="ml-4">Languages</span>
+                  </label>
+                </div>
+            </template>
+        </vue-collapsible-panel>
       </vue-collapsible-panel-group>   
     </div>
      <!--Advance search section -->
@@ -80,6 +109,7 @@ export default {
   data() {
     return {
       selectedTypeWork: 'All',
+      checkedCategories : [],
       actualWorks :this.curWorks,
       updatedWork : this.curWorks,
       form: this.$inertia.form({
@@ -91,14 +121,13 @@ export default {
   computed: {
       filteredTypeWork : function () 
       {
-        console.log("Selected")
-        console.log(this.selectedTypeWork)
-        console.log(this.actualWorks)
         this.updatedWork = this.actualWorks.filter(actualWork => actualWork.model_name == this.selectedTypeWork);
-        console.log(this.updatedWork)
-        this.$emit('onUpdateWork', this.updatedWork)
-     
-      }
+        this.$emit('onUpdateWork', this.updatedWork) 
+      },
+
+     filterCategories : function(){
+       console.log(this.checkedCategories);
+     }
     },
   methods: {
     submit() {
