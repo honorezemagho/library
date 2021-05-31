@@ -77,11 +77,14 @@
                   </label>
                   <label for="check-4" class="flex items-center">
                       <input type="checkbox" @change="filterCategories" id="check-4" value="300" v-model="checkedCategories" />
-                      <span class="ml-4">NS & Maths</span>
+                      <span class="ml-4">Natural S. & Maths</span>
                   </label>
                   <label for="check-5" class="flex items-center">
                       <input type="checkbox" @change="filterCategories" id="check-5" value="400" v-model="checkedCategories" />
                       <span class="ml-4">Languages</span>
+                  </label>
+                  <label class="flex items-center mt-1">
+                       <a class="ml-4 text-blue-700 hover:text-blue-800  text-lg" href="#">More..</a>
                   </label>
                 </div>
             </template>

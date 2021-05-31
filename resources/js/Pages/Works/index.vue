@@ -25,11 +25,11 @@
             
              <div id="boxWork" class="col-span-1 mt-2">
                 <div class="flex flex-wrap">
-                <transition-group  name="list-complete-item" mode="out-in">
-                  <div v-for="work in curWorks"  v-bind:key="work.id" class="list-complete-item transform duration-500 lg:mb-4 xs:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
-                      <work :work="work" />
+                  <transition-group  name="list-complete-item" mode="out-in">
+                    <div v-for="work in curWorks"  v-bind:key="work.id" class="list-complete-item transform duration-500 lg:mb-4 sm:mb-4 hover:-translate-y-1 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-2 lg:w-1/4">
+                        <work :work="work" />
                     </div>
-                 </transition-group>
+                  </transition-group>
                 </div>
                   
             </div>
