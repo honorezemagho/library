@@ -78,8 +78,8 @@
 
                  <div class="grid grid-cols-12 gap-6 mt-5">
                     <div class="col-span-12 sm:col-span-6 intro-y">
-                        <div class="p-6 m-20 bg-white rounded shadow">
-                            {!! $categoryWorkChart->container() !!}
+                        <div class="bg-white rounded shadow">
+                            {!! $chart->container() !!}
                         </div>
                     </div>
                     <div class="col-span-12 sm:col-span-6 intro-y">
@@ -111,7 +111,7 @@
             <!-- END: Weekly Top Seller -->
         </div>
     </div>
-    
-    <script src="{{ LarapexChart::cdn() }}"></script>
-    {{ $categoryWorkChart->script() }}
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    {{ $chart->script() }}
+ 
+  </div>

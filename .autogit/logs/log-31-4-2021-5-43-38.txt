@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 31 2021 05:43:38 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Dashboard.php
+* composer.json
+* composer.lock
+* resources/views/livewire/dashboard.blade.php
+
+
+Created files:
+* .autogit/logs/log-31-4-2021-5-3-16.txt
+* config/larapex-charts.php
+
+
+Deleted files:
+
+
+Renamed files:
