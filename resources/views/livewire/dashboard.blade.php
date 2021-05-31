@@ -77,13 +77,15 @@
                 </div>
 
                  <div class="grid grid-cols-12 gap-6 mt-5">
-                    <div class="col-span-12 sm:col-span-6 intro-y">
-                        <div class="bg-white rounded shadow">
-                            {!! $chart->container() !!}
+                    <div class="col-span-12 sm:col-span-6  intro-y">
+                        <div class="m-10 bg-white rounded shadow">
+                            {!! $chartWorksCategory->container() !!}
                         </div>
                     </div>
                     <div class="col-span-12 sm:col-span-6 intro-y">
-                      
+                        <div class="m-10 bg-white rounded shadow">
+                            {!! $chartEvolutionOfUsers->container() !!}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,6 +114,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    {{ $chart->script() }}
+    {{ $chartWorksCategory->script() }}
+    {{ $chartEvolutionOfUsers->script() }}
  
   </div>

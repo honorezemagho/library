@@ -8,8 +8,14 @@
                 </a>
                <header class="item__meta flex items-center justify-between leading-tight p-2 md:p-2">
                    <h1 class="item__title text-md">
-                          <inertia-link  class="no-underline hover:underline text-gray-900 tex-bold" 
-                          :href="route('work_details',[work.model_name.toLowerCase() ,work.id])">{{ work.title }}
+                          <inertia-link  class="break-normal md:break-all no-underline hover:underline text-gray-900 tex-bold" 
+                          :href="route('work_details',[work.model_name.toLowerCase() ,work.id])">
+                          <span v-if="work.title.length > 20" >
+                            {{ work.title.substring(0, 50) }} .. 
+                          </span>
+                          <span v-else >
+                            {{ work.title }} ... 
+                          </span>
                           </inertia-link>
                   </h1>
                   <p class="text-grey-darker text-sm">

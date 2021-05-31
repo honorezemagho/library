@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 31 2021 06:31:12 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Dashboard.php
+* resources/views/layouts/main.blade.php
+* resources/views/livewire/dashboard.blade.php
+
+
+Created files:
+* .autogit/logs/log-31-4-2021-5-43-38.txt
+
+
+Deleted files:
+
+
+Renamed files:

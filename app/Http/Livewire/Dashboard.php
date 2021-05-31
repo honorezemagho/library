@@ -17,17 +17,24 @@ class Dashboard extends Component
         $subjects = Subject::count();
         $members = User::role('Member')->count();
 
-        $chart = (new LarapexChart)->pieChart()
+        $chartWorksCategory = (new LarapexChart)->pieChart()
         ->setTitle('Category of Works')
         ->addData([ $reports,$books, $subjects])
         ->setLabels(['Report', 'Books', 'Subjects']);
+
+        $chartEvolutionOfUsers = (new LarapexChart)->lineChart()
+        ->setTitle('Evolution of Users')
+        ->addLine('Users', \App\Models\User::query()->pluck('id')->toArray())
+        ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
+        ->setColors(['#ffc63b']);
         
         return view('livewire.dashboard', 
         ['reports' => $reports,
          'books' => $books, 
          'subjects' => $subjects,
          'members' => $members,
-         'chart' => $chart,
+         'chartWorksCategory' => $chartWorksCategory,
+         'chartEvolutionOfUsers' => $chartEvolutionOfUsers,
         ]);
     }
 }
