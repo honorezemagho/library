@@ -38,7 +38,7 @@
                       <span class="hidden">Like</span>
                       <i class="fa fa-heart"></i>
                   </a>
-                   <p v-if="work.academic_year" class="inline-block bg-gray-200 rounded-full px-3 py-1 font-semibold text-gray-700 mr-2 mb-2 text-grey-darker text-sm">
+                   <p v-if="work.academic_year" class="inline-block bg-gray-200 text-blue-700 rounded-full px-3 py-1 font-semibold text-gray-700 mr-2 mb-2 text-grey-darker text-sm">
                       {{ work.academic_year.substring(0, 4) }}
                   </p>
               </footer>

@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Mon May 31 2021 22:34:36 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/css/app.css
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* tailwind.config.js
+
+
+Created files:
+* .autogit/logs/log-31-4-2021-21-59-3.txt
+
+
+Deleted files:
+
+
+Renamed files:
