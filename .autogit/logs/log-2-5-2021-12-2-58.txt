@@ -1,0 +1,32 @@
+-------------------- Auto-Git Log --------------------
+		Wed Jun 02 2021 12:02:58 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Admins.php
+* app/Http/Livewire/Members.php
+* app/Models/Report.php
+* app/Models/Subject.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* resources/views/livewire/admins.blade.php
+* resources/views/livewire/authors.blade.php
+* resources/views/livewire/books.blade.php
+* resources/views/livewire/members.blade.php
+* resources/views/livewire/permissions.blade.php
+* resources/views/livewire/publishers.blade.php
+* resources/views/livewire/roles.blade.php
+* resources/views/livewire/student-reports.blade.php
+* resources/views/livewire/subjects.blade.php
+
+
+Created files:
+* .autogit/logs/log-1-5-2021-5-53-44.txt
+* app/Models/View.php
+* database/migrations/2021_06_01_073743_create_views_table.php
+
+
+Deleted files:
+
+
+Renamed files:
