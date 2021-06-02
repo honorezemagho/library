@@ -33,7 +33,7 @@
                   <ViewSubject :work="myWork" />
             </div>
             <div class="text-center">
-                <button type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                <button  v-if="!readFull" type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read This Work</span>
                  </button> 
                   <button v-if="read" type="button" @click="() => showWorkFull()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
@@ -109,7 +109,8 @@ export default {
        this.adobeDCView = null
      
        this.viewerConfig.embedMode = "IN_LINE"
-       this.adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+              var adobeDCView = this.adobeDCView
+              adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
                 content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
                 metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
@@ -136,7 +137,8 @@ export default {
             behavior :'smooth'
         })
          if(!this.read){
-              this.adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+              var adobeDCView = this.adobeDCView
+              adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
                 content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
                 metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}

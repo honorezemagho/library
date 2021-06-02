@@ -24,6 +24,10 @@ class Report extends Model
         return $this->morphToMany(Author::class,'author_work');
     }
 
+    public function views(){
+    return $this->morphMany(View::class,'viewable');
+    }
+
     public function level(){
         return $this->belongsTo(Level::class);
     }

@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Tue Jun 01 2021 05:53:44 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Components/Work.vue
+
+
+Created files:
+* .autogit/logs/log-31-4-2021-22-34-36.txt
+
+
+Deleted files:
+
+
+Renamed files:

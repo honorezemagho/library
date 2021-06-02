@@ -88,7 +88,6 @@
     </x-slot>
  <x-slot name="content">
    <div class="space-y-4 divide-y divide-gray-200">
-        <x-jet-validation-errors class="mb-4" />
         <form enctype="multipart/form-data"> 
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text sm:pb-4"> 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
@@ -196,9 +195,9 @@
 
  <x-slot name="footer">
    @if($admin_id)
-   <x-jet-button wire:click="updateAdmin">  {{ __('Update') }}</x-jet-button>
+   <x-jet-button wire:click="updateAdmin">{{ __('Update') }}</x-jet-button>
    @else
-   <x-jet-button wire:click="storeAdmin">  {{ __('Store') }}</x-jet-button>
+   <x-jet-button wire:click="storeAdmin">{{ __('Create') }}</x-jet-button>
    @endif
  </x-slot>
 </x-jet-dialog-modal>

@@ -239,7 +239,7 @@
    @if($report_id)
    <x-jet-button wire:click="updateReport">  {{ __('Update') }}</x-jet-button>
    @else
-   <x-jet-button wire:click="storeReport">  {{ __('Store') }}</x-jet-button>
+   <x-jet-button wire:click="storeReport"> {{ __('Create') }}</x-jet-button>
    @endif
  </x-slot>
 </x-jet-dialog-modal>

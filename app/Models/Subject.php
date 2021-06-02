@@ -25,6 +25,10 @@ class Subject extends Model
         return $this->belongsTo(Author::class);
     }
 
+    public function views(){
+    return $this->morphMany(View::class,'viewable');
+    }
+
     public function level(){
         return $this->belongsTo(Level::class);
     }

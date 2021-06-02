@@ -106,7 +106,7 @@
        @if($permission_id)
        <x-jet-button wire:click="updatePermission">Update</x-jet-button>
        @else
-       <x-jet-button wire:click="storePermission">Store</x-jet-button>
+       <x-jet-button wire:click="storePermission">{{ __('Create') }}</x-jet-button>
        @endif
      </x-slot>
  </x-jet-dialog-modal>

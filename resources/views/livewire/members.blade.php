@@ -88,7 +88,6 @@
     </x-slot>
  <x-slot name="content">
    <div class="space-y-4 divide-y divide-gray-200">
-        <x-jet-validation-errors class="mb-4" />
         <form enctype="multipart/form-data"> 
             @csrf
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text sm:pb-4"> 
@@ -199,7 +198,7 @@
    @if($member_id)
    <x-jet-button wire:click="updateMember">  {{ __('Update') }}</x-jet-button>
    @else
-   <x-jet-button wire:click="storeMember">  {{ __('Store') }}</x-jet-button>
+   <x-jet-button wire:click="storeMember"> {{ __('Create') }}</x-jet-button>
    @endif
  </x-slot>
 </x-jet-dialog-modal>

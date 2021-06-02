@@ -122,7 +122,7 @@
        @if($publisher_id)
        <x-jet-button wire:click="updatePublisher">Update</x-jet-button>
        @else
-       <x-jet-button wire:click="storePublisher">Store</x-jet-button>
+       <x-jet-button wire:click="storePublisher">{{ __('Create') }}</x-jet-button>
        @endif
      </x-slot>
  </x-jet-dialog-modal>

@@ -105,7 +105,7 @@
        @if($role_id)
        <x-jet-button wire:click="updateRole">Update</x-jet-button>
        @else
-       <x-jet-button wire:click="storeRole">Store</x-jet-button>
+       <x-jet-button wire:click="storeRole">{{ __('Create') }}</x-jet-button>
        @endif
      </x-slot>
  </x-jet-dialog-modal>
