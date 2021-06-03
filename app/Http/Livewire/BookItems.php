@@ -109,8 +109,8 @@ class BookItems extends Component
             'date_of_purchase' => $this->date_of_purchase,
             'publish_date' => $this->publish_date,
             'publish_country' => $this->publish_country,
-            'book_format' => $this->book_format,
-            'status_id' => $this->status,
+            'book_format' => $this->format,
+            'status_id' => $this->status_id,
             'book_id' => $this->book->id,
             'url' => $url_name_file,
            ]);
@@ -121,7 +121,7 @@ class BookItems extends Component
        
         //session()->flash('flash.banner', 'BookItem created Successfully');
     }
-    
+
     public function updateBookItem()
     {
         $this->validate([
@@ -164,9 +164,8 @@ class BookItems extends Component
 
     public function loadEditForm()
     {
-        $book = BookItem::findOrFail($this->book_item_id);
-        $this->language =  $book->title;
-      }
+        $book_item = BookItem::findOrFail($this->book_item_id);
+    }
 
     public function showDeleteBookItemModal($id)
     {

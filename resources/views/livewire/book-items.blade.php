@@ -38,24 +38,20 @@
             <tbody>
                     @foreach ($book_items as $book_item)
                     <tr>
-                      
-                        <td style="width: 10%" class="text-center border-b">
-                            <div class="flex sm:justify-center">
-                                <div class="intro-x w-10 h-10 image-fit">
-                                    <img alt="a" class="rounded-full" src="{{ asset('storage/'.$book->cover) }}">
-                                </div>
-                            </div>
-                        </td>
-                          <td class="border-b">
-                            <div class="font-medium whitespace-no-wrap">{{ $book->title }}</div>
+                
+                        <td class="border-b">
+                            <div class="font-medium whitespace-no-wrap">{{ $book_item->code }}</div>
 
                         </td>
                          <td class="border-b">
-                            <div class="font-medium whitespace-no-wrap">{{ $book->authors[0]->name }}</div>
+                            <div class="font-medium whitespace-no-wrap">{{ $book_item->format->title }}</div>
                             
                         </td>
-                        <td class="text-center border-b">{{ $book->format->title }}</td>
-                       
+                        <td class="text-center border-b">{{ $book_item->price}}</td>
+                        <td class="border-b">
+                            <div class="font-medium whitespace-no-wrap">{{ $book_item->publish_date }}</div>
+
+                        </td>
                         <td class="border-b w-5">
                             <div  x-data="{ isTouch: false }" class="flex sm:justify-center items-center">
                                 <a x-on:click.prevent wire:click="showEditBookItemModal({{ $book_item->id }})" @touchstart.prevent="isTouch = true" class="flex items-center text-theme-4 mr-3" href="">
@@ -142,7 +138,7 @@
                         
                         <div class="col-span-2 sm:col-span-1"> 
                             <x-jet-label for="status_id" value="{{ __('Status') }}" />
-                            <select id="status_id" wire:model.lazy="status_id" name="status_id" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
+                            <select id="status_id" wire:model="status_id" name="status_id" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
                                 @if($this->status_id == null)
                                     <option selected value="Null">{{ __('Choose a Status') }}</option>
                                 @endif
@@ -171,11 +167,7 @@
                        
                     </div> 
                  </div> 
-            
-           
-           
-           
-           
+          
             </form> 
         </div>
      </x-slot>

@@ -12,4 +12,7 @@ class BookItem extends Model
     protected $table = 'book_items';
     protected $guarded = ['created_at'];
  
+    public function format(){
+        return $this->belongsTo(BookFormat::class,'book_format');
+    }
 }
