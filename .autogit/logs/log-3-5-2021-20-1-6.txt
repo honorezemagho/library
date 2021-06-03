@@ -1,0 +1,28 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 03 2021 20:01:06 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/BookItems.php
+* app/Http/Livewire/Books.php
+* app/Models/Book.php
+* app/Models/Status.php
+* config/livewire.php
+* resources/js/Components/Testimonial.vue
+* resources/views/layouts/components/top-bar.blade.php
+* resources/views/livewire/book-items.blade.php
+* resources/views/livewire/books.blade.php
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-2-5-2021-12-32-8.txt
+* app/Http/Controllers/BookItemController.php
+* resources/views/pages/book-items.blade.php
+
+
+Deleted files:
+* app/Http/Controllers/RolePermissionController.php
+
+
+Renamed files:

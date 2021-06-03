@@ -2,18 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\BookItem;
-use App\Models\BookFormat;
-use App\Models\Status;
 use App\Models\Book;
-use App\Models\Author;
+use App\Models\Status;
 use Livewire\Component;
+use App\Models\BookItem;
 use App\Models\Publisher;
+use App\Models\BookFormat;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\PageController;
 
 class BookItems extends Component
@@ -35,6 +33,11 @@ class BookItems extends Component
     public $showDeleteModalForm = false;
     protected $pageController;
 
+    public function mount($book_id){
+        $this->book_id = $book_id;
+        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
+        $this->callAPI();
+    }
     public function callAPI(){
         $ISBN = $this->book->ISBN;
         $response = json_decode(file_get_contents('https://openlibrary.org/api/books?bibkeys=ISBN:'.$ISBN.'&jscmd=details&format=json'), true);
@@ -43,7 +46,7 @@ class BookItems extends Component
 
             //Details of the book
             $details = $data["details"]; 
-
+            dd($details);
             //publishers
              if($details["publishers"][0]){
                 $publisher = Publisher::where('name', 'like','%'.$details["publishers"][0].'%')->first();
@@ -170,7 +173,6 @@ class BookItems extends Component
 
     public function render()
     {
-        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
         $this->pageController = new PageController();
         $book_item_page  =  $this->pageController->loadPage("books");
         $book_items = $this->book->bookItems;
