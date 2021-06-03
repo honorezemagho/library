@@ -33,6 +33,7 @@ class Books extends Component
     public $ISSN;
     public $type;
     public $ddc_natural_id;
+    public $ddc_decimal_id;
     public $language;
     public $publisher;
     public $showModalForm = false;
@@ -117,6 +118,22 @@ class Books extends Component
                 //$this->type = $details["type"]["key"];
             }
 
+            //Dewey Classification
+            if($details["dewey_decimal_class"][0]){
+                $ddc = explode("/",$details["dewey_decimal_class"][0]);
+                $ddc_integer = $ddc[0];
+                $ddc_decimal = str_replace(".","",$ddc[1]);
+                if(Str::length($ddc_decimal) == 1){
+                    $ddc_decimal.="00";
+                }elseif(Str::length($ddc_decimal) == 2){
+                    $ddc_decimal.="0";
+                }
+                dd($ddc_decimal);
+
+
+            }
+
+
         }else{
              //reset Book cover
             $this->reset();
@@ -180,6 +197,7 @@ class Books extends Component
             'ISBN' => $this->ISBN,
             'ISSN' => $this->ISSN,
             'cover' => $cover_name,
+            'description' => $this->description,
             'author_1' => $author_1->id,
             'number_of_pages' => $this->number_of_pages,
             'language' =>  $this->language,

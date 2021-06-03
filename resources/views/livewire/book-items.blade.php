@@ -144,7 +144,7 @@
                             <x-jet-label for="status_id" value="{{ __('Status') }}" />
                             <select id="status_id" wire:model.lazy="status_id" name="status_id" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
                                 @if($this->status_id == null)
-                                    <option selected value="Null">{{ __('Choose a field') }}</option>
+                                    <option selected value="Null">{{ __('Choose a Status') }}</option>
                                 @endif
                                 @foreach ($status as $statut)
                                     <option value="{{ $statut->id }}">{{ $statut->title }}</option>

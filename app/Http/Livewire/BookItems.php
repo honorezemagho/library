@@ -33,10 +33,8 @@ class BookItems extends Component
     public $showDeleteModalForm = false;
     protected $pageController;
 
-    public function mount($book_id){
-        $this->book_id = $book_id;
+    public function mount(){
         $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
-        $this->callAPI();
     }
     public function callAPI(){
         $ISBN = $this->book->ISBN;
@@ -65,22 +63,10 @@ class BookItems extends Component
                 $this->publish_date = $details["publish_date"];
             }
 
-            //Dewey Classification
-            if($details["dewey_decimal_class"][0]){
-                $ddc = explode("/",$details["dewey_decimal_class"][0]);
-                $ddc_integer = $ddc[0];
-                $ddc_decimal = str_replace(".","",$ddc[1]);
-                if(Str::length($ddc_decimal) == 1){
-                    $ddc_decimal.="00";
-                }elseif(Str::length($ddc_decimal) == 2){
-                    $ddc_decimal.="0";
-                }
-                dd($ddc_decimal);
-            }
-
         }else{
+            $book_id = $this->book_id;
             $this->reset();
-            $this->showCreateBookItemModal();
+            $this->book_id = $book_id;
        }
     }
 
@@ -106,31 +92,36 @@ class BookItems extends Component
     public function storeBookItem()
     {
         $this->validate([
-            'code' => ['required', 'string', 'max:255'],
+            'code' => ['required', 'string', 'max:10'],
             ]);
     
+        $url_name_file = "";
         if ($this->url) {
             $url_extension = $this->url->getClientOriginalExtension();
             $url_name = 'books'.'/'.Str::random(40).'.'.$url_extension;
+            $url_name_file = 'storage/'.$url_name;
             $this->url->storeAs('public/', $url_name);
         }
 
-        $publisher= Publisher::where('name', 'like','%'.$this->publisher.'%')->first();
-      
         $book = BookItem::create([
-            'title' => $this->title,
-            'book_type_id' => $this->type,
-            'ISBN' => $this->ISBN,
-            'ISSN' => $this->ISSN,
-            'language' =>  $this->language,
-            'publisher_id' => $publisher->id,
-         ]);
+            'code' => $this->code,
+            'price' => $this->price,
+            'date_of_purchase' => $this->date_of_purchase,
+            'publish_date' => $this->publish_date,
+            'publish_country' => $this->publish_country,
+            'book_format' => $this->book_format,
+            'status_id' => $this->status,
+            'book_id' => $this->book->id,
+            'url' => $url_name_file,
+           ]);
         
-     
-        $this->reset();
+         $book_id = $this->book_id;
+         $this->reset();
+         $this->book_id = $book_id;
        
         //session()->flash('flash.banner', 'BookItem created Successfully');
     }
+    
     public function updateBookItem()
     {
         $this->validate([
@@ -146,12 +137,14 @@ class BookItems extends Component
         $publisher= Publisher::where('name', 'like','%'.$this->publisher.'%')->first();
         
         BookItem::find($this->book_item_id)->update([
-            'title' => $this->title,
-            'type' => $this->type,
-            'language' =>  $this->ISSN,
-            'language' =>  $this->language,
-            'publisher_id' => $publisher->id,
-      
+            'code' => $this->code,
+            'price' => $this->price,
+            'date_of_purchase' => $this->date_of_purchase,
+            'publish_date' => $this->publish_date,
+            'publish_country' => $this->publish_country,
+            'book_format' => $this->book_format,
+            'status_id' => $this->status,
+            'book_id' => $this->book->id,
         ]);
         $book_id = $this->book_id;
         $this->reset();
@@ -195,6 +188,8 @@ class BookItems extends Component
 
     public function render()
     {
+        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
+        $this->callAPI();
         $this->pageController = new PageController();
         $book_item_page  =  $this->pageController->loadPage("books");
         $book_items = $this->book->bookItems;
