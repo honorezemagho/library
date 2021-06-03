@@ -1,14 +1,13 @@
 <?php
 
 use Inertia\Inertia;
-use App\Http\Livewire\Roles\Roles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WorkController;
-use App\Http\Controllers\RolePermissionController;
+use App\Http\Controllers\BookItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,8 +87,6 @@ Route::middleware(['auth:sanctum', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('',  [PageController::class, 'loadPage'])->name('admindashboard');
-       //Route::get('/roles', Roles::class)->name('admin');
-       //Route::get('/roles',  [RolePermissionController::class, 'index_roles'])->name('roles.index');
-    
+        Route::get('/book/book-item/{id}',[ BookItemController::class, 'index'])->name('book-items.index');
         Route::get('/{pageName}', [PageController::class, 'loadPage'])->name('admin');        
     });

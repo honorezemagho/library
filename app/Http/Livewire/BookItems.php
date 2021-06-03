@@ -3,6 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\BookItem;
+use App\Models\BookFormat;
+use App\Models\Status;
+use App\Models\Book;
 use App\Models\Author;
 use Livewire\Component;
 use App\Models\Publisher;
@@ -11,16 +14,18 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\PageController;
 
 class BookItems extends Component
 {
     use WithFileUploads;
 
     public $book;
+    public $book_id;
     public $book_item_id;
-    public $book_item_code;
-    public $book_format;
-    public $publisher;
+    public $code;
+    public $format;
+    public $price;
     public $publish_date;
     public $publish_country;
     public $date_of_purchase;
@@ -28,28 +33,16 @@ class BookItems extends Component
     public $status_id;
     public $showModalForm = false;
     public $showDeleteModalForm = false;
+    protected $pageController;
 
-    public function updatingISBN($value)
-    {
-        if(strlen($value) >= 10){
-            $this->callAPI($value);
-        }else{
-            // 
-        }
-    }
-
-    public function callAPI($ISBN){
+    public function callAPI(){
+        $ISBN = $this->book->ISBN;
         $response = json_decode(file_get_contents('https://openlibrary.org/api/books?bibkeys=ISBN:'.$ISBN.'&jscmd=details&format=json'), true);
         if($response){
             $data = $response["ISBN:$ISBN"];  
 
             //Details of the book
             $details = $data["details"]; 
-
-            //language
-            if($details["languages"][0]['key']){
-                $this->language = $details["languages"][0]['key'];
-            }
 
             //publishers
              if($details["publishers"][0]){
@@ -72,7 +65,17 @@ class BookItems extends Component
     }
     public function updatedShowModalForm()
     {
+        $book_id = $this->book_id;
         $this->reset();
+        $this->book_id = $book_id;
+    }
+
+    public function closeModal()
+    {
+        $book_id = $this->book_id;
+        $this->reset();
+        $this->book_id = $book_id;
+        $this->showDeleteModalForm = false;
     }
 
     public function storeBookItem()
@@ -125,13 +128,17 @@ class BookItems extends Component
             'publisher_id' => $publisher->id,
       
         ]);
+        $book_id = $this->book_id;
         $this->reset();
+        $this->book_id = $book_id;
         //session()->flash('flash.banner', 'Post Updated Successfully');
     }
 
     public function showEditBookItemModal($id)
     {
+        $book_id = $this->book_id;
         $this->reset();
+        $this->book_id = $book_id;
         $this->showModalForm = true;
         $this->book_item_id = $id;
         $this->loadEditForm();
@@ -140,12 +147,14 @@ class BookItems extends Component
     public function loadEditForm()
     {
         $book = BookItem::findOrFail($this->book_item_id);
-         $this->language =  $book->title;
+        $this->language =  $book->title;
       }
 
     public function showDeleteBookItemModal($id)
     {
+        $book_id = $this->book_id;
         $this->reset();
+        $this->book_id = $book_id;
         $this->showDeleteModalForm = true;
         $this->book_item_id = $id;
     }
@@ -161,13 +170,28 @@ class BookItems extends Component
 
     public function render()
     {
+        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
+        $this->pageController = new PageController();
+        $book_item_page  =  $this->pageController->loadPage("books");
         $book_items = $this->book->bookItems;
-        $authors = Author::all();
-        $publishers = Publisher::all();
-      
-        return view('livewire.books', [
+        $formats = BookFormat::all();
+        $status = Status::all();
+        return view('livewire.book-items', [
+            'layout' => 'side-menu', 
+            'side_menu' =>  $book_item_page->side_menu,
+            'first_page_name' =>$book_item_page->first_page_name,
+            'second_page_name' =>$book_item_page->second_page_name,
+            'third_page_name' =>"Book-Items",
             'book_items' => $book_items,
-            'publishers' => $publishers,
+            'formats' => $formats,
+            'status' => $status
+            ])->layout('layouts.side-menu',
+            [ 
+            'layout' => 'side-menu', 
+            'side_menu' =>  $book_item_page->side_menu,
+            'first_page_name' =>$book_item_page->first_page_name,
+            'second_page_name' =>$book_item_page->second_page_name,
+            'third_page_name' =>"Book-Items",  
             ]);
     }
 }

@@ -30,6 +30,15 @@ class Book extends Model
         return $this->morphToMany(Author::class,'author_work');
     }
 
+    /*return the views of a book*/
+   public function views(){
+    return $this->morphMany(View::class,'viewable');
+    }
+
+    public function bookItems(){
+        return $this->hasMany(BookItem::class,'book_id');
+    }
+    
     public function type(){
         return $this->belongsTo(BookType::class,'book_type_id');
     }

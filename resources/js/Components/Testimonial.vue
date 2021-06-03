@@ -1,5 +1,5 @@
 <template>
-    <div class="xl:w-1/3 lg:w-5/12 w-11/12 sm:w-3/5 md:w-5/12 xl:pb-0 pb-12">
+    <div class="xl:w-1/3 lg:w-5/12 w-11/12 sm:w-3/5 md:w-5/12 xl:pb-0 pb-12 ">
         <div class="shadow-lg mx-3 xl:mx-3 sm:mx-0 lg:mx-0 rounded">
             <div class="bg-blue-800 pt-6 pb-6 pl-6 rounded-tl rounded-tr">
                 <p class="text-xl text-white pb-1">Alex Parkinson</p>

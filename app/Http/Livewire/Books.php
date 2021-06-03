@@ -211,7 +211,7 @@ class Books extends Component
     {
         $this->validate([
             'title' => ['required', 'string', 'max:255'],
-            'author_1' => ['required', 'string', 'max:255'],
+            'author_1' => ['required'],
             ]);
 
       if ($this->url) {
@@ -229,13 +229,12 @@ class Books extends Component
         }
         Book::find($this->book_id)->update([
             'title' => $this->title,
-            'type' => $this->type,
+            'book_type_id' => $this->type,
             'ISBN' => $this->ISBN,
             'ISSN' => $this->ISSN,
             'cover' => $this->cover,
-            'author_1' => $author_1->id,
+            'author_1' => $author_1,
             'number_of_pages' => $this->number_of_pages,
-            'language' =>  $this->ISSN,
             'language' =>  $this->language,
             'publisher_id' => $publisher->id,
       
@@ -256,10 +255,10 @@ class Books extends Component
     {
         $book = Book::findOrFail($this->book_id);
         $this->title =  $book->title;
-        $this->type =  $book->type;
+        $this->type =  $book->book_type_id;
         $this->ISBN =  $book->ISBN;
         $this->ISSN =  $book->ISSN;
-        $this->language =  $book->title;
+        $this->language =  $book->language;
         $this->number_of_pages =  $book->number_of_pages;
         if(!empty($book->authors[0])){
             $this->author_1 =  $book->authors[0]->id;

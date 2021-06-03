@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Statut extends Model{
+class Status extends Model{
     protected $guarded = ['id','created_at'];
     protected $table= 'status';
 }

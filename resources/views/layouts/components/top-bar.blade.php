@@ -15,10 +15,15 @@
         @if($second_page_name)
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
             @if($third_page_name)
-                <a href="" class="breadcrumb">{{ $second_page_name }}</a>
+                <a href="/admin/{{ $second_page_name }}" class="breadcrumb">{{ $second_page_name }}</a>
             @else
                 <a href="" class="breadcrumb--active">{{ $second_page_name }}</a>
             @endif
+        @endif
+
+         @if($third_page_name)
+            <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+                <a href="" class="breadcrumb--active">{{ $third_page_name }}</a>
         @endif
     
     </div>
