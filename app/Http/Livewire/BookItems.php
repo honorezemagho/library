@@ -46,14 +46,36 @@ class BookItems extends Component
 
             //Details of the book
             $details = $data["details"]; 
-            dd($details);
+            
+            //publish_country
+           if($details['publish_country']){
+               $this->publish_country = $details['publish_country'];
+           }
             //publishers
-             if($details["publishers"][0]){
+             if($details["publishers"]){
                 $publisher = Publisher::where('name', 'like','%'.$details["publishers"][0].'%')->first();
                 if(empty($publisher)){
                     $publisher =  Publisher::create(["name" => $details["publishers"][0]]);
                 }
                 $this->publisher = $details["publishers"][0];
+            }
+
+            //publish_date
+             if($details["publish_date"]){
+                $this->publish_date = $details["publish_date"];
+            }
+
+            //Dewey Classification
+            if($details["dewey_decimal_class"][0]){
+                $ddc = explode("/",$details["dewey_decimal_class"][0]);
+                $ddc_integer = $ddc[0];
+                $ddc_decimal = str_replace(".","",$ddc[1]);
+                if(Str::length($ddc_decimal) == 1){
+                    $ddc_decimal.="00";
+                }elseif(Str::length($ddc_decimal) == 2){
+                    $ddc_decimal.="0";
+                }
+                dd($ddc_decimal);
             }
 
         }else{
