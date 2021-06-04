@@ -92,7 +92,7 @@
                     @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
-             
+
              <div class="col-span-2 sm:col-span-1"> 
                 <x-jet-label for="email_link" value="{{ __('Hero Image Title') }}" />
                 <div class="relative mt-2">
@@ -123,4 +123,9 @@
 
         </div> 
      </div>
+
+    </div>
+    <div class="w-full mx-auto sm:w-auto flex mt-4 sm:mt-0">
+        <x-jet-button wire:click="showCreateBookItemModal" class=" bg-theme-1 shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
+    </div>
 </div>
