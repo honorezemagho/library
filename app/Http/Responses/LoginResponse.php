@@ -16,9 +16,18 @@ class LoginResponse implements LoginResponseContract
         $user = auth()->user();
         $auth = $user ? true : false;
         $roles = $user->getRoleNames();
+        $isAdmin = $user->hasRole('Admin');
+        $isMember = $user->hasRole('Member');
+        $isStudent = $user->hasRole('Student');
+        $isLecturer = $user->hasRole('Lecturer');
+
         session([
             'auth' => $auth,
-            'roles' => $roles
+            'roles' => $roles,
+            'isAdmin' => $isAdmin,
+            'isMember' => $isMember,
+            'isStudent' => $isStudent,
+            'isLecturer' => $isLecturer
         ]);
 
     	dd(session()->all());
