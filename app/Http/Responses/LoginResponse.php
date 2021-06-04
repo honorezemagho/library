@@ -12,7 +12,14 @@ class LoginResponse implements LoginResponseContract
      */
     public function toResponse($request)
     {
-    	dd(session());
+        //Save data into the session
+
+        session([
+            'auth' => true,
+
+        ]);
+
+    	dd(session('auth'));
     	//Redirect after login.
 
        	$home = '/';
