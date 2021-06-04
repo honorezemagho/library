@@ -16,7 +16,7 @@
                                  <img  class="block h-9 w-auto" src="/dist/images/logo.png" alt="">
                               </inertia-link>
                                <div class="text-2xl font-bold ml-2">
-                                <span :class="{'sm:text-white': !showWhiteBackground}"><p> Props : {{ $page.props.session }}</p>My Digital</span>
+                                <span :class="{'sm:text-white': !showWhiteBackground}">My Digital</span>
                                 <span class="text-primary"> Library</span>
                                 </div>
                           </div>
@@ -144,7 +144,7 @@
                                           Profile
                                       </jet-dropdown-link>
 
-                                       <a :href="route('admindashboard')" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
+                                       <a v-if="$page.props.session.isAdmin" :href="route('admindashboard')" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
                                         Back-office
                                         </a>
 

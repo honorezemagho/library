@@ -38,8 +38,29 @@
                  </button> 
                   <button v-if="read" type="button" @click="() => showWorkFull()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read In Full</span>
-                 </button>    
+                 </button>  
               </div>
+              <teleport to='body'>
+                  <jet-confirmation-modal v-if="showModalAuth"  @close="showModalAuth = false">
+                      <template #title>
+                          Delete Account
+                      </template>
+
+                      <template #content>
+                          Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.
+                      </template>
+
+                      <template #footer>
+                          <jet-secondary-button @click.native="confirmingUserDeletion = false">
+                              Nevermind
+                          </jet-secondary-button>
+
+                          <jet-danger-button class="ml-2" @click.native="deleteTeam" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                              Delete Account
+                          </jet-danger-button>
+                      </template>
+                  </jet-confirmation-modal>
+              </teleport>
            </div>
         </div>
         <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
@@ -89,7 +110,7 @@ export default {
     VueEasyLightbox,
   },
 
-  props: {work : Object, related:Object},
+  props: {work : Object, related:Object, session:Object},
   mounted() {
    
   },
@@ -128,7 +149,8 @@ export default {
               });
      },
      showWork(){
-        this.readFull = false
+       if(this.session.auth){
+          this.readFull = false
         this.adobeDCView = null
         this.viewerConfig.embedMode = ""
         window.scrollTo({
@@ -158,6 +180,11 @@ export default {
         }else{
           this.read = true
         }
+       }else{
+         console.log("Unauthorized")
+         this.showModalAuth = true
+       }
+       
      }, 
       show() {
         this.visible = true
@@ -172,6 +199,7 @@ export default {
       read : false,
       readFull : false,
       adobeDCView : null,
+      showModalAuth : false,
       myWork : this.work,
       myWorks : this.related,
       imgs: '', // Img Url , string or Array of string

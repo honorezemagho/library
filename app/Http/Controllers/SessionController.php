@@ -8,13 +8,15 @@ class SessionController extends Controller
 {
    public function index(){
 
+    $auth = session('auth');
     $roles = session('roles');
     $isAdmin = session('isAdmin');
     $isMember = session('isMember');
     $isStudent = session('isStudent');
     $isLecturer = session('isLecturer');
 
-    $session = [ 
+    $session = [
+            'auth' => $auth, 
             'roles' => $roles,
             'isAdmin' => $isAdmin,
             'isMember' => $isMember,
