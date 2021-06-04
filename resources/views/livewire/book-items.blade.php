@@ -1,4 +1,3 @@
-<div>
    <div>
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">Book Items Management</h2>
@@ -24,73 +23,65 @@
         </div>
     </div>
     <!--Book details section -->
-    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text mt-4 sm:pb-4">
-        <div class="flex col justify-between grid-cols-1 sm:grid-cols-5 col-span-2 gap-4">
-            <div class="col-span-5 sm:col-span-4"> 
-                <div class="container ml-4 mt-3">
-                    <!-- General informations -->
-                   <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
-                      <span>{{ $this->book->title }}</span>
-                  </div>
-      
-                  <div class="text-lg xl:text-xl mb-1">
-                    <span class="font-semibold">Author(s): </span>
-                    <span class="text-gray-700" >
-                        {{ $book->authors[0] ? $book->authors[0]->name : 'Not Availlable' }}
-                    </span>
-                  </div>
-                  <!-- General informations -->
-                  <div class="text-base xl:text-lg">
-                    <div>
-                        <div class="text-lg xl:text-xl mb-2">
-                            <span class="font-semibold">ISBN: </span>
-                            <span class="text-gray-700">
-                            {{ $this->book->ISBN ? $this->book->ISBN : 'Not Availlable'  }}
-                            </span>
-                        </div>
-                
-                        <div class="text-lg xl:text-xl mb-2">
-                            <span class="font-semibold">Publisher: </span>
-                            <span class="text-gray-700">
-                            {{ $this->book->publisher->name ? $this->book->publisher->name : 'Not Availlable'  }}
-                            </span>
-                        </div>
-                        
-                        <div class="text-lg xl:text-xl mb-2">
-                            <span class="font-semibold">Number of Pages : </span>
-                            <span class="text-gray-700">
-                            {{ $this->book->number_of_pages ? $this->book->number_of_pages : 'Not Availlable'  }}
-                            </span>
-                        </div>
-                        <div class="text-lg xl:text-xl mb-2">
-                            <span class="font-semibold">Language: </span>
-                            <span class="text-gray-700">
-                            {{ $this->book->language ? $this->book->language : 'Not Availlable'  }}
-                            </span>
-                        </div>
-                
-                        <div class="text-lg xl:text-xl mb-2">
-                            <span class="font-semibold">Description: </span>
-                            <span class="text-gray-700">
-                            {{ $this->book->description ? $this->book->description : 'Not Availlable'  }}
-                            </span>
-                        </div>
-                    </div>
-                  </div>
-               
+    <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 mt-5 gap-2 ml-5 mr-5">
+        <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
+             <!-- General informations -->
+            <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
+                <span>{{ $this->book->title }}</span>
             </div>
-             
-           
-            <div class="col-span-5 sm:col-span-1"> 
-                <a class="">
-                    <img  alt="Placeholder" class="block h-96" src="/{{ $this->book->cover }}">
-                  </a>
-            </div> 
-          
-        </div> 
-    </div> 
-   
-    <!--Book details section -->
+              <div class="container ml-4 mt-3">
+                <div class="text-lg xl:text-xl mb-1">
+                  <span class="font-semibold">Author(s): </span>
+                  <span class="text-gray-700" >
+                      {{ $book->authors[0] ? $book->authors[0]->name : 'Not Availlable' }}
+                  </span>
+                </div>
+                <!-- General informations -->
+                <div class="text-base xl:text-lg">
+                  <div>
+                      <div class="text-lg xl:text-xl mb-2">
+                          <span class="font-semibold">ISBN: </span>
+                          <span class="text-gray-700">
+                          {{ $this->book->ISBN ? $this->book->ISBN : 'Not Availlable'  }}
+                          </span>
+                      </div>
+              
+                      <div class="text-lg xl:text-xl mb-2">
+                          <span class="font-semibold">Publisher: </span>
+                          <span class="text-gray-700">
+                          {{ $this->book->publisher->name ? $this->book->publisher->name : 'Not Availlable'  }}
+                          </span>
+                      </div>
+                      
+                      <div class="text-lg xl:text-xl mb-2">
+                          <span class="font-semibold">Number of Pages : </span>
+                          <span class="text-gray-700">
+                          {{ $this->book->number_of_pages ? $this->book->number_of_pages : 'Not Availlable'  }}
+                          </span>
+                      </div>
+                      <div class="text-lg xl:text-xl mb-2">
+                          <span class="font-semibold">Language: </span>
+                          <span class="text-gray-700">
+                          {{ $this->book->language ? $this->book->language : 'Not Availlable'  }}
+                          </span>
+                      </div>
+              
+                      <div class="text-lg xl:text-xl mb-2">
+                          <span class="font-semibold">Description: </span>
+                          <span class="text-gray-700">
+                          {{ $this->book->description ? $this->book->description : 'Not Availlable'  }}
+                          </span>
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
+            <a class="rounded-lg shadow-xl">
+                <img  alt="Placeholder" class="block h-72" src="/{{ $this->book->cover }}">
+            </a>
+        </div>
+    </div>
 
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
@@ -137,6 +128,29 @@
                     @endforeach
              </tbody>
         </table>
+    </div>
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">Book Items Management</h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <x-jet-button wire:click="showCreateBookItemModal" class=" bg-theme-1 shadow-md mr-2 text-center">Add New Book Item</x-jet-button>    
+            <div class="dropdown relative ml-auto sm:ml-0">
+                <button class="dropdown-toggle button px-2 box text-gray-700">
+                    <span class="w-5 h-5 flex items-center justify-center">
+                        <i class="w-4 h-4" data-feather="plus"></i>
+                    </span>
+                </button>
+                <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
+                    <div class="dropdown-box__content box p-2">
+                        <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
+                            <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category
+                        </a>
+                        <a href="" class="flex items-center p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
+                            <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- END: Datatable -->
     <!-- Modal: Add BookItems -->
@@ -276,6 +290,6 @@
         </x-slot>
     </x-jet-confirmation-modal>
    </div>
-</div>
+
 
 
