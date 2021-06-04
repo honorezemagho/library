@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Fri Jun 04 2021 18:00:15 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Jetstream/ConfirmationModal.vue
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-4-5-2021-17-22-32.txt
+
+
+Deleted files:
+
+
+Renamed files:

@@ -129,7 +129,8 @@ class Books extends Component
                     $ddc_decimal.="0";
                 }
                 dd($ddc_decimal);
-
+                
+                
 
             }
 
