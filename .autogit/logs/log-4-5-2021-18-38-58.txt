@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Fri Jun 04 2021 18:38:58 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/Books.php
+* resources/views/pages/setting.blade.php
+
+
+Created files:
+* .autogit/logs/log-4-5-2021-18-0-15.txt
+* app/Http/Livewire/HomeSettings.php
+* app/Http/Livewire/Settings.php
+* resources/views/livewire/home-settings.blade.php
+* resources/views/livewire/settings.blade.php
+
+
+Deleted files:
+
+
+Renamed files:

@@ -99,13 +99,13 @@
                     @csrf
                     <div class="mt-2 sm:col-span-12">
                         <x-jet-label for="role" value="{{ __('Name') }}" />
-                            <div class="relative">
+                        <div class="relative">
                             <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600">
                                 @
                             </div> 
                             <input type="text" id="name" wire:model.lazy="name" name="name" class="input pl-12 w-full border col-span-4" />
                             @error('name') <span class="error text-red-600">{{ $message }}</span> @enderror
-                    </div>
+                        </div>
 
                     <div class="mt-4 sm:col-span-12">
                         <x-jet-label for="role" value="{{ __('Description') }}" />
