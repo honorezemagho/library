@@ -5,7 +5,7 @@
             <!-- Page Nav -->
             <nav id="navbar"
                 class="px-4 py-2 sm:py-2 bg-white shadow md:fixed w-full z-10 transition-colors duration-400"
-            :class="{ 'sm:bg-transparent sm:bg:opacity-40 sm:shadow-none': !showWhiteBackground }">
+                 :class="{ 'sm:bg-transparent sm:bg:opacity-40 sm:shadow-none': !showWhiteBackground }">
                 <!-- Primary Navigation Menu -->
               <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div class="flex justify-between h-16">
@@ -16,7 +16,7 @@
                                  <img  class="block h-9 w-auto" src="/dist/images/logo.png" alt="">
                               </inertia-link>
                                <div class="text-2xl font-bold ml-2">
-                                <span :class="{'sm:text-white': !showWhiteBackground}"> My Digital</span>
+                                <span :class="{'sm:text-white': !showWhiteBackground}"><p> Props : {{ $page.props.session }}</p>My Digital</span>
                                 <span class="text-primary"> Library</span>
                                 </div>
                           </div>
@@ -237,7 +237,6 @@
                     <slot name="header"></slot>
                 </div>
             </header>
-
             <!-- Page Content -->
             <main>
                 <slot></slot>
@@ -304,18 +303,22 @@
             JetDropdownLink,
             JetResponsiveNavLink,
         },
+        mounted() {
+            console.log("App Mounted")
+               },
         props: {
             canLogin: Boolean,
             canRegister: Boolean,
             auth: Boolean,
             laravelVersion: String,
             phpVersion: String,
+            session : Object,
         },
         data() {
             return {
                 showingNavigationDropdown: false,
                 whiteBackground: true,
-        
+                local_session : this.session
             }
         },
      

@@ -14,6 +14,11 @@ use Illuminate\Foundation\Application;
 
 class WorkController extends Controller
 {
+    protected $sessionController;
+    public function __construct(SessionController $sessionController){
+        $this->sessionController = $sessionController;
+    }
+
     public function fetch_works($page, $per_page){
         $books = Book::with('authors')->with('publisher')->with('format')->with('type')->orderBy('id', 'DESC')->get();
         $reports = Report::with('authors')->with('field')->with('level')->orderBy('id', 'DESC')->get();
@@ -66,6 +71,8 @@ class WorkController extends Controller
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
             'works' => $works,
+            'session' => $this->sessionController->index()
+       
         ]);
     }
 }

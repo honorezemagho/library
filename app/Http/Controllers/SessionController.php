@@ -14,7 +14,12 @@ class SessionController extends Controller
     $isStudent = session('isStudent');
     $isLecturer = session('isLecturer');
 
-    $session = [$roles, $isAdmin, $isMember, $isLecturer, $isStudent];
+    $session = [ 
+            'roles' => $roles,
+            'isAdmin' => $isAdmin,
+            'isMember' => $isMember,
+            'isLecturer' => $isLecturer,
+            'isStudent' => $isStudent];
 
     return $session;
    }

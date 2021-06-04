@@ -30,9 +30,7 @@ class LoginResponse implements LoginResponseContract
             'isLecturer' => $isLecturer
         ]);
 
-    	dd(session()->all());
     	//Redirect after login.
-
        	$home = '/';
 
         return redirect()->intended($home);

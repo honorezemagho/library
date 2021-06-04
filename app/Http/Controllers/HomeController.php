@@ -33,7 +33,6 @@ class HomeController extends Controller
         $works = $works->concat($subjects);
         $works = $works->shuffle();
         $works = $works->slice(0,4);
-        dd($this->sessionController->index());
         return Inertia::render('Home/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
@@ -70,7 +69,8 @@ class HomeController extends Controller
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
             'work' =>  $work,
-            'related' =>  $related
+            'related' =>  $related,
+            'session' => $this->sessionController->index()
         ]);
     }
 }
