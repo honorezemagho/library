@@ -24,33 +24,72 @@
         </div>
     </div>
     <!--Book details section -->
-    <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
-        <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
-           <div class="container ml-4 mt-3">
-              <!-- General informations -->
-             <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
-                <span>{{ $this->book->title }}</span>
+    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text mt-4 sm:pb-4">
+        <div class="flex col justify-between grid-cols-1 sm:grid-cols-5 col-span-2 gap-4">
+            <div class="col-span-5 sm:col-span-4"> 
+                <div class="container ml-4 mt-3">
+                    <!-- General informations -->
+                   <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
+                      <span>{{ $this->book->title }}</span>
+                  </div>
+      
+                  <div class="text-lg xl:text-xl mb-1">
+                    <span class="font-semibold">Author(s): </span>
+                    <span class="text-gray-700" >
+                        {{ $book->authors[0] ? $book->authors[0]->name : 'Not Availlable' }}
+                    </span>
+                  </div>
+                  <!-- General informations -->
+                  <div class="text-base xl:text-lg">
+                    <div>
+                        <div class="text-lg xl:text-xl mb-2">
+                            <span class="font-semibold">ISBN: </span>
+                            <span class="text-gray-700">
+                            {{ $this->book->ISBN ? $this->book->ISBN : 'Not Availlable'  }}
+                            </span>
+                        </div>
+                
+                        <div class="text-lg xl:text-xl mb-2">
+                            <span class="font-semibold">Publisher: </span>
+                            <span class="text-gray-700">
+                            {{ $this->book->publisher->name ? $this->book->publisher->name : 'Not Availlable'  }}
+                            </span>
+                        </div>
+                        
+                        <div class="text-lg xl:text-xl mb-2">
+                            <span class="font-semibold">Number of Pages : </span>
+                            <span class="text-gray-700">
+                            {{ $this->book->number_of_pages ? $this->book->number_of_pages : 'Not Availlable'  }}
+                            </span>
+                        </div>
+                        <div class="text-lg xl:text-xl mb-2">
+                            <span class="font-semibold">Language: </span>
+                            <span class="text-gray-700">
+                            {{ $this->book->language ? $this->book->language : 'Not Availlable'  }}
+                            </span>
+                        </div>
+                
+                        <div class="text-lg xl:text-xl mb-2">
+                            <span class="font-semibold">Description: </span>
+                            <span class="text-gray-700">
+                            {{ $this->book->description ? $this->book->description : 'Not Availlable'  }}
+                            </span>
+                        </div>
+                    </div>
+                  </div>
+               
             </div>
-
-            <div class="text-lg xl:text-xl mb-1">
-              <span class="font-semibold">Author(s): </span>
-              <span class="text-gray-700" >
-                  {{ $this->book-authors[0] ? $this->book->authors[0]->name : 'Not Availlable' }}
-                  {{ $this->book-authors[1] ? $this->book->authors[1]->name : '' }}
-              </span>
-            </div>
-            <!-- General informations -->
-            <div class="text-base xl:text-lg">
-                 
-            </div>
-         
-        </div>
-        <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
-            <a class="">
-              <img  alt="Placeholder" class="c-card pic block h-96 w-full" :src="'/'+myWork.cover">
-            </a>
-        </div>
-    </div>
+             
+           
+            <div class="col-span-5 sm:col-span-1"> 
+                <a class="">
+                    <img  alt="Placeholder" class="block h-96" src="/{{ $this->book->cover }}">
+                  </a>
+            </div> 
+          
+        </div> 
+    </div> 
+   
     <!--Book details section -->
 
     <!-- BEGIN: Datatable -->
@@ -194,7 +233,7 @@
                     
                        
                     </div> 
-                 </div> 
+                </div> 
           
             </form> 
         </div>

@@ -33,9 +33,7 @@ class BookItems extends Component
     public $showDeleteModalForm = false;
     protected $pageController;
 
-    public function mount(){
-        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
-    }
+   
     public function callAPI(){
         $ISBN = $this->book->ISBN;
         $response = json_decode(file_get_contents('https://openlibrary.org/api/books?bibkeys=ISBN:'.$ISBN.'&jscmd=details&format=json'), true);
@@ -198,7 +196,7 @@ class BookItems extends Component
 
     public function render()
     {
-        $this->book = Book::where('id', $this->book_id)->with('bookItems')->first();
+        $this->book = Book::where('id', $this->book_id)->with('authors')->with('bookItems')->first();
         $this->callAPI();
         $this->pageController = new PageController();
         $book_item_page  =  $this->pageController->loadPage("books");
