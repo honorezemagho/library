@@ -21,7 +21,7 @@ class LoginResponse implements LoginResponseContract
             'roles' => $roles
         ]);
 
-    	//dd(session()->all());
+    	dd(session()->all());
     	//Redirect after login.
 
        	$home = '/';
