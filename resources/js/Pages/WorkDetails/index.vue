@@ -41,23 +41,28 @@
                  </button>  
               </div>
               <teleport to='body'>
-                  <jet-confirmation-modal v-if="showModalAuth"  @close="showModalAuth = false">
+                 <jet-confirmation-modal :show="showModalAuth"  @close="showModalAuth = false">
                       <template #title>
-                          Delete Account
+                          Unauthorized Action
                       </template>
 
                       <template #content>
-                          Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted.
+                         You must login to your account to perform this action. Thank you.
                       </template>
 
                       <template #footer>
-                          <jet-secondary-button @click.native="confirmingUserDeletion = false">
-                              Nevermind
-                          </jet-secondary-button>
+                          <jet-secondary-button @click.native="showModalAuth = false">
+                                Cancel
+                            </jet-secondary-button>
+                            <jet-secondary-button class="bg-blue-800 ml-2 hover:bg-blue-600">
+                               <inertia-link class="flex items-center no-underline" :href="route('login')">
+                                <span class="hover:bg-blue-600 text-center focus:outline-none text-gray-50">
+                                  Login
+                                </span>
+                            </inertia-link> 
+                            </jet-secondary-button>
 
-                          <jet-danger-button class="ml-2" @click.native="deleteTeam" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                              Delete Account
-                          </jet-danger-button>
+                             
                       </template>
                   </jet-confirmation-modal>
               </teleport>
@@ -98,6 +103,8 @@ import ViewReport from "./ViewReport";
 import ViewSubject from "./ViewReport";
 import AppLayout from "@/Layouts/AppLayout";
 import VueEasyLightbox from 'vue-easy-lightbox';
+import JetConfirmationModal from '@/Jetstream/ConfirmationModal'
+import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
 export default {
   components: {
@@ -108,6 +115,8 @@ export default {
     ViewReport,
     ViewSubject,
     VueEasyLightbox,
+    JetConfirmationModal,
+    JetSecondaryButton
   },
 
   props: {work : Object, related:Object, session:Object},
@@ -151,13 +160,13 @@ export default {
      showWork(){
        if(this.session.auth){
           this.readFull = false
-        this.adobeDCView = null
-        this.viewerConfig.embedMode = ""
-        window.scrollTo({
-            top : 0,
-            left:0,
-            behavior :'smooth'
-        })
+          this.adobeDCView = null
+          this.viewerConfig.embedMode = ""
+          window.scrollTo({
+              top : 0,
+              left:0,
+              behavior :'smooth'
+          })
          if(!this.read){
               var adobeDCView = this.adobeDCView
               adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
