@@ -55,67 +55,67 @@
              </div> 
              
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="email_link" value="{{ __('Contact Phone 1') }}" />
+                <x-jet-label for="phone1" value="{{ __('Contact Phone 1') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
                     </div> 
-                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <input type="phone1" id="phone1" wire:model.lazy="phone1" name="phone1" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('phone1') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
 
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="email_link" value="{{ __('Contact Phone 2') }}" />
+                <x-jet-label for="phone2" value="{{ __('Contact Phone 2') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
                     </div> 
-                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <input type="phone2" id="phone2" wire:model.lazy="phone2" name="phone2" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('phone2') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
 
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="email_link" value="{{ __('Company Description') }}" />
+                <x-jet-label for="company_desc" value="{{ __('Company Description') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
                     </div> 
-                    <textarea  id="description" wire:model.lazy="description" data-feature="basic" class="summernote" name="description"></textarea>
-                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <textarea  id="company_desc" wire:model.lazy="company_desc" data-feature="basic" class="summernote" name="company_desc"></textarea>
+                    @error('company_desc') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
 
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="email_link" value="{{ __('Hero Image Title') }}" />
+                <x-jet-label for="hero_image_title" value="{{ __('Hero Image Title') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
                         </svg>
                     </div> 
-                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <input type="hero_image_title" id="hero_image_title" wire:model.lazy="hero_image_title" name="hero_image_title" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('hero_image_title') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
 
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="email_link" value="{{ __('Hero Image Description') }}" />
+                <x-jet-label for="hero_image_description" value="{{ __('Hero Image Description') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
                     </div> 
-                    <textarea  id="description" wire:model.lazy="description" data-feature="basic" class="summernote" name="description"></textarea>
-                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <textarea  id="hero_image_description" wire:model.lazy="hero_image_description" data-feature="basic" class="summernote" name="hero_image_description"></textarea>
+                    @error('hero_image_description') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
 
@@ -125,7 +125,7 @@
      </div>
 
     </div>
-    <div class="w-full mx-auto sm:w-auto flex mt-4 sm:mt-0">
+    <div class=" text-center mx-auto mt-2 sm:mt-4">
         <x-jet-button wire:click="showCreateBookItemModal" class=" bg-theme-1 shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
     </div>
 </div>

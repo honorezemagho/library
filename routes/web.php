@@ -24,26 +24,10 @@ use App\Http\Controllers\BookItemController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 //About page
-Route::get('/about', function () {
-    return Inertia::render('About/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('about');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 //Help page
-Route::get('/help', function () {
-    return Inertia::render('Help/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('help');
+Route::get('/help', [HomeController::class, 'help'])->name('help');
 
 //Work page 
 Route::get('/works/{type}/{search}', [WorkController::class, 'works'])->name('works_full');
@@ -69,15 +53,7 @@ Route::get('/subjects', [WorkController::class, 'subjects'])->name('subjects');
 Route::get('/work-details/{type}/{id}', [HomeController::class, 'work_details'])->name('work_details');
 
 
-Route::get('/physical-library', function () {
-    return Inertia::render('PhysicalLibrary/index', [
-        'auth' => Auth::check(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('physical-library');
+Route::get('/physical-library', [HomeController::class, 'PhysicalLibrary'])->name('physical-library');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');

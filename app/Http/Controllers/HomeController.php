@@ -44,6 +44,40 @@ class HomeController extends Controller
         ]);
     }
 
+    public function about(){
+        return Inertia::render('About/index', [
+            'auth' => Auth::check(),
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'session' => $this->sessionController->index()
+   
+        ]);
+    }
+
+    public function help(){
+        return Inertia::render('Help/index', [
+            'auth' => Auth::check(),
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'session' => $this->sessionController->index()
+        ]);
+    }
+
+    public function physicalLibrary(){
+        return Inertia::render('PhysicalLibrary/index', [
+            'auth' => Auth::check(),
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'session' => $this->sessionController->index()
+        ]);
+    }
+
     public function work_details($type,$id){
         $work = null;
         $related = null;
