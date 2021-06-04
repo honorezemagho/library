@@ -315,7 +315,6 @@
             return {
                 showingNavigationDropdown: false,
                 whiteBackground: true,
-       
         
             }
         },

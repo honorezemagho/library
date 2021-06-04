@@ -7,14 +7,21 @@ use Inertia\Inertia;
 use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SessionController;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Mockery\Matcher\Subset;
 
 class HomeController extends Controller
 {
+    protected $sessionController;
+    public function __construct(SessionController $sessionController){
+        $this->sessionController = $sessionController;
+    }
+
     public function home(){
         $books = Book::with('authors')->with('publisher')->with('format')->with('type')->limit(10)->orderBy('id', 'DESC')->get();
         $reports = Report::with('authors')->with('field')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
@@ -26,13 +33,15 @@ class HomeController extends Controller
         $works = $works->concat($subjects);
         $works = $works->shuffle();
         $works = $works->slice(0,4);
+        dd($this->sessionController->index());
         return Inertia::render('Home/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'works' =>  $works
+            'works' =>  $works,
+            'session' => $this->sessionController->index()
         ]);
     }
 
