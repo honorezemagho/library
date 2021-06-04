@@ -15,7 +15,7 @@
                     <input type="facebook_link" id="facebook_link" wire:model.lazy="facebook_link" name="facebook_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
                     @error('facebook_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
-             </div>  
+            </div>  
 
              <div class="col-span-2 sm:col-span-1"> 
                 <x-jet-label for="twitter_link" value="{{ __('Twitter') }}" />
@@ -118,9 +118,6 @@
                     @error('hero_image_description') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div> 
-
-            
-
         </div> 
      </div>
 
