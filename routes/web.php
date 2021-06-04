@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\BookItemController;
+use App\Http\Controllers\SendMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\BookItemController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/send-mail', [SendMailController::class, 'index'])->name('send.mail.index');
 
 //Home page
 Route::get('/', [HomeController::class, 'home'])->name('home');
