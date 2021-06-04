@@ -125,27 +125,29 @@ class BookItems extends Component
     public function updateBookItem()
     {
         $this->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'author_1' => ['required', 'string', 'max:255'],
+            'code' => ['required', 'string', 'max:10'],
             ]);
 
-      if ($this->url) {
-        Storage::delete('public/', $this->new_url);
-        $this->new_url = 'books'.'/'.Str::random(40).'.'.$this->url->getClientOriginalExtension();
-        $this->url->storeAs('public/', $this->new_url);
-    }
-        $publisher= Publisher::where('name', 'like','%'.$this->publisher.'%')->first();
-        
+            $url_name_file = "";
+            if ($this->url) {
+                $url_extension = $this->url->getClientOriginalExtension();
+                $url_name = 'books'.'/'.Str::random(40).'.'.$url_extension;
+                $url_name_file = 'storage/'.$url_name;
+                $this->url->storeAs('public/', $url_name);
+            }
+
         BookItem::find($this->book_item_id)->update([
             'code' => $this->code,
             'price' => $this->price,
             'date_of_purchase' => $this->date_of_purchase,
             'publish_date' => $this->publish_date,
             'publish_country' => $this->publish_country,
-            'book_format' => $this->book_format,
-            'status_id' => $this->status,
+            'book_format' => $this->format,
+            'status_id' => $this->status_id,
             'book_id' => $this->book->id,
+            'url' => $url_name_file,
         ]);
+
         $book_id = $this->book_id;
         $this->reset();
         $this->book_id = $book_id;
@@ -165,6 +167,12 @@ class BookItems extends Component
     public function loadEditForm()
     {
         $book_item = BookItem::findOrFail($this->book_item_id);
+        $this->code =  $book_item->code;
+        $this->publish_country =  $book_item->publish_country;
+        $this->publish_date =  $book_item->publish_date;
+        $this->status_id =  $book_item->status_id;
+        $this->price =  $book_item->price;
+        $this->format =  $book_item->book_format;
     }
 
     public function showDeleteBookItemModal($id)
@@ -178,10 +186,13 @@ class BookItems extends Component
 
     public function deleteBookItem($id)
     {
-        $book = BookItem::find($id);
-        $book->delete();
-        Storage::delete('public/', $book->url);
-       $this->showDeleteModalForm = false;
+        $book_item = BookItem::find($id);
+        $book_item->delete();
+        Storage::delete('public/', $book_item->url);
+        $book_id = $this->book_id;
+        $this->reset();
+        $this->book_id = $book_id;
+        $this->showDeleteModalForm = false;
         //session()->flash('flash.banner', 'BookItem'. $book->name.' Deleted Successfully');
     }
 

@@ -23,35 +23,63 @@
             </div>
         </div>
     </div>
+    <!--Book details section -->
+    <div class="mx-auto grid grid-cols-1 sm:grid-cols-5 pt-2 mb-8 gap-2 ml-5 mr-5">
+        <div class="col-span-1 sm:col-span-4 rounded border-gray-300 dark:border-gray-700 border-2 shadow-xl">
+           <div class="container ml-4 mt-3">
+              <!-- General informations -->
+             <div class="text-3xl xl:text-3xl uppercase text-gray-800 mx-auto text-center pb-2">
+                <span>{{ $this->book->title }}</span>
+            </div>
+
+            <div class="text-lg xl:text-xl mb-1">
+              <span class="font-semibold">Author(s): </span>
+              <span class="text-gray-700" >
+                  {{ $this->book-authors[0] ? $this->book->authors[0]->name : 'Not Availlable' }}
+                  {{ $this->book-authors[1] ? $this->book->authors[1]->name : '' }}
+              </span>
+            </div>
+            <!-- General informations -->
+            <div class="text-base xl:text-lg">
+                 
+            </div>
+         
+        </div>
+        <div class="col-span-1  w-full sm:col-span-1 shadow-xl mx-auto rounded">    
+            <a class="">
+              <img  alt="Placeholder" class="c-card pic block h-96 w-full" :src="'/'+myWork.cover">
+            </a>
+        </div>
+    </div>
+    <!--Book details section -->
+
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
         <table class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
                     <th class="border-b-2 text-center text-gray-900 whitespace-no-wrap">Code</th>
-                    <th class="border-b-2 whitespace-no-wrap text-gray-900">Format</th>
-                    <th class="border-b-2 whitespace-no-wrap text-gray-900">Price</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">Publication Date</th>
-                     <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">ACTIONS</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">Format</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">Price</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">Publish Date</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap text-gray-900">ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
                     @foreach ($book_items as $book_item)
                     <tr>
                 
-                        <td class="border-b">
+                        <td class="text-center border-b">
                             <div class="font-medium whitespace-no-wrap">{{ $book_item->code }}</div>
-
                         </td>
-                         <td class="border-b">
+                         <td class="text-center border-b">
                             <div class="font-medium whitespace-no-wrap">{{ $book_item->format->title }}</div>
-                            
                         </td>
                         <td class="text-center border-b">{{ $book_item->price}}</td>
-                        <td class="border-b">
+                        <td class="text-center border-b">
                             <div class="font-medium whitespace-no-wrap">{{ $book_item->publish_date }}</div>
-
                         </td>
+
                         <td class="border-b w-5">
                             <div  x-data="{ isTouch: false }" class="flex sm:justify-center items-center">
                                 <a x-on:click.prevent wire:click="showEditBookItemModal({{ $book_item->id }})" @touchstart.prevent="isTouch = true" class="flex items-center text-theme-4 mr-3" href="">
