@@ -123,6 +123,6 @@
 
     </div>
     <div class=" text-center mx-auto mt-2 sm:mt-4">
-        <x-jet-button wire:click="showCreateBookItemModal" class=" bg-theme-1 shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
+        <x-jet-button wire:click="showCreateBookItemModal" class=" bg-theme-1 text-lg shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
     </div>
 </div>
