@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Fri Jun 04 2021 08:57:02 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-4-5-2021-8-25-39.txt
+* app/Http/Responses/LoginResponse.php
+
+
+Deleted files:
+
+
+Renamed files:
