@@ -18,21 +18,108 @@
              </div>  
 
              <div class="col-span-2 sm:col-span-1"> 
-                <x-jet-label for="linkedIn_link" value="{{ __('LinkedIn') }}" />
+                <x-jet-label for="twitter_link" value="{{ __('Twitter') }}" />
                 <div class="relative mt-2">
                     <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
-                        <svg viewBox="0 50 512 512" >
-                            <path  class="h-6 w-6" fill="#828282" d="M150.65,100.682c0,27.992-22.508,50.683-50.273,50.683c-27.765,0-50.273-22.691-50.273-50.683
-                            C50.104,72.691,72.612,50,100.377,50C128.143,50,150.65,72.691,150.65,100.682z M143.294,187.333H58.277V462h85.017V187.333z
-                            M279.195,187.333h-81.541V462h81.541c0,0,0-101.877,0-144.181c0-38.624,17.779-61.615,51.807-61.615
-                            c31.268,0,46.289,22.071,46.289,61.615c0,39.545,0,144.181,0,144.181h84.605c0,0,0-100.344,0-173.915
-                            s-41.689-109.131-99.934-109.131s-82.768,45.369-82.768,45.369V187.333z"/>
-                          </svg>
+                        <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg> 
                     </div> 
-                    <input type="linkedIn_link" id="linkedIn_link" wire:model.lazy="linkedIn_link" name="linkedIn_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                    @error('linkedIn_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    <input type="twitter_link" id="twitter_link" wire:model.lazy="twitter_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('twitter_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                 </div> 
              </div>  
+
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="twitter_link" value="{{ __('LinkedIn') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg> 
+                    </div> 
+                    <input type="twitter_link" id="twitter_link" wire:model.lazy="twitter_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('twitter_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div>  
+
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Contact Email') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        @
+                    </div> 
+                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+             
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Contact Phone 1') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </div> 
+                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Contact Phone 2') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </div> 
+                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Company Description') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </div> 
+                    <textarea  id="description" wire:model.lazy="description" data-feature="basic" class="summernote" name="description"></textarea>
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+             
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Hero Image Title') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                        </svg>
+                    </div> 
+                    <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+
+             <div class="col-span-2 sm:col-span-1"> 
+                <x-jet-label for="email_link" value="{{ __('Hero Image Description') }}" />
+                <div class="relative mt-2">
+                    <div class="absolute rounded-l w-10 h-full flex items-center justify-center bg-gray-100 border text-gray-600 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </div> 
+                    <textarea  id="description" wire:model.lazy="description" data-feature="basic" class="summernote" name="description"></textarea>
+                    @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                </div> 
+             </div> 
+
+            
 
         </div> 
      </div>
