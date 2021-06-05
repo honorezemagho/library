@@ -61,8 +61,8 @@
 <script>
 import InnerPageHero from "@/Components/InnerPageHero";
 import Work from "@/Components/Work";
-import SideMenu from "./SideMenu";
-import SortBar from "./SortBar";
+import SideMenu from "@/Components/SideMenu";
+import SortBar from "@/Components/SortBar";
 import AppLayout from "@/Layouts/AppLayout";
 
 
