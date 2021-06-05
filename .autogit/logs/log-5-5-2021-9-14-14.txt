@@ -1,0 +1,27 @@
+-------------------- Auto-Git Log --------------------
+		Sat Jun 05 2021 09:14:14 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/SendMailController.php
+
+
+Created files:
+* .autogit/logs/log-5-5-2021-8-41-54.txt
+* app/Mail/BookCirculationMail.php
+* app/Mail/MyTestMail.php
+* app/Mail/ReminderMail.php
+* app/Mail/ReservationMail.php
+* app/Mail/WelcomeMail.php
+* resources/views/emails/book-circulation-mail.blade.php
+* resources/views/emails/reminder-mail.blade.php
+* resources/views/emails/reservation-mail.blade.php
+* resources/views/emails/sample-mail.blade.php
+* resources/views/emails/welcome-mail.blade.php
+
+
+Deleted files:
+* app/Mail/TestMail.php
+
+
+Renamed files:
