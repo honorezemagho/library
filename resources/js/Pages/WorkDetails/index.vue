@@ -97,7 +97,7 @@
                                     <div class="">
                                       <span class="shadow-lg rounded w-full text-gray-800 focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name">
                                       </span>
-                                      <datepicker :locale="locale" v-model="form.start_date" />
+                                      <datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.start_date" />
                                    </div>
                                 </div>
                                 <div class="md:flex md:items-center mb-8">
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="text-center text-lg mb-4 mt-5">
                                   <div class="">
-                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ this.form.start_date }} to XXXX 
+                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ Date.parse(this.form.start_date ) }} to XXXX 
                                   </div>
 
                                   <div class="mt-5">
