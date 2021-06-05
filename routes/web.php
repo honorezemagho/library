@@ -54,6 +54,9 @@ Route::get('/reports',[WorkController::class, 'reports'])->name('reports');
 //Work page with subjects selected
 Route::get('/subjects', [WorkController::class, 'subjects'])->name('subjects');
 
+//reservation
+Route::get('/reservation', [WorkController::class, 'reservation'])->name('subjects');
+
 //Work details page conserning the work details
 Route::get('/work-details/{type}/{id}', [HomeController::class, 'work_details'])->name('work_details');
 

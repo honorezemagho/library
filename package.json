@@ -36,7 +36,7 @@
         "chart.js": "^3.1.1",
         "core-js": "^3.12.1",
         "daterangepicker": "^3.1.0",
-        "dayjs": "^1.10.4",
+        "dayjs": "^1.10.5",
         "drift-zoom": "^1.4.3",
         "dropzone": "^5.9.2",
         "highlight.js": "^10.7.2",
@@ -58,6 +58,7 @@
         "vue-sessionstorage": "^1.0.0",
         "vue-skeletor": "^1.0.6",
         "vue-slick-carousel": "^1.0.6",
-        "vue-tailwind-picker": "^2.0.0"
+        "vue-tailwind-picker": "^2.0.0",
+        "vue3-datepicker": "^0.2.4"
     }
 }

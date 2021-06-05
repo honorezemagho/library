@@ -63,7 +63,7 @@
                                 </span>
                             </inertia-link> 
                             </jet-secondary-button>
-                             
+                                    
                       </template>
                   </jet-confirmation-modal>
 
@@ -72,18 +72,30 @@
                           Reservation of a Physical Book
                         </template>
                         <template #content>
-                            <form  class="w-full max-w-sm" @submit.prevent="submit">
+                            <form  @submit.prevent="submit">
                                 <div class="md:flex md:items-center mb-6">
                                     <div class="md:w-1/3">
                                       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                                        Full Name
+                                        Start Date
                                       </label>
                                     </div>
-                                    <div class="md:w-2/3">
-                                      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe">
-                                    </div>
+                                    <div class="">
+                                      <span class="shadow-lg rounded w-full text-gray-800 focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name">
+                                          
+                                      </span>
+                                      <datepicker class="h-full" v-model="form.start_date" />
+                                   </div>
                                 </div>
-        
+                                <label class="block mt-4">
+                                  <span class="text-gray-700">Number of Day</span>
+                                  <select class="form-select mt-1 block w-full" v-model="number_days">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                  </select>
+                                </label>
                             </form>
                         </template>
 
@@ -223,6 +235,10 @@ import VueEasyLightbox from 'vue-easy-lightbox';
 import JetConfirmationModal from '@/Jetstream/ConfirmationModal'
 import JetDialogModal from '@/Jetstream/DialogModal'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton'
+import Datepicker from 'vue3-datepicker'
+import { ref } from 'vue'
+const picked = ref(new Date())
+   
 
 export default {
   components: {
@@ -236,6 +252,7 @@ export default {
     JetConfirmationModal,
     JetDialogModal,
     JetSecondaryButton,
+    Datepicker,
   },
 
   props: {work : Object, related:Object, session:Object},
@@ -244,7 +261,7 @@ export default {
   },
    methods: {
       submit() {
-          this.$inertia.post('/works/'+this.form.work_type+'/'+this.form.search)
+          this.$inertia.post('/reservation', this.form)
         },
       showSingle() {
         this.imgs = '/'+this.work.cover,
