@@ -87,7 +87,7 @@
                         </template>
 
                         <template #content>
-                            <form  @submit.prevent="submit">
+                            <form class="w-full" @submit.prevent="submit">
                                 <div class="md:flex md:items-center mb-6">
                                     <div class="md:w-1/3">
                                       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -97,10 +97,10 @@
                                     <div class="">
                                       <span class="shadow-lg rounded w-full text-gray-800 focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name">
                                       </span>
-                                      <datepicker v-model="form.start_date" />
+                                      <datepicker :locale="locale" v-model="form.start_date" />
                                    </div>
                                 </div>
-                                <div class="md:flex md:items-center mb-6">
+                                <div class="md:flex md:items-center mb-8">
                                     <div class="md:w-1/3">
                                       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
                                         Number of Day
@@ -118,9 +118,9 @@
                                       </select>
                                    </div>
                                 </div>
-                                <div class="text-center text-lg mb-4 mt-6">
+                                <div class="text-center text-lg mb-4 mt-5">
                                   <div class="">
-                                      Reservation of "book title" for X days. from  XXXX to XXXX 
+                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ this.form.start_date }} to XXXX 
                                   </div>
 
                                   <div class="mt-5">
