@@ -68,11 +68,10 @@ class HomeController extends Controller
     }
 
     public function physicalLibrary(){
-        $works = Book::with(['bookItems' => function($q) {
-            $q->where('book_format', '=', 2);
-        }])->get();
-
-        dd($works);
+        //Select a book  if the format is physical
+        $works = Book::whereHas('bookItems.format', function ($query) {
+            return $query->where('slug', '=', "p_doc");
+        })->with('bookItems')->with('authors')->with('publisher')->get();
 
         return Inertia::render('PhysicalLibrary/index', [
             'auth' => Auth::check(),

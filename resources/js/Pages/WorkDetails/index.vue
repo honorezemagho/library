@@ -33,12 +33,14 @@
                   <ViewSubject :work="myWork" />
             </div>
             <div class="text-center">
-                <button  v-if="!readFull" type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+               <div v-if="myWork.model_name != 'Book'">
+                   <button  v-if="!readFull" type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read This Work</span>
                  </button> 
                   <button v-if="read" type="button" @click="() => showWorkFull()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read In Full</span>
                  </button>  
+               </div>
               </div>
               <teleport to='body'>
                  <jet-confirmation-modal :show="showModalAuth"  @close="showModalAuth = false">
@@ -61,7 +63,6 @@
                                 </span>
                             </inertia-link> 
                             </jet-secondary-button>
-
                              
                       </template>
                   </jet-confirmation-modal>
@@ -83,6 +84,14 @@
         </teleport>
       </div>
       <!--Book details section -->
+
+      <!--Book Items section -->
+       <div class="text-center w-full">
+        <div class="text-center font-semibold text-gray-800 text-3xl">Book Items</div>
+        <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
+          <p class="text-xl text-gray-600 mx-auto text-center">All the copies of this book in our Library</p>
+      </div>
+      <!--Book Items section -->
 
       <!--Similar Works -->
       <works
