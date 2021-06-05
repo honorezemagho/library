@@ -94,10 +94,16 @@
                                         Start Date
                                       </label>
                                     </div>
-                                    <div class="">
-                                      <span class="shadow-lg rounded w-full text-gray-800 focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name">
-                                      </span>
-                                      <datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.start_date" />
+                                    <div class="flex">
+                                      <div class="mr-2">
+                                         <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.start_date" />
+                                     
+                                      </div>
+                                       <div class="mr-2">
+                                         <VueTimepicker  v-model="form.start_time" />
+                                     
+                                      </div>
+                                    
                                    </div>
                                 </div>
                                 <div class="md:flex md:items-center mb-8">
@@ -120,13 +126,15 @@
                                 </div>
                                 <div class="text-center text-lg mb-4 mt-5">
                                   <div class="">
-                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ new Date(this.form.start_date).toLocaleString() }} to XXXX 
+                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ new Date(this.form.start_date).toLocaleDateString() }} {{ form.start_time.HH }} : {{ form.start_time.mm }} to XXXX 
                                   </div>
 
                                   <div class="mt-5">
                                      NB : If your reservation is validated, you will receive an email notification
                                   </div>
                                 </div>
+                                <v-calendar />
+                                <v-date-picker v-model="date" />
                             </form>
                         </template>
 
@@ -267,8 +275,12 @@ import JetConfirmationModal from '@/Jetstream/ConfirmationModal'
 import JetDialogModal from '@/Jetstream/DialogModal'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 import Datepicker from 'vue3-datepicker'
-import { ref } from 'vue'
-const picked = ref(new Date())
+
+// Main JS (in CommonJS format)
+import VueTimepicker from 'vue3-timepicker'
+
+// CSS
+import 'vue3-timepicker/dist/VueTimepicker.css'
    
 
 export default {
@@ -284,6 +296,8 @@ export default {
     JetDialogModal,
     JetSecondaryButton,
     Datepicker,
+    VueTimepicker
+  
   },
 
   props: {work : Object, related:Object, session:Object},
@@ -388,7 +402,7 @@ export default {
        form: {
             book_item_id: null,
             start_date: null,
-            start_hour: null,
+            start_time: null,
             number_days: null,
             due_date: null,
         },
@@ -416,8 +430,4 @@ export default {
         defaultViewMode: "", /* Allowed possible values are "FIT_PAGE", "FIT_WIDTH" or "". */
       }
     }
-  },
-
-  setup() {},
-};
-</script>
+  
