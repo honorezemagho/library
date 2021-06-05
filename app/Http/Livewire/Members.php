@@ -94,7 +94,7 @@ class Members extends Component
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'image' => 'image|max:1024|nullable',
             'password' => $this->passwordRules()
-      ]);
+        ]);
 
       if ($this->image) {
         Storage::delete('public/profile-photos/', $this->newImage);

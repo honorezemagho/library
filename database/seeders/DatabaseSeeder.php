@@ -26,8 +26,10 @@ class DatabaseSeeder extends Seeder
            // PublisherSeeder::class,
             //BookSeeder::class,
             //ReportSeeder::class,
-            SubjectSeeder::class,
-            AuthorWorkSeeder::class,
+            //SubjectSeeder::class,
+            //AuthorWorkSeeder::class,
+            SocialMediaSeeder::class,
+            DefaultConfigSeeder::class
         ]);
 
     }
