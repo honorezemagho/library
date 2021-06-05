@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sat Jun 05 2021 02:11:02 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-5-5-2021-1-7-37.txt
+* app/Mail/TestMail.php
+
+
+Deleted files:
+
+
+Renamed files:
