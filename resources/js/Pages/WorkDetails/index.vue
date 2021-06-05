@@ -67,25 +67,26 @@
                       </template>
                   </jet-confirmation-modal>
 
-                  <x-jet-dialog-modal :show="showModalReservation()"  @close="closeModalReservation()">
-                      <x-slot name="title">
-                          {{ __('Hapus akun') }}
-                      </x-slot>
+                  <jet-dialog-modal :show="showModalReservation">
+                      <template #title>
+                      </template>
 
-                      <x-slot name="content">
-                          {{ __('Kamu yakin ingin hapus akun ? Sekali hapus akun , semua data akan terhapus permanent! . Tolong masukan kata sandi untuk menghapus akun.') }}
-                      </x-slot>
+                      <template #content>
+                      </template>
 
-                      <x-slot name="footer">
-                          <x-jet-secondary-button>
-                              {{ __('Batal') }}
-                          </x-jet-secondary-button>
-
-                          <x-jet-danger-button class="ml-2">
-                              {{ __('Hapus') }}
-                          </x-jet-danger-button>
-                      </x-slot>
-                    </x-jet-dialog-modal>
+                      <template #footer>
+                          <jet-secondary-button @click.native="showModalAuth = false">
+                              Cancel
+                          </jet-secondary-button>
+                          <jet-secondary-button class="bg-blue-800 ml-2 hover:bg-blue-600">
+                            <inertia-link class="flex items-center no-underline">
+                              <span class="hover:bg-blue-600 text-center focus:outline-none text-gray-50">
+                                Reserve
+                              </span>
+                            </inertia-link> 
+                          </jet-secondary-button>
+                      </template>
+                  </jet-dialog-modal>
               </teleport>
            </div>
         </div>
@@ -146,7 +147,7 @@
 
                 <td class="border-grey-light border hover:bg-gray-100 p-3  hover:text-red-600 hover:font-medium cursor-pointer">
                 <span v-if="item.format.slug == 'p_doc'">
-                    <button  v-if="item.status.title == 'Available'"  type="button" @click="() => showReserveModal()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <button  v-if="item.status.title == 'Available'" type="button" @click="showReservationForm(item.id)"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                       <span class="text-center">Reserve</span>
                     </button>
                      <button  v-else  disabled type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
@@ -232,8 +233,8 @@ export default {
       showSingle() {
         this.imgs = '/'+this.work.cover,
         this.show()
-     },
-     showWorkFull(){
+      },
+      showWorkFull(){
         window.scrollTo({
             top : 0,
             left:0,
@@ -261,8 +262,8 @@ export default {
                   });
                 });
               });
-     },
-     showWork(){
+      },
+      showWork(){
        if(this.session.auth){
           this.readFull = false
           this.adobeDCView = null
@@ -299,9 +300,14 @@ export default {
          this.showModalAuth = true
        }
        
-     }, 
+       }, 
       show() {
         this.visible = true
+      },
+      showReservationForm: function(id){
+        //Reservation of physical work
+        this.showModalReservation = true
+
       },
       handleHide() {
         this.visible = false
@@ -314,6 +320,7 @@ export default {
       readFull : false,
       adobeDCView : null,
       showModalAuth : false,
+      showModalReservation : false,
       myWork : this.work,
       myWorks : this.related,
       imgs: '', // Img Url , string or Array of string
