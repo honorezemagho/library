@@ -86,60 +86,65 @@
       <!--Book details section -->
 
       <!--Book Items section -->
-       <div class="text-center w-full mb-5">
+       <div class="text-center w-full mb-3">
         <div class="text-center font-semibold text-gray-800 text-3xl">Book Items</div>
         <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
           <p class="text-xl text-gray-600 mx-auto text-center">All the copies of this book in our Library</p>
       </div>
-      <div class="container">
-         <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
-        <thead class="bg-blue-700 text-white">
+      <div class="container mb-4">
+        <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+          <thead class="bg-blue-700 text-white">
 
-          <tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-            <th class="p-3 text-left">Code</th>
-            <th class="p-3 text-left">Format</th>
-            <th class="p-3 text-left">Publish Date</th>
-            <th class="p-3 text-left">Status</th>
-            <th class="p-3 text-left" width="110px">Actions</th>
-         </tr>
+            <tr v-for="item in myWork.book_items" v-bind:key="item.id" class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+              <th class="p-3 text-left">Code</th>
+              <th class="p-3 text-left">Format</th>
+              <th class="p-3 text-left">Publish Date</th>
+              <th class="p-3 text-left">Status</th>
+              <th class="p-3 text-left" width="110px">Actions</th>
+            </tr>
 
-        </thead>
-        <tbody class="flex-1 sm:flex-none">
-            <tr  v-for="item in myWork.book_items" v-bind:key="item.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-              <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.code }}</td>
-              <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ item.format.title }}</td>
-              <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.publish_date }}</td>
+          </thead>
+          <tbody class="flex-1 sm:flex-none">
+              <tr v-for="item in myWork.book_items" v-bind:key="item.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.code }}</td>
+                <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ item.format.title }}</td>
+                <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.publish_date }}</td>
 
-               <td v-if="item.status.title == 'Available'" class="border-grey-light bg-orange-200 opacity-50 rounded border hover:bg-gray-100 p-3 truncate">
-                  <span class="relative inline-block px-3 py-1 font-semibold text-center text-green-900 leading-tight">
-                      <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                      <span class="relative">{{ item.status.title }}  </span>
-                  </span>
+                <td v-if="item.status.title == 'Available'" class="border-grey-light bg-green-400-200 opacity-50 rounded border hover:bg-gray-100 p-3 truncate">
+                    <span class="relative inline-block px-3 py-1  text-center text-green-900 leading-tight">
+                        <span aria-hidden class="absolute inset-0 bg-green-300 opacity-50 rounded-full"></span>
+                        <span class="relative">{{ item.status.title }}  </span>
+                    </span>
+                  </td>
+
+                <td v-else class="border-grey-light text-center bg-green-200 opacity-50 rounded border hover:bg-gray-100 p-3">
+                    <span class="relative inline-block px-3 py-1 text-center text-orange-900 leading-tight">
+                        <span aria-hidden class="absolute inset-0 bg-orange-400 opacity-50 rounded-full"></span>
+                        <span class="relative">{{ item.status.title }}</span>
+                    </span>
                 </td>
 
-              <td v-else class="border-grey-light bg-green-200 opacity-50 rounded border hover:bg-gray-100 p-3">
-                  <span class="relative inline-block px-3 py-1 font-semibold text-center text-orange-900 leading-tight">
-                      <span aria-hidden class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
-                      <span class="relative">{{ item.status.title }}</span>
-                  </span>
-               
-              </td>
+                <td class="border-grey-light border hover:bg-gray-100 p-3  hover:text-red-600 hover:font-medium cursor-pointer">
+                <span v-if="item.format.slug == 'p_doc'">
+                    <button  v-if="item.status.title == 'Available'"  type="button" @click="() => showReserveModal()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                      <span class="text-center">Reserve</span>
+                    </button>
+                     <button  v-else  disabled type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                      <span class="text-center">Reserve</span>
+                    </button>
 
-              <td class="border-grey-light border hover:bg-gray-100 p-3  hover:text-red-600 hover:font-medium cursor-pointer">
-               <span v-if="item.format.slug == 'p_doc'">
-                  <button  type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
-                    <span class="text-center">Reserve</span>
-                  </button>
-               </span>
-               <span v-else>
-                   <button  type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
-                    <span class="text-center">Read</span>
-                  </button>
-               </span>
-              </td>
-            </tr>
-         </tbody>
-		  </table>
+                </span>
+                <span v-else>
+                    <button  type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                       <inertia-link class="flex items-center no-underline" :href="'/work-details/book/'+myWork.id">
+                          <span class="text-center">Read</span>
+                      </inertia-link>       
+                    </button>
+                </span>
+                </td>
+              </tr>
+          </tbody>
+		    </table>
       </div>
       <!--Book Items section -->
 
