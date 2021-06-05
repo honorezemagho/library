@@ -92,9 +92,9 @@ class HomeController extends Controller
             $related = Report::where('title','like','%'.$work->title.'%')->with('authors')->with('field')->with('level')->get();
       
         }elseif ($type == "book") {
-            $work = Book::where('id', $id)->with('authors')->with('publisher')->first();
+            $work = Book::where('id', $id)->with('authors')->with('bookItems')->with('publisher')->first();
             $related = Book::where('title','like','%'.$work->title.'%')->with('authors')->with('publisher')->get();
-      
+            //dd($work);
         }elseif ($type == "subject") {
             $work = Subject::where('id', $id)->with('author')->with('field')->with('level')->first();
             $related = Subject::where('title','like','%'.$work->title.'%')->with('author')->with('field')->with('level')->get();
