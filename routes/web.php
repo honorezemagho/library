@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\BookItemController;
 use App\Http\Controllers\SendMailController;
+use App\Http\Livewire\HomeSettings;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,5 +69,7 @@ Route::middleware(['auth:sanctum', 'verified'])
     ->group(function () {
         Route::get('',  [PageController::class, 'loadPage'])->name('admindashboard');
         Route::get('/book/book-item/{id}',[ BookItemController::class, 'index'])->name('book-items.index');
-        Route::get('/{pageName}', [PageController::class, 'loadPage'])->name('admin');        
+        Route::get('/{pageName}', [PageController::class, 'loadPage'])->name('admin'); 
+        Route::post('/home-setting', HomeSettings::class)->name('home-setting');
+            
     });

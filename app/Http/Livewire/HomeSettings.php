@@ -25,6 +25,7 @@ class HomeSettings extends Component
 
     
     public function UpdateHomeSettings(){
+        dd();
         $this->validate([
             'email_link' => ['required', 'string', 'max:255'],
             'phone1' => ['required'],
@@ -48,10 +49,13 @@ class HomeSettings extends Component
         ]);
         
         SocialMedia::find(2)->update([
+            'url' => $this->linkedIn_link,
+        ]);
+
+        SocialMedia::find(3)->update([
             'url' => $this->twitter_link,
         ]);
         
-
 
     }
 

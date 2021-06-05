@@ -1,0 +1,25 @@
+-------------------- Auto-Git Log --------------------
+		Sat Jun 05 2021 11:02:01 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Livewire/HomeSettings.php
+* app/Http/Livewire/Members.php
+* app/Http/Livewire/Settings.php
+* database/seeders/DatabaseSeeder.php
+* resources/views/livewire/home-settings.blade.php
+* resources/views/livewire/settings.blade.php
+
+
+Created files:
+* .autogit/logs/log-5-5-2021-9-55-27.txt
+* app/Models/Library.php
+* app/Models/SocialMedia.php
+* database/seeders/DefaultConfigSeeder.php
+* database/seeders/SocialMediaSeeder.php
+
+
+Deleted files:
+
+
+Renamed files:

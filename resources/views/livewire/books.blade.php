@@ -258,4 +258,3 @@
     </x-jet-confirmation-modal>
 </div>
 
-{{-- @livewire('book-intems', ['book_id' => $this->book_id], key($this->book_id->id)) --}}

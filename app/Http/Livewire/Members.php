@@ -155,7 +155,7 @@ class Members extends Component
         return view('livewire.members',
         [
         'members' => User::role('Member')->with('roles')->get(),
-         'roles' => Role::all()
+        'roles' => Role::all()
         ]);
     }
 }
