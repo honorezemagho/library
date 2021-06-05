@@ -38,6 +38,7 @@ class Book extends Model
     public function bookItems(){
         return $this->hasMany(BookItem::class,'book_id');
     }
+
     
     public function type(){
         return $this->belongsTo(BookType::class,'book_type_id');
@@ -54,6 +55,8 @@ class Book extends Model
     public function dd_decimal(){
         return $this->belongsTo(DDCDecimal::class,'ddc_decimal_id');
     }
+
+
     
 
 

@@ -68,12 +68,19 @@ class HomeController extends Controller
     }
 
     public function physicalLibrary(){
+        $works = Book::with(['bookItems' => function($q) {
+            $q->where('book_format', '=', 2);
+        }])->get();
+
+        dd($works);
+
         return Inertia::render('PhysicalLibrary/index', [
             'auth' => Auth::check(),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
+            'works' => $works,
             'session' => $this->sessionController->index()
         ]);
     }
