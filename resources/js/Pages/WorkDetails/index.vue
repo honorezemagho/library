@@ -97,13 +97,8 @@
                                     <div class="flex">
                                       <div class="mr-2">
                                          <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.start_date" />
-                                     
-                                      </div>
-                                       <div class="mr-2">
-                                         <VueTimepicker  v-model="form.start_time" />
-                                     
-                                      </div>
-                                    
+                                      
+                                      </div>  
                                    </div>
                                 </div>
                                 <div class="md:flex md:items-center mb-8">
@@ -126,7 +121,8 @@
                                 </div>
                                 <div class="text-center text-lg mb-4 mt-5">
                                   <div class="">
-                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ new Date(this.form.start_date).toLocaleDateString() }} {{ form.start_time.HH }} : {{ form.start_time.mm }} to XXXX 
+                                      Reservation of "book title" for {{ this.form.number_days }} days. from 
+                                       {{ new Date(this.form.start_date).toLocaleDateString() }}  to {{ new Date(new Date(this.form.start_date).toLocaleDateString()).getDate() + this.form.number_days  }} 
                                   </div>
 
                                   <div class="mt-5">
@@ -306,11 +302,15 @@ export default {
   },
    methods: {
       submit() {
+        var date = new Date(this.form.start_date).toLocaleDateString()
+        var dattmp = date.split('/').reverse().join('/');
+        var nwdate =  new Date(dattmp);
+        nwdate.setDate(nwdate.getDate()+5);
 
-        console.log(new Date(this.form.start_date).toLocaleString())
-        this.form.start_date = new Date(this.form.start_date).toLocaleString();
+        console.log(date)
+        console.log(nwdate.toLocaleDateString())
+        this.form.start_date = date;
 
-          this.$inertia.post('/reservation', this.form)
         },
       showSingle() {
         this.imgs = '/'+this.work.cover,
@@ -430,4 +430,8 @@ export default {
         defaultViewMode: "", /* Allowed possible values are "FIT_PAGE", "FIT_WIDTH" or "". */
       }
     }
-  
+  },
+
+  setup() {},
+};
+</script>
