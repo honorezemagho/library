@@ -18,12 +18,12 @@ mix.js('resources/js/app.js', 'public/js').vue()
     .autoload({
         'jquery': ['$', 'window.jQuery', 'jQuery']
     })
-    .copyDirectory('node_modules/alpinejs/dist/alpine.js', 'public/dist/js')
-    .copyDirectory('resources/json', 'public/dist/json')
-    .copyDirectory('resources/fonts', 'public/dist/fonts')
-    .copyDirectory('resources/images', 'public/dist/images')
-    .copyDirectory('node_modules/slick-carousel/slick/ajax-loader.gif', 'public/dist/css')
-    .copyDirectory('node_modules/summernote/dist/font/summernote.woff', 'public/dist/fonts/summernote')
+    // .copyDirectory('node_modules/alpinejs/dist/alpine.js', 'public/dist/js')
+    // .copyDirectory('resources/json', 'public/dist/json')
+    // .copyDirectory('resources/fonts', 'public/dist/fonts')
+    // .copyDirectory('resources/images', 'public/dist/images')
+    // .copyDirectory('node_modules/slick-carousel/slick/ajax-loader.gif', 'public/dist/css')
+    // .copyDirectory('node_modules/summernote/dist/font/summernote.woff', 'public/dist/fonts/summernote')
     .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {

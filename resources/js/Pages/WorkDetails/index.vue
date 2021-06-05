@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="text-center text-lg mb-4 mt-5">
                                   <div class="">
-                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ Date.parse(this.form.start_date ) }} to XXXX 
+                                      Reservation of "book title" for {{ this.form.number_days }} days. from  {{ new Date(this.form.start_date).toLocaleString() }} to XXXX 
                                   </div>
 
                                   <div class="mt-5">
@@ -292,6 +292,10 @@ export default {
   },
    methods: {
       submit() {
+
+        console.log(new Date(this.form.start_date).toLocaleString())
+        this.form.start_date = new Date(this.form.start_date).toLocaleString();
+
           this.$inertia.post('/reservation', this.form)
         },
       showSingle() {
