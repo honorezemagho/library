@@ -55,7 +55,7 @@ Route::get('/reports',[WorkController::class, 'reports'])->name('reports');
 Route::get('/subjects', [WorkController::class, 'subjects'])->name('subjects');
 
 //reservation
-Route::get('/reservation', [WorkController::class, 'reservation'])->name('subjects');
+Route::post('/reservation', [WorkController::class, 'reservation'])->name('reservation');
 
 //Work details page conserning the work details
 Route::get('/work-details/{type}/{id}', [HomeController::class, 'work_details'])->name('work_details');

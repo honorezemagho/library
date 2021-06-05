@@ -6,6 +6,7 @@ use App\Models\Book;
 use Inertia\Inertia;
 use App\Models\Report;
 use App\Models\Subject;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Auth;
@@ -74,5 +75,26 @@ class WorkController extends Controller
             'session' => $this->sessionController->index()
        
         ]);
+    }
+
+    public function reservation(Request $request){
+
+        dd($request);
+        $request->validate([
+            'book_item_id' => 'required',
+            'start_date' => 'required',
+            'number_days' => ['required', 'array'],
+        ]);
+
+        $reservation = Reservation::create([
+            'reserv_date' => Now(),
+            'due_date' => Now(),
+            'book_id' => $request->input('book_item_id'),
+            'user_id' => Auth::user()->id,
+ 
+         ]);
+        
+
+
     }
 }
