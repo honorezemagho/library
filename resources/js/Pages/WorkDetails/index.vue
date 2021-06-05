@@ -42,7 +42,7 @@
                  </button>  
                </div>
               </div>
-              <teleport to='body'>
+                <teleport to='body'>
                  <jet-confirmation-modal :show="showModalAuth"  @close="showModalAuth = false">
                       <template #title>
                           Unauthorized Action
@@ -66,6 +66,26 @@
                              
                       </template>
                   </jet-confirmation-modal>
+
+                  <x-jet-dialog-modal :show="showModalReservation()"  @close="closeModalReservation()">
+                      <x-slot name="title">
+                          {{ __('Hapus akun') }}
+                      </x-slot>
+
+                      <x-slot name="content">
+                          {{ __('Kamu yakin ingin hapus akun ? Sekali hapus akun , semua data akan terhapus permanent! . Tolong masukan kata sandi untuk menghapus akun.') }}
+                      </x-slot>
+
+                      <x-slot name="footer">
+                          <x-jet-secondary-button>
+                              {{ __('Batal') }}
+                          </x-jet-secondary-button>
+
+                          <x-jet-danger-button class="ml-2">
+                              {{ __('Hapus') }}
+                          </x-jet-danger-button>
+                      </x-slot>
+                    </x-jet-dialog-modal>
               </teleport>
            </div>
         </div>
@@ -187,6 +207,7 @@ import ViewSubject from "./ViewReport";
 import AppLayout from "@/Layouts/AppLayout";
 import VueEasyLightbox from 'vue-easy-lightbox';
 import JetConfirmationModal from '@/Jetstream/ConfirmationModal'
+import JetDialogModal from '@/Jetstream/DialogModal'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
 export default {
@@ -199,7 +220,8 @@ export default {
     ViewSubject,
     VueEasyLightbox,
     JetConfirmationModal,
-    JetSecondaryButton
+    JetDialogModal,
+    JetSecondaryButton,
   },
 
   props: {work : Object, related:Object, session:Object},
