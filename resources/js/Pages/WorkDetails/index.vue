@@ -67,25 +67,38 @@
                       </template>
                   </jet-confirmation-modal>
 
-                  <jet-dialog-modal :show="showModalReservation">
-                      <template #title>
-                      </template>
+                  <jet-dialog-modal :show="showModalReservation" :max-width="'xl'">
+                        <template #title>
+                          Reservation of a Physical Book
+                        </template>
+                        <template #content>
+                            <form  class="w-full max-w-sm" @submit.prevent="submit">
+                                <div class="md:flex md:items-center mb-6">
+                                    <div class="md:w-1/3">
+                                      <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                        Full Name
+                                      </label>
+                                    </div>
+                                    <div class="md:w-2/3">
+                                      <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Jane Doe">
+                                    </div>
+                                </div>
+        
+                            </form>
+                        </template>
 
-                      <template #content>
-                      </template>
-
-                      <template #footer>
-                          <jet-secondary-button @click.native="showModalAuth = false">
-                              Cancel
-                          </jet-secondary-button>
-                          <jet-secondary-button class="bg-blue-800 ml-2 hover:bg-blue-600">
-                            <inertia-link class="flex items-center no-underline">
-                              <span class="hover:bg-blue-600 text-center focus:outline-none text-gray-50">
-                                Reserve
-                              </span>
-                            </inertia-link> 
-                          </jet-secondary-button>
-                      </template>
+                          <template #footer>
+                              <jet-secondary-button @click.native="showModalReservation = false">
+                                  Cancel
+                              </jet-secondary-button>
+                              <jet-secondary-button class="bg-blue-800 ml-2 hover:bg-blue-600">
+                                <inertia-link @click="submit()" class="flex items-center no-underline">
+                                  <span class="hover:bg-blue-600 text-center focus:outline-none text-gray-50">
+                                    Reserve
+                                  </span>
+                                </inertia-link> 
+                              </jet-secondary-button>
+                          </template>
                   </jet-dialog-modal>
               </teleport>
            </div>
@@ -230,6 +243,9 @@ export default {
    
   },
    methods: {
+      submit() {
+          this.$inertia.post('/works/'+this.form.work_type+'/'+this.form.search)
+        },
       showSingle() {
         this.imgs = '/'+this.work.cover,
         this.show()
@@ -307,6 +323,7 @@ export default {
       showReservationForm: function(id){
         //Reservation of physical work
         this.showModalReservation = true
+        this.form.book_item_id = id
 
       },
       handleHide() {
@@ -316,6 +333,13 @@ export default {
     },
   data() {
     return {
+       form: {
+            book_item_id: null,
+            start_date: null,
+            start_hour: null,
+            number_days: null,
+            due_date: null,
+        },
       read : false,
       readFull : false,
       adobeDCView : null,
