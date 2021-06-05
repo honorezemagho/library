@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Sat Jun 05 2021 15:31:20 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/HomeController.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-5-5-2021-14-57-7.txt
+
+
+Deleted files:
+
+
+Renamed files:

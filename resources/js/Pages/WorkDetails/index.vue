@@ -91,7 +91,6 @@
         <div class="w-32 mx-auto pt-3 border-b-2 animate-pulse  border-blue-800 text-center mb-4"></div>
           <p class="text-xl text-gray-600 mx-auto text-center">All the copies of this book in our Library</p>
       </div>
-      {{ myWork.book_items }}
       <div class="container">
          <table class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
         <thead class="bg-blue-700 text-white">
@@ -106,14 +105,40 @@
 
         </thead>
         <tbody class="flex-1 sm:flex-none">
-            <div v-for="item in myWork.book_items" v-bind:key="item.id">
-                <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                  <td class="border-grey-light border hover:bg-gray-100 p-3">John Covv</td>
-                  <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">contato@johncovv.com</td>
-                  <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Delete</td>
-                </tr>
-              </div>
-        </tbody>
+            <tr  v-for="item in myWork.book_items" v-bind:key="item.id" class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+              <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.code }}</td>
+              <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ item.format.title }}</td>
+              <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.publish_date }}</td>
+
+               <td v-if="item.status.title == 'Available'" class="border-grey-light bg-orange-200 opacity-50 rounded border hover:bg-gray-100 p-3 truncate">
+                  <span class="relative inline-block px-3 py-1 font-semibold text-center text-green-900 leading-tight">
+                      <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                      <span class="relative">{{ item.status.title }}  </span>
+                  </span>
+                </td>
+
+              <td v-else class="border-grey-light bg-green-200 opacity-50 rounded border hover:bg-gray-100 p-3">
+                  <span class="relative inline-block px-3 py-1 font-semibold text-center text-orange-900 leading-tight">
+                      <span aria-hidden class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"></span>
+                      <span class="relative">{{ item.status.title }}</span>
+                  </span>
+               
+              </td>
+
+              <td class="border-grey-light border hover:bg-gray-100 p-3  hover:text-red-600 hover:font-medium cursor-pointer">
+               <span v-if="item.format.slug == 'p_doc'">
+                  <button  type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Reserve</span>
+                  </button>
+               </span>
+               <span v-else>
+                   <button  type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Read</span>
+                  </button>
+               </span>
+              </td>
+            </tr>
+         </tbody>
 		  </table>
       </div>
       <!--Book Items section -->
