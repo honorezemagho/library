@@ -67,7 +67,7 @@
                       </template>
                   </jet-confirmation-modal>
 
-                  <jet-dialog-modal :show="showModalReservation" :max-width="'xl'">
+                  <jet-dialog-modal :show="showModalReservation" :max-width="'2xl'">
                         <template #ico>
                             <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 ml-2 h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -107,7 +107,7 @@
                                       </label>
                                     </div>
                                     <div class="">
-                                       <select class="form-select mt-1 block " v-model="form.number_days">
+                                       <select class="form-select mt-1 block" v-model="form.number_days">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -117,6 +117,15 @@
                                         <option>7</option>
                                       </select>
                                    </div>
+                                </div>
+                                <div class="text-center text-lg mb-4 mt-6">
+                                  <div class="">
+                                      Reservation of "book title" for X days. from  XXXX to XXXX 
+                                  </div>
+
+                                  <div class="mt-5">
+                                     NB : If your reservation is validated, you will receive an email notification
+                                  </div>
                                 </div>
                             </form>
                         </template>
