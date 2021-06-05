@@ -5,9 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Library;
 use App\Models\SocialMedia;
 use Livewire\Component;
-
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 class HomeSettings extends Component
 {
+    use WithFileUploads;
+ 
     public $facebook_link;
     public $linkedIn_link;
     public $twitter_link;
@@ -22,10 +26,9 @@ class HomeSettings extends Component
     public $old_favicon;
     public $logo;
     public $favicon;
-
+    protected $pageController;
     
-    public function UpdateHomeSettings(){
-        dd();
+    public function submit(){
         $this->validate([
             'email_link' => ['required', 'string', 'max:255'],
             'phone1' => ['required'],
@@ -62,6 +65,7 @@ class HomeSettings extends Component
     
     public function render()
     {
+    
         return view('livewire.home-settings');
     }
 }

@@ -2,7 +2,7 @@
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">Library Configurations</h2>
     </div>
-    <form enctype="multipart/form-data"> 
+    <form wire:submit.prevent="submit" method="POST"> 
         @csrf
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 text mt-4 sm:pb-4"> 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -15,9 +15,9 @@
                         <div class="w-40 mx-auto cursor-pointer relative mt-5">
                             <button type="button" class="button w-full bg-theme-1 text-white">Change logo</button>
                             <input type="file" id="logo"  name="logo" class="w-full h-full top-0 left-0 absolute opacity-0">
-                            @error('logo') <span class="error text-red-600">{{ $message }}</span> @enderror
-
                         </div>
+                        @error('logo') <span class="error text-red-600">{{ $message }}</span> @enderror
+
                     </div>
 
                     <div class="col-span-2 border border-gray-200 rounded-md p-5">
@@ -28,9 +28,9 @@
                         <div class="w-40 mx-auto cursor-pointer relative mt-5">
                             <button type="button" class="button w-full bg-theme-1 text-white">Change Favicon</button>
                             <input type="file" id="favicon"  name="favicon" class="w-full h-full top-0 left-0 absolute opacity-0">
-                            @error('favicon') <span class="error text-red-600">{{ $message }}</span> @enderror
-
                         </div>
+                        @error('favicon') <span class="error text-red-600">{{ $message }}</span> @enderror
+
                     </div>
                 </div>  
                 <div class="grid grid-cols-1 sm:grid-cols-2 col-span-2 gap-4">
@@ -43,8 +43,9 @@
                                 </svg>
                             </div> 
                             <input type="lib_name" id="lib_name" wire:model.lazy="lib_name" name="facebook_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('lib_name') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('lib_name') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    
                     </div>  
                     
                     <div class="col-span-2 sm:col-span-1"> 
@@ -54,8 +55,9 @@
                                 @
                             </div> 
                             <input type="email_link" id="email_link" wire:model.lazy="email_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('email_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                   
                     </div> 
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -67,8 +69,9 @@
                                 </svg>
                             </div> 
                             <input type="phone1" id="phone1" wire:model.lazy="phone1" name="phone1" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('phone1') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('phone1') <span class="error text-red-600">{{ $message }}</span> @enderror
+                  
                         </div> 
             
                         <div class="col-span-2 sm:col-span-1"> 
@@ -80,8 +83,9 @@
                                 </svg>
                             </div> 
                             <input type="phone2" id="phone2" wire:model.lazy="phone2" name="phone2" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('phone2') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('phone2') <span class="error text-red-600">{{ $message }}</span> @enderror
+                    
                         </div> 
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -93,8 +97,9 @@
                                 </svg>
                             </div> 
                             <input type="facebook_link" id="facebook_link" wire:model.lazy="facebook_link" name="facebook_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('facebook_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('facebook_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                 
                     </div>  
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -106,8 +111,9 @@
                                 </svg> 
                             </div> 
                             <input type="twitter_link" id="twitter_link" wire:model.lazy="twitter_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('twitter_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('twitter_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                       
                     </div>  
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -119,8 +125,9 @@
                                 </svg> 
                             </div> 
                             <input type="linkedIn_link" id="linkedIn_link" wire:model.lazy="linkedIn_link" name="twiter_link" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('linkedIn_link') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('linkedIn_link') <span class="error text-red-600">{{ $message }}</span> @enderror
+                   
                     </div>  
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -132,8 +139,9 @@
                                 </svg>
                             </div> 
                             <input type="hero_image_title" id="hero_image_title" wire:model.lazy="hero_image_title" name="hero_image_title" class="shadow appearance-none border rounded w-full py-2 px-11 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " />
-                            @error('hero_image_title') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('hero_image_title') <span class="error text-red-600">{{ $message }}</span> @enderror
+              
                     </div> 
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -145,8 +153,9 @@
                                 </svg>
                             </div> 
                             <textarea  id="lib_desc" wire:model.lazy="lib_desc" data-feature="basic" class="summernote" name="lib_desc"></textarea>
-                            @error('lib_desc') <span class="error text-red-600">{{ $message }}</span> @enderror
                         </div> 
+                        @error('lib_desc') <span class="error text-red-600">{{ $message }}</span> @enderror
+                 
                     </div>
         
                     <div class="col-span-2 sm:col-span-1"> 
@@ -158,16 +167,17 @@
                                 </svg>
                             </div> 
                             <textarea  id="hero_image_desc" wire:model.lazy="hero_image_desc" data-feature="basic" class="summernote" name="hero_image_desc"></textarea>
-                            @error('hero_image_desc') <span class="error text-red-600">{{ $message }}</span> @enderror
-                        </div> 
+                         </div> 
+                         @error('hero_image_desc') <span class="error text-red-600">{{ $message }}</span> @enderror
+                  
                     </div> 
                 </div> 
             </div>
         </div>
 
         </div>
-        <div class=" text-center mx-auto mt-2 sm:mt-4">
-            <x-jet-button  x-on:click.prevent  wire:click="UpdateHomeSettings" class=" bg-theme-1 text-lg shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
+        <div class="text-center mx-auto mt-2 sm:mt-4">
+            <x-jet-button type="submit" class=" bg-theme-1 text-lg shadow-md mr-2 text-center">Update Configurtion</x-jet-button>    
         </div>
     </form>
    

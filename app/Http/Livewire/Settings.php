@@ -15,7 +15,7 @@ class Settings extends Component
     public $currency;
     public $lib_default_language;
 
-    public function UpdateSettings(){
+    public function submit(){
         $this->validate([
             'lib_default_language' => ['required', 'string', 'max:255'],
             'book_due_reminder_before_Days' => ['required'],
