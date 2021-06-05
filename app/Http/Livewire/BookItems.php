@@ -31,9 +31,18 @@ class BookItems extends Component
     public $status_id;
     public $showModalForm = false;
     public $showDeleteModalForm = false;
+    public $showUrl = true;
     protected $pageController;
 
    
+    public function updatedFormat(){
+        if($this->format == 2){
+            $this->showUrl = false;
+        }else{
+            $this->showUrl = true;
+     
+        }
+    }
     public function callAPI(){
         $ISBN = $this->book->ISBN;
         $response = json_decode(file_get_contents('https://openlibrary.org/api/books?bibkeys=ISBN:'.$ISBN.'&jscmd=details&format=json'), true);

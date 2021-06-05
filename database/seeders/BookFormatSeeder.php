@@ -18,10 +18,11 @@ class BookFormatSeeder extends Seeder
 
         DB::table('book_formats')->insert([
             'title' => "E-Document",
+            'slug' => "e_doc",
         ]);
 
         DB::table('book_formats')->insert([
-            'title' => "Physical Document",
+            'slug' => "p_doc",
         ]);
 
     }

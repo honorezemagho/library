@@ -187,7 +187,7 @@
                             <x-jet-label for="format" value="{{ __('Format') }}" />
                             <select id="format" wire:model="format" name="format" data-hide-search="true" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2">
                                 @if($this->format == null)
-                                    <option selected value="Null">{{ __('Choose a format') }}</option>
+                                 <option selected value="Null">{{ __('Choose a format') }}</option>
                                 @endif
                                 @foreach ($formats as $format)
                                     <option value="{{ $format->id }}">{{ $format->title }}</option>
@@ -229,21 +229,23 @@
                             </select>      
                                 @error('status_id') <span class="text-red-500">{{ $message }}</span>@enderror 
                         </div>
-                         <div class="col-span-2 sm:col-span-1"
-                            x-data="{ isUploading: false, progress: 0 }"
-                            x-on:livewire-upload-start="isUploading = true"
-                            x-on:livewire-upload-finish="isUploading = false"
-                            x-on:livewire-upload-error="isUploading = false"
-                            x-on:livewire-upload-progress="progress = $event.detail.progress"> 
+                        @if($showUrl)
+                            <div class="col-span-2 sm:col-span-1"
+                                x-data="{ isUploading: false, progress: 0 }"
+                                x-on:livewire-upload-start="isUploading = true"
+                                x-on:livewire-upload-finish="isUploading = false"
+                                x-on:livewire-upload-error="isUploading = false"
+                                x-on:livewire-upload-progress="progress = $event.detail.progress"> 
 
-                             <x-jet-label for="url" value="{{ __('File') }}" />
-                            <input type="file" id="url" wire:model="url" name="url" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
-                            <!-- Progress Bar -->
-                            <div x-show="isUploading">
-                                <progress max="100" x-bind:value="progress"></progress>
-                            </div>   
-                            @error('url') <span class="text-red-500">{{ $message }}</span>@enderror 
-                        </div>
+                                <x-jet-label for="url" value="{{ __('File') }}" />
+                                <input type="file" id="url" wire:model="url" name="url" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal sm:text-sm sm:leading-5" />
+                                <!-- Progress Bar -->
+                                <div x-show="isUploading">
+                                    <progress max="100" x-bind:value="progress"></progress>
+                                </div>   
+                                @error('url') <span class="text-red-500">{{ $message }}</span>@enderror 
+                            </div>
+                        @endif
                     
                        
                     </div> 

@@ -28,6 +28,22 @@ class HomeSettings extends Component
     public $favicon;
     protected $pageController;
     
+    public function mount(){
+        $library = Library::find(1);
+        $this->lib_name =  $library->lib_name;
+        $this->lib_desc = $library->lib_desc;
+        $this->email_link = $library->email_link;
+        $this->phone1 = $library->phone1;
+        $this->phone2 = $library->phone2;
+        $this->hero_image_title = $library->hero_image_title;
+        $this->hero_image_desc = $library->hero_image_desc;
+
+
+        $this->facebook_link = SocialMedia::find(1)->url;
+        $this->linkedIn_link = SocialMedia::find(2)->url;
+        $this->twitter_link = SocialMedia::find(3)->url;
+    
+    }
     public function submit(){
         $this->validate([
             'email_link' => ['required', 'string', 'max:255'],
