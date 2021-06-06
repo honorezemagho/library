@@ -8,10 +8,29 @@ use Livewire\Component;
 class Reservations extends Component
 {
     public $reservation_id;
+    public $showModalForm = false;
+    public $showDeleteModalForm = false;
+
+    public function showCreatePublisherModal()
+    {
+        $this->showModalForm = true;
+    }
+
+    public function closeModal()
+    {
+        $this->reset();
+        $this->showDeleteModalForm = false;
+    }
+
+    public function updatedShowModalForm()
+    {
+        $this->reset();
+    }
 
     public function render()
     {
-        $reservations = Reservation::all();
+        $reservations = Reservation::with('book')->get();
+       
         return view('livewire.reservations', [
             'reservations' => $reservations,
         ]);

@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Sun Jun 06 2021 09:01:01 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/PageController.php
+* app/Models/Reservation.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-6-5-2021-8-27-38.txt
+* app/Http/Livewire/Reservations.php
+* resources/views/livewire/reservations.blade.php
+* resources/views/pages/reservations.blade.php
+
+
+Deleted files:
+
+
+Renamed files:
