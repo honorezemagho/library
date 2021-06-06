@@ -12,6 +12,7 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Redirect;
 
 class WorkController extends Controller
 {
@@ -80,7 +81,8 @@ class WorkController extends Controller
     public function reservation(Request $request){
         $request->validate([
                 'book_item_id' => 'required',
-                'issue_date' => 'required',
+                'issue_date' => 'required|date_format:Y/m/d',
+                'due_date' => 'required|date_format:Y/m/d',
             ]);
        
         $reservation = Reservation::create([
@@ -92,8 +94,7 @@ class WorkController extends Controller
             'user_id' => Auth::id(),
  
          ]);
-        
-
-
+         return Redirect::route('work_details', ['book', $request->input('book_id')]);
+     
     }
 }

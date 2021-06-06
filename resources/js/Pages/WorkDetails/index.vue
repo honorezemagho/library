@@ -97,9 +97,10 @@
                                     <div class="flex">
                                       <div class="mr-2">
                                          <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.issue_date" />
-
                                       </div>
                                    </div>
+                                    <div class="bg-red-200 text-red-800 rounded" v-if="errors.issue_date">{{ errors.issue_date }}</div>
+  
                            
                                 </div>
                                 <div class="md:flex md:items-center mb-8">
@@ -292,6 +293,9 @@ export default {
   mounted() {
    
   },
+  props:{
+    errors: Object,
+  },
    methods: {
       submit() {
           var issue_date = new Date(this.form.issue_date).toLocaleDateString();
@@ -304,7 +308,7 @@ export default {
           this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
 
           this.$inertia.post('/reservation', this.form, {
-  preserveState: (page) => Object.keys(page.props.errors).length,
+          preserveState: (page) => Object.keys(page.props.errors).length,
 })
        
         },
@@ -399,6 +403,7 @@ export default {
   data() {
     return {
        form: {
+            book_id: this.work.id,
             book_item_id: null,
             issue_date: null,
             start_time: null,
