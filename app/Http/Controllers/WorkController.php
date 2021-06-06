@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use auth;
 use App\Models\Book;
 use Inertia\Inertia;
 use App\Models\Report;
@@ -88,7 +87,7 @@ class WorkController extends Controller
             'reserv_date' => Now(),
             'issue_date' =>$request->input('issue_date'),
             'due_date' => $request->input('due_date'),
-            'book_id' => $request->input('book_item_id'),
+            'book_id' => 1,
             'status_id' => 5,
             'user_id' => Auth::id(),
  

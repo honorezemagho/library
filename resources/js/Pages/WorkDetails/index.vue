@@ -97,9 +97,10 @@
                                     <div class="flex">
                                       <div class="mr-2">
                                          <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.issue_date" />
-                                      
-                                      </div>  
+
+                                      </div>
                                    </div>
+                           
                                 </div>
                                 <div class="md:flex md:items-center mb-8">
                                     <div class="md:w-1/3">
@@ -302,7 +303,9 @@ export default {
           this.form.issue_date = issue_date.split('/').reverse().join('/');
           this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
 
-          this.$inertia.post('/reservation', this.form)
+          this.$inertia.post('/reservation', this.form, {
+  preserveState: (page) => Object.keys(page.props.errors).length,
+})
        
         },
       showSingle() {
