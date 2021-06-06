@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun Jun 06 2021 20:03:37 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* resources/views/livewire/reservations.blade.php
+
+
+Created files:
+* .autogit/logs/log-6-5-2021-16-52-1.txt
+
+
+Deleted files:
+
+
+Renamed files:
