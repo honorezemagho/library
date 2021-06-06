@@ -293,16 +293,17 @@ export default {
   },
    methods: {
       submit() {
-        var issue_date = new Date(this.form.issue_date).toLocaleDateString()
-        var date_temp = issue_date.split('/').reverse().join('/');
+          var issue_date = new Date(this.form.issue_date).toLocaleDateString();
+          var date_temp = issue_date.split('/').reverse().join('/');
 
-        var due_date =  new Date(date_temp);
-        due_date = due_date.setDate(due_date.getDate() + this.form.number_days);
+          var due_date =  new Date(date_temp);
+          due_date.setDate(due_date.getDate() + parseInt(this.form.number_days));
 
-        this.form.issue_date = issue_date.split('/').reverse().join('/');
-        this.form.due_date = due_date.split('/').reverse().join('/');;
+          this.form.issue_date = issue_date.split('/').reverse().join('/');
+          this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
 
           this.$inertia.post('/reservation', this.form)
+       
         },
       showSingle() {
         this.imgs = '/'+this.work.cover,
@@ -379,10 +380,13 @@ export default {
         this.visible = true
       },
       showReservationForm: function(id){
-        //Reservation of physical work
-        this.showModalReservation = true
-        this.form.book_item_id = id
-
+        if(this.session.auth){
+           this.showModalReservation = true
+           this.form.book_item_id = id
+        }else{
+          console.log("Unauthorized")
+          this.showModalAuth = true
+        }
       },
       handleHide() {
         this.visible = false
