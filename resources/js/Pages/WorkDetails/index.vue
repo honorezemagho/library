@@ -293,9 +293,7 @@ export default {
   mounted() {
    
   },
-  props:{
-    errors: Object,
-  },
+  
    methods: {
       submit() {
           var issue_date = new Date(this.form.issue_date).toLocaleDateString();
@@ -307,6 +305,7 @@ export default {
           this.form.issue_date = issue_date.split('/').reverse().join('/');
           this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
 
+          this.showModalReservation = false
           this.$inertia.post('/reservation', this.form, {
           preserveState: (page) => Object.keys(page.props.errors).length,
 })
@@ -402,6 +401,10 @@ export default {
     },
   data() {
     return {
+      errors:{
+          issue_date: null,
+          number_days: null,
+      },
        form: {
             book_id: this.work.id,
             book_item_id: null,
