@@ -78,19 +78,19 @@ class WorkController extends Controller
     }
 
     public function reservation(Request $request){
-        $date = date('Y-m-d h:i:s', strtotime($request->input('start_date')));
-        dd($date);
-       $request->validate([
-            'book_item_id' => 'required',
-            'start_date' => 'required',
-            'number_days' => ['required', 'array'],
-        ]);
+        dd($request);
+        $request->validate([
+                'book_item_id' => 'required',
+                'issue_date' => 'required',
+                'number_days' => ['required', 'array'],
+            ]);
 
        
 
         $reservation = Reservation::create([
             'reserv_date' => Now(),
-            'due_date' => Now(),
+            'issue_date' =>$request->input('issue_date'),
+            'due_date' => $request->input('due_date'),
             'book_id' => $request->input('book_item_id'),
             'user_id' => Auth::user()->id,
  

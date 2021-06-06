@@ -91,12 +91,12 @@
                                 <div class="md:flex md:items-center mb-6">
                                     <div class="md:w-1/3">
                                       <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                                        Start Date
+                                        Issue Date
                                       </label>
                                     </div>
                                     <div class="flex">
                                       <div class="mr-2">
-                                         <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.start_date" />
+                                         <Datepicker :inputFormat="'yyyy-MM-dd'"  v-model="form.issue_date" />
                                       
                                       </div>  
                                    </div>
@@ -120,17 +120,10 @@
                                    </div>
                                 </div>
                                 <div class="text-center text-lg mb-4 mt-5">
-                                  <div class="">
-                                      Reservation of "book title" for {{ this.form.number_days }} days. from 
-                                       {{ new Date(this.form.start_date).toLocaleDateString() }}  to {{ new Date(new Date(this.form.start_date).toLocaleDateString()).getDate() + this.form.number_days  }} 
-                                  </div>
-
                                   <div class="mt-5">
                                      NB : If your reservation is validated, you will receive an email notification
                                   </div>
                                 </div>
-                                <v-calendar />
-                                <v-date-picker v-model="date" />
                             </form>
                         </template>
 
@@ -138,12 +131,10 @@
                               <jet-secondary-button @click.native="showModalReservation = false">
                                   Cancel
                               </jet-secondary-button>
-                              <jet-secondary-button class="bg-blue-800 ml-2 hover:bg-blue-600">
-                                <inertia-link @click="submit()" class="flex items-center no-underline">
+                              <jet-secondary-button type="submit" @click="submit()" class="bg-blue-800 ml-2 hover:bg-blue-600">
                                   <span class="hover:bg-blue-600 text-center focus:outline-none text-gray-50">
                                     Reserve
                                   </span>
-                                </inertia-link> 
                               </jet-secondary-button>
                           </template>
                   </jet-dialog-modal>
@@ -302,15 +293,16 @@ export default {
   },
    methods: {
       submit() {
-        var date = new Date(this.form.start_date).toLocaleDateString()
-        var dattmp = date.split('/').reverse().join('/');
-        var nwdate =  new Date(dattmp);
-        nwdate.setDate(nwdate.getDate()+5);
+        var issue_date = new Date(this.form.issue_date).toLocaleDateString()
+        var date_temp = issue_date.split('/').reverse().join('/');
 
-        console.log(date)
-        console.log(nwdate.toLocaleDateString())
-        this.form.start_date = date;
+        var due_date =  new Date(date_temp);
+        due_date = due_date.setDate(due_date.getDate() + this.form.number_days);
 
+        this.form.issue_date = issue_date.split('/').reverse().join('/');
+        this.form.due_date = due_date.split('/').reverse().join('/');;
+
+          this.$inertia.post('/reservation', this.form)
         },
       showSingle() {
         this.imgs = '/'+this.work.cover,
@@ -401,7 +393,7 @@ export default {
     return {
        form: {
             book_item_id: null,
-            start_date: null,
+            issue_date: null,
             start_time: null,
             number_days: null,
             due_date: null,
