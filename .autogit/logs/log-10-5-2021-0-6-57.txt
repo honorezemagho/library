@@ -1,0 +1,24 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 10 2021 00:06:57 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* app/Http/Livewire/Reservations.php
+* app/Models/Reservation.php
+* database/migrations/2020_12_01_2102300_create_status_table.php
+* database/migrations/2021_05_11_084223_create_libraries_table.php
+* database/migrations/2021_05_11_121327_create_book_reservations_table.php
+* database/migrations/2021_05_11_125547_create_notifications_table.php
+* resources/views/emails/reservation-mail.blade.php
+* resources/views/livewire/reservations.blade.php
+
+
+Created files:
+* .autogit/logs/log-9-5-2021-23-2-49.txt
+
+
+Deleted files:
+
+
+Renamed files:

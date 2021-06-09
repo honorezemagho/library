@@ -57,9 +57,6 @@ class Reservations extends Component
 
         Mail::to('anafackjordan@gmail.com')->send(new ReservationMail($details));
 
-    	dd('Mail Send Successfully');
-
-
     }
 
     public function deleteReservation($id)

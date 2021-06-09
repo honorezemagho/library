@@ -184,27 +184,24 @@
                 <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{ item.format.title }}</td>
                 <td class="border-grey-light border hover:bg-gray-100 p-3">{{ item.publish_date }}</td>
 
-                <td v-if="item.status.title == 'Available'" class="border-grey-light bg-green-400-200 opacity-50 rounded border hover:bg-gray-100 p-3 truncate">
-                    <span class="relative inline-block px-3 py-1  text-center text-green-900 leading-tight">
+                <td class="border-grey-light hover:bg-gray-100 p-3 ">
+                    <span v-if="item.status.title == 'Available'" class="border-grey-light relative inline-block px-3 py-1  text-center text-green-900 leading-tight">
                         <span aria-hidden class="absolute inset-0 bg-green-300 opacity-50 rounded-full"></span>
                         <span class="relative">{{ item.status.title }}  </span>
                     </span>
-                  </td>
-
-                <td v-else class="border-grey-light text-center bg-green-200 opacity-50 rounded border hover:bg-gray-100 p-3">
-                    <span class="relative inline-block px-3 py-1 text-center text-orange-900 leading-tight">
-                        <span aria-hidden class="absolute inset-0 bg-orange-400 opacity-50 rounded-full"></span>
-                        <span class="relative">{{ item.status.title }}</span>
+                     <span v-else class="border-grey-light relative inline-block px-3 py-1  text-center text-green-900 leading-tight">
+                        <span aria-hidden class="absolute inset-0 bg-green-300 opacity-50 rounded-full"></span>
+                        <span class="relative">{{ item.status.title }}  </span>
                     </span>
                 </td>
 
                 <td class="border-grey-light border hover:bg-gray-100 p-3  hover:text-red-600 hover:font-medium cursor-pointer">
                 <span v-if="item.format.slug == 'p_doc'">
-                    <button  v-if="item.status.title == 'Available'" type="button" @click="showReservationForm(item.id)"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <button  v-if="item.status.slug == 'available'" type="button" @click="showReservationForm(item.id)"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                       <span class="text-center">Reserve</span>
                     </button>
-                     <button  v-else  disabled type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
-                      <span class="text-center">Reserve</span>
+                     <button  v-else disabled type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                      <span class="text-center">Reserved</span>
                     </button>
 
                 </span>

@@ -17,6 +17,7 @@ class CreateBookReservationsTable extends Migration
             $table->id();
             $table->date("reserv_date");
             $table->date("due_date");
+            $table->date("issue_date");
             $table->foreignId("status_id")->references("id")->on("status");
             $table->foreignId("book_item_id")->references("id")->on("book_items");
             $table->foreignId("user_id")->references("id")->on("users");

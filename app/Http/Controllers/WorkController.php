@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Inertia\Inertia;
 use App\Models\Report;
+use App\Models\Status;
 use App\Models\Subject;
+use App\Models\BookItem;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Client\Response;
@@ -90,10 +92,14 @@ class WorkController extends Controller
             'issue_date' =>$request->input('issue_date'),
             'due_date' => $request->input('due_date'),
             'book_item_id' => $request->input('book_item_id'),
-            'status_id' => 5,
+            'status_id' => Status::select('id')->where("slug",'validated')->first()->id,
             'user_id' => Auth::id(),
  
          ]);
+            BookItem::find($request->input('book_item_id'))->update([
+                'status_id' => Status::select('id')->where("slug",'reserved')->first()->id,
+            ]);
+
          return Redirect::route('work_details', ['book', $request->input('book_id')]);
      
     }
