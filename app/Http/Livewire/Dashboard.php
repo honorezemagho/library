@@ -7,7 +7,9 @@ use App\Models\User;
 use App\Models\Report;
 use App\Models\Subject;
 use Livewire\Component;
+use App\Models\Reservation;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+
 class Dashboard extends Component
 {
     public function render()
@@ -15,6 +17,7 @@ class Dashboard extends Component
         $reports = Report::count();
         $books = Book::count();
         $subjects = Subject::count();
+        $reservations = Reservation::count();
         $members = User::role('Member')->count();
 
         $chartWorksCategory = (new LarapexChart)->pieChart()
@@ -33,6 +36,7 @@ class Dashboard extends Component
          'books' => $books, 
          'subjects' => $subjects,
          'members' => $members,
+         'reservations' => $reservations,
          'chartWorksCategory' => $chartWorksCategory,
          'chartEvolutionOfUsers' => $chartEvolutionOfUsers,
         ]);

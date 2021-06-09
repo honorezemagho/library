@@ -1,10 +1,11 @@
 @component('mail::message')
-# Introduction
+# Reservation
 
-The body of your message.
+Your reservation for the book <strong>{{ $details['book_title'] }}</strong> has been approved.<br>
+You can come to our library on <strong>{{ $details['issue_date'] }}</strong> to pick it up.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'http://mydigitallibrary.test'])
+Visit our Digital Library.
 @endcomponent
 
 Thanks,<br>

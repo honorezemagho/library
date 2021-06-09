@@ -1,3 +1,4 @@
+use App\Models\Reservation;
 <div>
     <div class="grid grid-cols-12 gap-6 relative z-0">
         <div class="col-span-12 xxl:col-span-9 grid grid-cols-12 gap-6">
@@ -58,22 +59,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y  z-0">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="users" class="report-box__icon text-theme-9"></i>
+                                    <i data-feather="book-open" class="report-box__icon text-theme-12"></i>
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="22% Higher than last month">
+                                        <div class="report-box__indicator  bg-theme-9 tooltip cursor-pointer" title="12% Higher than last month">
                                             5%
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">{{ $members }}</div>
-                                <div class="text-base text-gray-600 mt-1">Members</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{ $reservations }}</div>
+                                <div class="text-base text-gray-600 mt-1"> Reservation</div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
 
                  <div class="grid grid-cols-12 gap-6 mt-5">
