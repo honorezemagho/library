@@ -16,10 +16,10 @@ class CreateStatusTable extends Migration
         Schema::create('status', function (Blueprint $table) {
             $table->id();
             $table->string('title',60);
+            $table->string('slug',60);
             $table->string("style_css");
             $table->string("class_fa",20);
-            $table->string("colour_class",20);
-            $table->string("colour_code",20);
+            $table->string("colour_class",200);
             $table->timestamps();
         });
     }

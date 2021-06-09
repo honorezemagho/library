@@ -40,7 +40,7 @@
                 @foreach ($reservations as $reservation)
                 <tr>
                     <td class="border-b text-center ">
-                        <div class="font-medium "> {{ $reservation->book->id  }}</div>
+                        <div class="font-medium "> {{ $reservation->book->code  }}</div>
                     </td>
                     <td class="border-b text-center ">
                         <div class="font-medium "> {{ $reservation->user->name }}</div>

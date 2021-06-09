@@ -89,7 +89,7 @@ class WorkController extends Controller
             'reserv_date' => Now(),
             'issue_date' =>$request->input('issue_date'),
             'due_date' => $request->input('due_date'),
-            'book_id' => 1,
+            'book_item_id' => $request->input('book_item_id'),
             'status_id' => 5,
             'user_id' => Auth::id(),
  

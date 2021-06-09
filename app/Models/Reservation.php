@@ -17,7 +17,7 @@ class Reservation extends Model
     }
 
     public function book(){
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(BookItem::class, "book_item_id");
     }
 
     public function status(){

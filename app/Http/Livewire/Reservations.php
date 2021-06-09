@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Mail\ReservationMail;
+use App\Models\Book;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\Reservation;
@@ -45,9 +46,13 @@ class Reservations extends Component
 
         $reservation = Reservation::find($id);
         $user = User::where("id", $reservation->user_id)->first()->toArray();
+        $book_item =  $reservation->book;
+        $book = Book::find($book_item->book_id);
         $details = [
-            "issue_date" =>  $reservation->issue_dat,
-            "book_title" =>  $reservation->book->title,
+            "issue_date" =>  $reservation->issue_date,
+            "book_title" =>  $book->title,
+            "book_item_code"  =>   $book_item->code,
+            "reservation_id"  =>  $reservation->id,
          ];
 
         Mail::to('anafackjordan@gmail.com')->send(new ReservationMail($details));
@@ -68,7 +73,6 @@ class Reservations extends Component
     public function render()
     {
         $reservations = Reservation::with('book')->get();
-       
         return view('livewire.reservations', [
             'reservations' => $reservations,
         ]);

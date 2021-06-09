@@ -19,12 +19,16 @@ class CreateLibrariesTable extends Migration
             $table->string("lib_title");
             $table->string("lib_default_language");
             $table->string("lib_email");
-            $table->text("lib_description");
-            $table->string("lib_site_url");
+            $table->text("lib_desc")->nullable();
+            $table->string("lib_site_url")->nullable();
+            $table->string("phone1")->nullable();
+            $table->string("phone2")->nullable();
             $table->integer("default_issue_days");
             $table->integer("max_issue_book_limit");
+            $table->integer("max_reserv_book_limit");
             $table->integer("fine_per_overdue_day");
-            $table->string("currency");
+            $table->integer("book_due_reminder_before_Days");
+            $table->string("currency",50);
             $table->timestamps();
         });
     }
