@@ -127,8 +127,8 @@
                         </div>   
                     </div>
                 </div>
-                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-4">
-                    <div class="m-10 bg-white rounded shadow">
+                <div class="intro-y mt-4">
+                    <div class="bg-white rounded shadow">
                         {!! $chartWorks->container() !!}
                     </div>
                 </div>

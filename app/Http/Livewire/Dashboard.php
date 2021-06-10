@@ -17,6 +17,40 @@ class Dashboard extends Component
     public $order;
     public $limit;
     protected $chartWorks;
+    protected $works;
+
+    public function mount(){
+        
+        //Chart Works
+        $this->works = Report::withCount('views')->get()->sortBy(function($report)
+        {
+            return $report->views->count();
+
+        });
+
+    }
+
+    public function updatedCategory($cat){
+        if ($cat == "book"){
+            $this->works = Book::withCount('views')->get()->sortBy(function($report) {
+                return $report->views->count();
+    
+            });
+     
+        }else if ($cat == "report") {
+            $this->works = Report::withCount('views')->get()->sortBy(function($report) {
+                return $report->views->count();
+    
+            });
+     
+        }else{
+            $this->works = Subject::withCount('views')->get()->sortBy(function($report) {
+                return $report->views->count();
+    
+            });
+        }
+    }
+
     public function render()
     {
         $reports = Report::count();
@@ -52,20 +86,15 @@ class Dashboard extends Component
         ->addLine('Users', \App\Models\User::query()->pluck('id')->toArray())
         ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
         ->setColors(['#ffc63b']);
-        
-        //Chart Works
-        $works = Report::withCount('views')->limit(10)->get()->sortBy(function($report)
-        {
-            return $report->views->count();
 
-        });
-
-
+        //Chart works
+        $works_count = $this->works->pluck('views_count')->toArray();
+        $works_title = $this->works->pluck('title')->toArray();
         $this->chartWorks =  (new LarapexChart)->barChart()
-        ->setTitle('San Francisco vs Boston.')
-        ->addData('',[7, 3, 8, 2, 6, 4])
-        ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+        ->addData('', $works_count)
+        ->setXAxis($works_title);
 
+        
         return view('livewire.dashboard', 
         ['reports' => $reports,
          'books' => $books, 
