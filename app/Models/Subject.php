@@ -26,7 +26,7 @@ class Subject extends Model
     }
 
     public function views(){
-    return $this->morphMany(View::class,'viewable');
+    return $this->morphMany(View::class,'view');
     }
 
     public function level(){

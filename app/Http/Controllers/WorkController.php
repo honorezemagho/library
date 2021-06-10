@@ -103,4 +103,8 @@ class WorkController extends Controller
          return Redirect::route('work_details', ['book', $request->input('book_id')]);
      
     }
+
+    public function save_view(Request $request){
+        return $request;
+    }
 }

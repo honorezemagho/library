@@ -346,6 +346,17 @@ export default {
           this.readFull = false
           this.adobeDCView = null
           this.viewerConfig.embedMode = ""
+          axios.post('/view', {  
+                    work_id: this.myWork.id,  
+                    model_name: this.myWork.model_name
+                })  
+                .then(res => {
+                  //this.works =  res.data
+                    console.log(res.data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
           window.scrollTo({
               top : 0,
               left:0,

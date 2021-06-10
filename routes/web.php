@@ -26,6 +26,9 @@ use App\Http\Livewire\HomeSettings;
 Route::get('/send-mail', [SendMailController::class, 'index'])->name('send.mail.index');
 
 //Home page
+Route::post('/view', [WorkController::class, 'save_view'])->name('view');
+
+//Home page
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 //About page
