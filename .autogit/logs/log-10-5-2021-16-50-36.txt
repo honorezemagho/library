@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 10 2021 16:50:36 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* app/Models/Report.php
+* app/Models/Subject.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-10-5-2021-14-30-20.txt
+
+
+Deleted files:
+
+
+Renamed files:

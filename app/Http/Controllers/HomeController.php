@@ -23,10 +23,10 @@ class HomeController extends Controller
     }
 
     public function home(){
-        $books = Book::with('authors')->with('publisher')->with('format')->with('type')->limit(10)->orderBy('id', 'DESC')->get();
-        $reports = Report::with('authors')->with('field')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
-        $subjects = Subject::with('author')->with('field')->with('period')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
-
+        $books = Book::with('authors')->withCount('views')->with('publisher')->with('format')->with('type')->limit(10)->orderBy('id', 'DESC')->get();
+        $reports = Report::with('authors')->withCount('views')->with('field')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
+        $subjects = Subject::with('author')->withCount('views')->with('field')->with('period')->with('level')->limit(10)->orderBy('id', 'DESC')->get();
+        
         $works = new \Illuminate\Database\Eloquent\Collection; 
         $works = $works->concat($books);
         $works = $works->concat($reports);
