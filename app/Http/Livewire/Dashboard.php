@@ -54,11 +54,16 @@ class Dashboard extends Component
         ->setColors(['#ffc63b']);
         
         //Chart Works
+        $works = Report::withCount('views')->limit(10)->get()->sortBy(function($report)
+        {
+            return $report->views->count();
+
+        });
+
+
         $this->chartWorks =  (new LarapexChart)->barChart()
         ->setTitle('San Francisco vs Boston.')
-        ->setSubtitle('Wins during season 2021.')
-        ->addData('San Francisco', [6, 9, 3, 4, 10, 8])
-        ->addData('Boston', [7, 3, 8, 2, 6, 4])
+        ->addData('',[7, 3, 8, 2, 6, 4])
         ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
 
         return view('livewire.dashboard', 

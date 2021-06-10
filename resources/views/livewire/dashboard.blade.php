@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-8">
+                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-4">
                     <h2 class="text-lg font-medium mr-auto">Details Statistic about works </h2>
                     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
                         <div class="flex mr-5"> 
@@ -127,7 +127,7 @@
                         </div>   
                     </div>
                 </div>
-                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-8">
+                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-4">
                     <div class="m-10 bg-white rounded shadow">
                         {!! $chartWorks->container() !!}
                     </div>
