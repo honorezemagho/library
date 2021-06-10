@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 10 2021 00:42:28 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* app/Http/Livewire/Reservations.php
+* database/migrations/2021_05_11_121327_create_book_reservations_table.php
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-10-5-2021-0-6-57.txt
+
+
+Deleted files:
+
+
+Renamed files:

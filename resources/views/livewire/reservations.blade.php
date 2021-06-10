@@ -54,9 +54,25 @@
                     <td class="border-b text-center ">
                         <div class="font-medium "> {{ $reservation->due_date }}</div>
                     </td>
-                    <td class="border-b text-center ">
+                    <td class="flex m-2 border-b text-center ">
                         @if($reservation->status->slug == "pending")
-                            <div class="font-medium rounded-lg  bg-yellow-700 text-gray-50 opacity-75"> {{ $reservation->status->title }}</div>
+                            <div class="flex m-2 content-center ont-medium rounded-lg  bg-yellow-700 text-gray-50 opacity-75"> 
+                                <span class="content-center mr-2">{{ $reservation->status->title }}</span>
+                                <svg width="" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="rgb(45, 55, 72)" class="content-center w-6 h-6">
+                                    <circle cx="15" cy="15" r="15">
+                                        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                                        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+                                        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+                                        <animate attributeName="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+                                    </circle>
+                                    <circle cx="105" cy="15" r="15">
+                                        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+                                        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+                                    </circle>
+                                </svg>
+                            </div>
                         @else
                         <div class="font-medium rounded-lg  bg-green-700 text-gray-50 opacity-75"> {{ $reservation->status->title }}</div>
                         @endif
