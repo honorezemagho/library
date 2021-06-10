@@ -90,27 +90,46 @@
                     </div>
                 </div>
 
-                <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-8">
                     <h2 class="text-lg font-medium mr-auto">Details Statistic about works </h2>
                     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                        <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Book</button>
-                        <div class="dropdown relative ml-auto sm:ml-0">
-                            <button class="dropdown-toggle button px-2 box text-gray-700">
-                                <span class="w-5 h-5 flex items-center justify-center">
-                                    <i class="w-4 h-4" data-feather="plus"></i>
-                                </span>
-                            </button>
-                            <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                                <div class="dropdown-box__content box p-2">
-                                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                        <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category
-                                    </a>
-                                    <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                        <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="flex mr-5"> 
+                            <label class="mr-1 mt-2">Category</label>
+                            <select wire:model="category" class="select h-10 w-auto border">
+                                <option selected value="book">Book</option>
+                                <option value="report">Report</option>
+                                <option value="subject">Subject</option>
+                            </select>
+                        </div>   
+                        <div class="flex mr-5"> 
+                            <label class="mr-1 mt-2">OrderBy</label>
+                            <select wire:model="orderBy" class="select h-10 w-auto border">
+                                <option selected value="view">View</option>
+                                <option value="view">Reserved</option>
+                           
+                            </select>
+                        </div>   
+                        <div class="flex mr-5"> 
+                            <label class="mr-1 mt-2">Order</label>
+                            <select wire:model="category" class="select h-10 w-auto border">
+                                <option selected value="asc">ASC</option>
+                                <option value="desc">DESC</option>
+                            </select>
+                        </div>   
+                        <div class="flex"> 
+                            <label class="mr-1 mt-2">Takes</label>
+                            <select wire:model="limit" class="select h-10 w-auto border">
+                                <option selected value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>   
+                    </div>
+                </div>
+                <div class="intro-y flex flex-col sm:flex-row items-center con  mt-8">
+                    <div class="m-10 bg-white rounded shadow">
+                        {!! $chartWorks->container() !!}
                     </div>
                 </div>
             </div>
@@ -140,6 +159,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     {{ $chartWorksCategory->script() }}
+    {{ $chartWorks->script() }}
     {{ $chartReservation->script() }}
     {{ $chartEvolutionOfUsers->script() }}
  

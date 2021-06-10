@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 10 2021 17:59:37 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/WorkController.php
+* public/js/app.js
+* resources/js/Components/Work.vue
+* resources/js/Pages/WorkDetails/index.vue
+* resources/views/livewire/dashboard.blade.php
+
+
+Created files:
+* .autogit/logs/log-10-5-2021-17-26-21.txt
+
+
+Deleted files:
+
+
+Renamed files:

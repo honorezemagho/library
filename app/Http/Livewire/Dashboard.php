@@ -12,6 +12,11 @@ use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class Dashboard extends Component
 {
+    public $category;
+    public $orderBy;
+    public $order;
+    public $limit;
+    protected $chartWorks;
     public function render()
     {
         $reports = Report::count();
@@ -48,6 +53,14 @@ class Dashboard extends Component
         ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
         ->setColors(['#ffc63b']);
         
+        //Chart Works
+        $this->chartWorks =  (new LarapexChart)->barChart()
+        ->setTitle('San Francisco vs Boston.')
+        ->setSubtitle('Wins during season 2021.')
+        ->addData('San Francisco', [6, 9, 3, 4, 10, 8])
+        ->addData('Boston', [7, 3, 8, 2, 6, 4])
+        ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
+
         return view('livewire.dashboard', 
         ['reports' => $reports,
          'books' => $books, 
@@ -57,6 +70,7 @@ class Dashboard extends Component
          'chartWorksCategory' => $chartWorksCategory,
          'chartEvolutionOfUsers' => $chartEvolutionOfUsers,
          'chartReservation' => $chartReservation,
+         'chartWorks' => $this->chartWorks,
         ]);
     }
 }
