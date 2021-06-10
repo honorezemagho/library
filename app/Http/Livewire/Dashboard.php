@@ -17,6 +17,7 @@ class Dashboard extends Component
         $reports = Report::count();
         $books = Book::count();
         $subjects = Subject::count();
+        $reservations_count = Reservation::count();
         $reservations = Reservation::with('status')->get();
         $members = User::role('Member')->count();
 
@@ -26,10 +27,16 @@ class Dashboard extends Component
         ->setLabels(['Report', 'Books', 'Subjects']);
 
         //Chart reservation
-        $reservations_confirmed = $reservations->status->where('slug', "confirmed")->count();
-        $reservations_validated = $reservations->status->where('slug', "validated")->count();
-        $reservations_pending = $reservations->status->where('slug', "pending")->count();
-     
+        $reservations_confirmed = $reservations->filter(function($reservation) {
+            return $reservation->status->slug == "confirmed";
+        })->count();
+        $reservations_validated = $reservations->filter(function($reservation) {
+            return $reservation->status->slug == "validated";
+        })->count();
+        $reservations_pending = $reservations->filter(function($reservation) {
+            return $reservation->status->slug == "pending";
+        })->count();
+       
         $chartReservation = (new LarapexChart)->pieChart()
         ->setTitle('Reservaion status')
         ->addData([ $reservations_confirmed, $reservations_validated, $reservations_pending])
@@ -46,7 +53,7 @@ class Dashboard extends Component
          'books' => $books, 
          'subjects' => $subjects,
          'members' => $members,
-         'reservations' => $reservations,
+         'reservations_count' => $reservations_count,
          'chartWorksCategory' => $chartWorksCategory,
          'chartEvolutionOfUsers' => $chartEvolutionOfUsers,
          'chartReservation' => $chartReservation,

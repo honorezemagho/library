@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">{{ $reservations }}</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{ $reservations_count }}</div>
                                 <div class="text-base text-gray-600 mt-1"> Reservation</div>
                             </div>
                         </div>
