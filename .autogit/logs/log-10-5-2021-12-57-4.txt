@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Thu Jun 10 2021 12:57:04 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/WorkDetails/index.vue
+* resources/views/livewire/reservations.blade.php
+
+
+Created files:
+* .autogit/logs/log-10-5-2021-0-42-28.txt
+
+
+Deleted files:
+
+
+Renamed files:

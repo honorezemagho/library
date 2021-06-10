@@ -54,10 +54,10 @@
                     <td class="border-b text-center ">
                         <div class="font-medium "> {{ $reservation->due_date }}</div>
                     </td>
-                    <td class="flex m-2 border-b text-center ">
+                    <td class="flex justify-con border-b w-auto mx-auto text-center ">
                         @if($reservation->status->slug == "pending")
-                            <div class="flex m-2 content-center ont-medium rounded-lg  bg-yellow-700 text-gray-50 opacity-75"> 
-                                <span class="content-center mr-2">{{ $reservation->status->title }}</span>
+                            <div class="flex content-center ont-medium p-1 rounded-lg  bg-yellow-700 text-gray-50 opacity-75"> 
+                                <span class="mr-1 content-center">{{ $reservation->status->title }}</span>
                                 <svg width="" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="rgb(45, 55, 72)" class="content-center w-6 h-6">
                                     <circle cx="15" cy="15" r="15">
                                         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -74,7 +74,7 @@
                                 </svg>
                             </div>
                         @else
-                        <div class="font-medium rounded-lg  bg-green-700 text-gray-50 opacity-75"> {{ $reservation->status->title }}</div>
+                        <div class=" p-1 font-medium rounded-lg  bg-green-700 text-gray-50 opacity-75"> {{ $reservation->status->title }}</div>
                         @endif
                     
                     </td>

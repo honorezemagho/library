@@ -1,4 +1,3 @@
-use App\Models\Reservation;
 <div>
     <div class="grid grid-cols-12 gap-6 relative z-0">
         <div class="col-span-12 xxl:col-span-9 grid grid-cols-12 gap-6">
@@ -86,7 +85,7 @@ use App\Models\Reservation;
                     </div>
                     <div class="col-span-12 sm:col-span-6 intro-y">
                         <div class="m-10 bg-white rounded shadow">
-                            {!! $chartEvolutionOfUsers->container() !!}
+                            {!! $chartReservation->container() !!}
                         </div>
                     </div>
                 </div>
@@ -117,6 +116,7 @@ use App\Models\Reservation;
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     {{ $chartWorksCategory->script() }}
+    {{ $chartReservation->script() }}
     {{ $chartEvolutionOfUsers->script() }}
  
   </div>
