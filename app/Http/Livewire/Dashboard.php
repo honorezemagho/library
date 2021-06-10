@@ -28,6 +28,7 @@ class Dashboard extends Component
 
         });
 
+      
     }
 
     public function updatedCategory($cat){
@@ -90,10 +91,10 @@ class Dashboard extends Component
         //Chart works
         $works_count = $this->works->pluck('views_count')->toArray();
         $works_title = $this->works->pluck('title')->toArray();
+       
         $this->chartWorks =  (new LarapexChart)->barChart()
         ->addData('', $works_count)
         ->setXAxis($works_title);
-
         
         return view('livewire.dashboard', 
         ['reports' => $reports,

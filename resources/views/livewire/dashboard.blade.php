@@ -96,8 +96,8 @@
                         <div class="flex mr-5"> 
                             <label class="mr-1 mt-2">Category</label>
                             <select wire:model="category" class="select h-10 w-auto border">
-                                <option selected value="book">Book</option>
-                                <option value="report">Report</option>
+                                <option selected value="report">Report</option>
+                                <option value="book">Book</option>
                                 <option value="subject">Subject</option>
                             </select>
                         </div>   
