@@ -34,7 +34,7 @@
             </div>
             <div class="text-center">
                <div v-if="myWork.model_name != 'Book'">
-                   <button  v-if="!readFull" type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                   <button  v-if="!readFull && !read" type="button" @click="() => showWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read This Work</span>
                  </button> 
                   <button v-if="read" type="button" @click="() => showWorkFull()"  class="content-center text-center mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">

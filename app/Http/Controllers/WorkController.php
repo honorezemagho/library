@@ -57,7 +57,7 @@ class WorkController extends Controller
             $works = $works->concat($subjects);
 
         }elseif($type == 'reports'){
-            $reports = Report::where('title','like',$search)->with('authors')->with('views')->with('field')->with('level')->orderBy('id', 'DESC')->get();
+            $reports = Report::where('title','like',$search)->with('authors')->withCount('views')->with('field')->with('level')->orderBy('id', 'DESC')->get();
             $works = $reports;
         }elseif($type == 'books'){
             $books = Book::where('title','like',$search)->with('authors')->withCount('views')->with('publisher')->with('format')->with('type')->orderBy('id', 'DESC')->get();
