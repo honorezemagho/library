@@ -92,7 +92,7 @@ class WorkController extends Controller
             'issue_date' =>$request->input('issue_date'),
             'due_date' => $request->input('due_date'),
             'book_item_id' => $request->input('book_item_id'),
-            'status_id' => Status::select('id')->where("slug",'validated')->first()->id,
+            'status_id' => Status::select('id')->where("slug",'pending')->first()->id,
             'user_id' => Auth::id(),
  
          ]);

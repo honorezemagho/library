@@ -292,19 +292,32 @@ export default {
    methods: {
       submit() {
           var issue_date = new Date(this.form.issue_date).toLocaleDateString();
-          var date_temp = issue_date.split('/').reverse().join('/');
+          var actual_date = new Date().toLocaleDateString();
+          if(issue_date == "01/01/1970"){
+                 this.errors.issue_date = "The issue date is empty";
+                 console.log( this.errors.issue_date )
+          }else{
+            console.log(actual_date)
+            console.log(issue_date)
+            if (actual_date > issue_date){
+              this.errors.issue_date = "The issue date is passed";
+              console.log( this.errors.issue_date )
+            }else{
+              var date_temp = issue_date.split('/').reverse().join('/');
 
-          var due_date =  new Date(date_temp);
-          due_date.setDate(due_date.getDate() + parseInt(this.form.number_days));
+              var due_date =  new Date(date_temp);
+              due_date.setDate(due_date.getDate() + parseInt(this.form.number_days));
 
-          this.form.issue_date = issue_date.split('/').reverse().join('/');
-          this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
+              this.form.issue_date = issue_date.split('/').reverse().join('/');
+              this.form.due_date = due_date.toLocaleDateString().split('/').reverse().join('/');
 
-          this.showModalReservation = false
-          this.$inertia.post('/reservation', this.form, {
-          preserveState: (page) => Object.keys(page.props.errors).length,
-})
-       
+              this.showModalReservation = false
+              this.$inertia.post('/reservation', this.form, {
+              preserveState: (page) => Object.keys(page.props.errors).length
+              });
+          } 
+          }
+        
         },
       showSingle() {
         this.imgs = '/'+this.work.cover,
@@ -466,7 +479,7 @@ export default {
             book_item_id: null,
             issue_date: null,
             start_time: null,
-            number_days: null,
+            number_days: 1,
             due_date: null,
         },
       read : false,
