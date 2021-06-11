@@ -3,33 +3,41 @@
         <InnerPageHero image-url="/dist/images/innerPageHeroAbout.jpg" title="Profile Settings" />
 
         <div>
-            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <div v-if="$page.props.jetstream.canUpdateProfileInformation">
-                    <update-profile-information-form :user="$page.props.user" />
+            <tabs>
+                <tab name="Profile">
+                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                        <div v-if="$page.props.jetstream.canUpdateProfileInformation">
+                            <update-profile-information-form :user="$page.props.user" />
 
-                    <jet-section-border />
-                </div>
+                            <jet-section-border />
+                        </div>
 
-                <div v-if="$page.props.jetstream.canUpdatePassword">
-                    <update-password-form class="mt-10 sm:mt-0" />
+                        <div v-if="$page.props.jetstream.canUpdatePassword">
+                            <update-password-form class="mt-10 sm:mt-0" />
 
-                    <jet-section-border />
-                </div>
+                            <jet-section-border />
+                        </div>
+                    </div>
+                </tab>
+                <tab name="Settings">
+                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                        <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
+                            <two-factor-authentication-form class="mt-10 sm:mt-0" />
 
-                <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
-                    <two-factor-authentication-form class="mt-10 sm:mt-0" />
+                            <jet-section-border />
+                        </div>
 
-                    <jet-section-border />
-                </div>
+                        <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
 
-                <logout-other-browser-sessions-form :sessions="sessions" class="mt-10 sm:mt-0" />
+                        <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
+                            <jet-section-border />
 
-                <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
-                    <jet-section-border />
-
-                    <delete-user-form class="mt-10 sm:mt-0" />
-                </template>
-            </div>
+                            <delete-user-form class="mt-10 sm:mt-0" />
+                        </template>
+                    </div>
+                </tab>
+            </tabs>
+          
         </div>
     </app-layout>
 </template>
@@ -43,6 +51,8 @@
     import TwoFactorAuthenticationForm from './TwoFactorAuthenticationForm'
     import UpdatePasswordForm from './UpdatePasswordForm'
     import UpdateProfileInformationForm from './UpdateProfileInformationForm'
+    import {Tabs, Tab} from 'vue3-tabs-component';
+
 
     export default {
         props: ['sessions'],
@@ -56,6 +66,8 @@
             UpdatePasswordForm,
             UpdateProfileInformationForm,
             InnerPageHero,
+            Tabs,
+            Tab,
         },
     }
 </script>
