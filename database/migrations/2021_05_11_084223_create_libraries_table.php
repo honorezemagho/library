@@ -16,9 +16,10 @@ class CreateLibrariesTable extends Migration
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
             $table->string("lib_name");
-            $table->string("lib_title");
+            $table->string("hero_image_title");
+            $table->string("hero_image_desc")->nullable();
             $table->string("lib_default_language");
-            $table->string("lib_email");
+            $table->string("lib_email")->nullable();
             $table->text("lib_desc")->nullable();
             $table->string("lib_site_url")->nullable();
             $table->string("phone1")->nullable();

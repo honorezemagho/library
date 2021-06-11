@@ -206,11 +206,9 @@
 
                 </span>
                 <span v-else>
-                    <button  type="button" class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
-                       <inertia-link class="flex items-center no-underline" :href="'/work-details/book/'+myWork.id">
-                          <span class="text-center">Read</span>
-                      </inertia-link>       
-                    </button>
+                  <button type="button" @click="() => readWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                    <span class="text-center">Read</span>
+                 </button> 
                 </span>
                 </td>
               </tr>
@@ -326,7 +324,7 @@ export default {
               var adobeDCView = this.adobeDCView
               adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
-                content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
+                content:{location: {url: "https://mydigitallibrary.test/"+this.url}},
                 metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
               }, this.viewerConfig);
               const allowTextSelection = false;
@@ -427,6 +425,7 @@ export default {
       showModalAuth : false,
       showModalReservation : false,
       myWork : this.work,
+      url : this.work.url,
       myWorks : this.related,
       imgs: '', // Img Url , string or Array of string
       visible: false,

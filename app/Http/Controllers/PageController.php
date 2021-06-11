@@ -167,7 +167,7 @@ class PageController extends Controller
                 ],
             ],
             'reservation' => [
-                'icon' => 'book',
+                'icon' => 'clock',
                 'layout' => 'side-menu',
                 'page_name' => 'reservations',
                 'title' => 'Reservations'
