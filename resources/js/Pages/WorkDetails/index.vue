@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="">
                                        <select class="form-select mt-1 block" v-model="form.number_days">
-                                        <option>1</option>
+                                        <option selected>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
@@ -206,7 +206,7 @@
 
                 </span>
                 <span v-else>
-                  <button type="button" @click="() => readWork()"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
+                  <button type="button" @click="() => readWork(item.url)"  class="content-center text-center mr-3 mt-2 p-2 rounded-md transform duration-500 hover:scale-105 bg-theme-1 text-theme-2">
                     <span class="text-center">Read</span>
                  </button> 
                 </span>
@@ -365,6 +365,56 @@ export default {
               adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
               var previewFilePromise = adobeDCView.previewFile({
                 content:{location: {url: "https://mydigitallibrary.test/"+this.myWork.url}},
+                metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
+              }, this.viewerConfig);
+              const allowTextSelection = false;
+              previewFilePromise.then(adobeViewer => {
+                adobeViewer.getAnnotationManager().then(annotationManager => {
+                  // All annotation APIs can be invoked here
+                  adobeViewer.getAPIs().then(apis => {
+                          apis.enableTextSelection(allowTextSelection)
+                                  .then(() => console.log("Success"))
+                                  .catch(error => console.log(error));
+                  });
+                });
+              });
+              this.read = true
+        }else{
+          this.read = true
+        }
+       }else{
+         console.log("Unauthorized")
+         this.showModalAuth = true
+       }
+       
+       }, 
+       readWork(url){
+         this.url = url;
+       if(this.session.auth){
+          this.readFull = false
+          this.adobeDCView = null
+          this.viewerConfig.embedMode = ""
+          axios.post('/view', {  
+                    work_id: this.myWork.id,  
+                    model_name: this.myWork.model_name
+                })  
+                .then(res => {
+                  //this.works =  res.data
+                    console.log(res.data);
+                  })
+                  .catch(error => {
+                    console.log(error);
+                  });
+          window.scrollTo({
+              top : 0,
+              left:0,
+              behavior :'smooth'
+          })
+         if(!this.read){
+              var adobeDCView = this.adobeDCView
+              adobeDCView = new AdobeDC.View({clientId: "506e8fa3d68347a2907d0ca5e8bc3c3c", divId: "adobe-dc-view",  locale: "en-US",});
+              var previewFilePromise = adobeDCView.previewFile({
+                content:{location: {url: "https://mydigitallibrary.test/"+this.url}},
                 metaData:{fileName: this.myWork.title, id: "77c6fa5d-6d74-4104-8349-657c8411a834"}
               }, this.viewerConfig);
               const allowTextSelection = false;

@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Fri Jun 11 2021 10:01:07 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/PageController.php
+* database/migrations/2021_05_11_084223_create_libraries_table.php
+* resources/js/Pages/WorkDetails/index.vue
+
+
+Created files:
+* .autogit/logs/log-10-5-2021-20-20-54.txt
+
+
+Deleted files:
+
+
+Renamed files:
