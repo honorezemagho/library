@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sat Jun 12 2021 14:26:54 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* public/js/app.js
+* resources/js/Pages/Profile/Show.vue
+
+
+Created files:
+* .autogit/logs/log-11-5-2021-18-0-59.txt
+
+
+Deleted files:
+
+
+Renamed files:
