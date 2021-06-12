@@ -2,10 +2,9 @@
     <app-layout>
         <InnerPageHero image-url="/dist/images/innerPageHeroAbout.jpg" title="Profile Settings" />
 
-        <div>
-            <tabs>
-                <tab name="Profile">
-                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="content-center">
+          
+                    <div class="max-w-7xl mx-auto py-10 mb-4 sm:px-6 lg:px-8">
                         <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                             <update-profile-information-form :user="$page.props.user" />
 
@@ -17,10 +16,7 @@
 
                             <jet-section-border />
                         </div>
-                    </div>
-                </tab>
-                <tab name="Settings">
-                    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+                  
                         <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
                             <two-factor-authentication-form class="mt-10 sm:mt-0" />
 
@@ -35,9 +31,6 @@
                             <delete-user-form class="mt-10 sm:mt-0" />
                         </template>
                     </div>
-                </tab>
-            </tabs>
-          
         </div>
     </app-layout>
 </template>
