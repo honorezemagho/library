@@ -48,6 +48,7 @@ class WorkController extends Controller
         $search = '%'.$search.'%';
         $works = null;
         if ($type == 'all') {
+
             $books = Book::where('title','like',$search)->with('authors')->withCount('views')->with('publisher')->with('format')->with('type')->orderBy('id', 'DESC')->get();
             $reports = Report::where('title','like',$search)->with('authors')->withCount('views')->with('field')->with('level')->orderBy('id', 'DESC')->get();
             $subjects = Subject::where('title','like',$search)->with('author')->withCount('views')->with('field')->with('period')->with('level')->orderBy('id', 'DESC')->get();
