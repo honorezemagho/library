@@ -1,0 +1,6 @@
+3a2941c97ecf414c5a839c351ba92963d3b363c7
+* text=auto
+*.css linguist-vendored
+*.scss linguist-vendored
+*.js linguist-vendored
+CHANGELOG.md export-ignore
