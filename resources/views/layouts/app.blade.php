@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="referrer" content="always">
+        <link href="{{ asset('img/logo.png') }}" rel="shortcut icon">
 
         <meta name="description" content="Help us to solve bugs">
 

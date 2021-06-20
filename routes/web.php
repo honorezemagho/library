@@ -28,11 +28,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::post('/admin/markas-resolved', [AdminController::class, 'resolveBug'])->middleware(['auth'])->name('mark-as-resolved');
-
     Route::post('/admin/approved', [AdminController::class, 'approve'])->middleware(['auth'])->name('approve-solution');
-
-    Route::get('/dashboard/qa', [AdminController::class, 'qaDashboard'])->name('qa-dashboard');
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 

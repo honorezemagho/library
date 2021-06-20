@@ -17,10 +17,10 @@ class RolesTableSeeder extends Seeder
         //
         DB::table('roles')->insert([
                 [
-                'name' => 'Quality-Engineer',
+                'name' => 'Librarian',
                 ],
                 [
-                'name' => 'Developer',
+                'name' => 'Student',
                 ]
         ]);
     }

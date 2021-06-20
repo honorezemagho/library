@@ -13,8 +13,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{count($unresolved)}}</h4>
-                        <div class="text-gray-500">{{ count($unresolved) > 1 ? 'Bugs' : "Bug" }} in the System</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{ 1 + 1}}</h4>
+                        <div class="text-gray-500">{{  1 + 1 > 1 ? 'Bugs' : "Bug" }} in the System</div>
                     </div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{count($resolved)}}</h4>
-                        <div class="text-gray-500"> {{ count($resolved) > 1 ? 'Resolved Bugs' : "Resolved Bug" }}</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{1 + 1}}</h4>
+                        <div class="text-gray-500"> {{ 1 + 1 > 1 ? 'Resolved Bugs' : "Resolved Bug" }}</div>
                     </div>
                 </div>
             </div>
@@ -54,21 +54,21 @@
                     </thead>
 
                     <tbody class="bg-white">
-                    @if($bugs)
-                        @foreach ($bugs as $bug)
+                    @if($books)
+                        @foreach ($books as $book)
                             <tr>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     <div class="flex items-center">
-                                            <div class="text-sm leading-5 font-medium text-gray-900">{{$bug->name}}</div>
+                                            <div class="text-sm leading-5 font-medium text-gray-900">{{$book->name}}</div>
                                     </div>
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <div class="text-sm leading-5 text-gray-900">{{$bug->description}}</div>
+                                    <div class="text-sm leading-5 text-gray-900">{{$book->description}}</div>
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{is_null($bug->resolved_by) ? "Not Resolved" : 'Resolved'}}</span>
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{is_null($book->resolved_by) ? "Not Resolved" : 'Resolved'}}</span>
                                 </td>
 
                                 {{-- <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">Owner</td> --}}
@@ -76,13 +76,13 @@
                                 <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                     <!-- Using utilities: -->
 
-                                @if(is_null($bug->resolved_by) && !$bug->status)
+                                @if(is_null($book->resolved_by) && !$book->status)
                                     <form method="post" action="{{route('mark-as-resolved')}}">
                                         @csrf
-                                    <input type="hidden" name="id" value="{{$bug->id}}">
+                                    <input type="hidden" name="id" value="{{$book->id}}">
 
-                                       <button type="submit" class=" {{is_null($bug->resolved_by) ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : '' }}">
-                                            {{is_null($bug->resolved_by) ? "Mark as Resolved" : ''}}
+                                       <button type="submit" class=" {{is_null($book->resolved_by) ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' : '' }}">
+                                            {{is_null($book->resolved_by) ? "Mark as Resolved" : ''}}
                                         </button>
                                     </form>
 

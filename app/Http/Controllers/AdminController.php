@@ -71,17 +71,12 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
-        $bugs = Bug::orderBy('id', 'DESC')->get();
-        $resolved = Bug::whereNotNull('resolved_by')->orderBy('id', 'DESC')->get();
-        $unresolved = Bug::whereNull('resolved_by')->orderBy('id', 'DESC')->get();
-        return view('dashboard', compact('bugs', 'resolved','unresolved'));
+        $books = [];
+        return view('dashboard', compact('books'));
     }
 
     public function bugs(){
-            if(auth()->user()->role->name == 'Developer'){
-                return redirect(route('dashboard'));
-            }
-            return redirect(route('qa-dashboard'));
+        return redirect(route('dashboard'));
     }
 
 
