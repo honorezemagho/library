@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\LibrarianBooksController;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     Route::get('bugs', [AdminController::class, 'bugs'])->name('bugs-dashboard');
 
     Route::resource('library/books', LibrarianBooksController::class);
+
+    Route::resource('users', AdminUsersController::class);
 });
 
 
