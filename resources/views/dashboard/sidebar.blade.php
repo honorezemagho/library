@@ -2,7 +2,7 @@
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
             <a href="" class="intro-x flex items-center pl-5 pt-4">
-                <img alt="Sidebar" class="w-6" src="{{ asset('dist/images/logo.svg') }}">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 <span class="hidden xl:block text-white text-lg ml-3">
                     Mid<span class="font-medium">one</span>
                 </span>

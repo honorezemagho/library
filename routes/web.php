@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LibrarianBooksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,13 @@ Route::post('/user/report-bug', [BugController::class, 'store'])->name('save-bug
 
 require __DIR__.'/auth.php';
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () {
 
-    Route::post('/admin/approved', [AdminController::class, 'approve'])->middleware(['auth'])->name('approve-solution');
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
+    Route::get('bugs', [AdminController::class, 'bugs'])->name('bugs-dashboard');
 
-    Route::get('/admin/bugs', [AdminController::class, 'bugs'])->name('bugs-dashboard');
+    Route::resource('library/books', LibrarianBooksController::class);
 });
 
 
