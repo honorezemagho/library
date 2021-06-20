@@ -32,8 +32,6 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('bugs', [AdminController::class, 'bugs'])->name('bugs-dashboard');
-
     Route::resource('library/books', LibrarianBooksController::class);
 
     Route::resource('users', AdminUsersController::class);

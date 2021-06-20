@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Bug;
+use App\Models\Book;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -60,18 +61,11 @@ class AdminController extends Controller
             return back()->with("error", "Alert! Something went wrong");
         }
 
-
     }
-
 
     public function dashboard(){
-        $books = [];
+        $books = Book::get();
         return view('dashboard.index', compact('books'));
     }
-
-    public function bugs(){
-        return redirect(route('dashboard'));
-    }
-
 
 }

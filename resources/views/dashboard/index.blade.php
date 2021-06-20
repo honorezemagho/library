@@ -86,7 +86,7 @@
                                         </button>
                                     </form>
 
-                                @elseif(!$bug->status)
+                                @elseif(!$book->status)
                                             <span class="px-2 inline-flex text-xs leading-5  ml-8 rounded-full bg-red-300 text-white-200">Waiting for Approval</span>
                                 @else
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Approved</span>

@@ -38,6 +38,10 @@
                                     </td>
 
                                     <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
+                                        <div class="text-sm leading-5 text-gray-900">{{ $user->role->name }}</div>
+                                    </td>
+
+                                    <td class="px-2 py-4 whitespace-no-wrap border-b border-gray-200">
                                         <a href="{{ route('admin.users.edit', $user->id ) }}" class="inline-flex justify-center py-2 px-2 border border-transparent shadow text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             Edit
                                         </a>

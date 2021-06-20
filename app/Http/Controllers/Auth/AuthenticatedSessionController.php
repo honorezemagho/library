@@ -32,12 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if(auth()->user()->role->name == 'Developer'){
-            return redirect(RouteServiceProvider::HOME);
-        }
-
-        return redirect(route('qa-dashboard'));
-
+        return redirect(route('admin.dashboard'));
     }
 
     /**
