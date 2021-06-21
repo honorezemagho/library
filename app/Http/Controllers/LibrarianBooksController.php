@@ -35,7 +35,7 @@ class LibrarianBooksController extends Controller
         return [
             'title' => 'required|string|min:3',
             'isbn' => 'required|alpha_num|min:9',
-            'author' => 'required|alpha_num|min:3',
+            'author' => 'required|string|min:3',
             'category_id' => 'required|integer',
             'pub_year' => 'required|integer|min:1600',
             'number_copies' => 'required|integer|min:1',

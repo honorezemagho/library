@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
     @section('body')
-        <h3 class="text-gray-700 text-3xl font-medium">Users &#x1F4DA; </h3>
+        <h3 class="text-gray-700 text-3xl font-medium">Users </h3>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-2">
             <a href="{{ route('admin.users.create') }}" class="inline-flex justify-center py-2 px-4 border border-transparent shadow text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Add New Student
