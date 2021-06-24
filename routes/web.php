@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\BorrowedBookController;
 use App\Http\Controllers\LibrarianBooksController;
 
 /*
@@ -35,6 +36,11 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     Route::resource('library/books', LibrarianBooksController::class);
 
     Route::resource('users', AdminUsersController::class);
+
+    Route::resource('library/borrows', BorrowedBookController::class);
+
+    Route::put('library/borrows/returned', [BorrowedBookController::class, 'returnBook'])->name('borrows.mark-as-returned');
+
 });
 
 
