@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BugController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\BorrowedBookController;
 use App\Http\Controllers\LibrarianBooksController;
@@ -18,10 +19,8 @@ use App\Http\Controllers\LibrarianBooksController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
 
+Route::get('/', [PublicController::class, 'welcome'])->name('welcome');
 
 Route::get('/user/report-bug', [BugController::class, 'create'])->name('create-bug');
 

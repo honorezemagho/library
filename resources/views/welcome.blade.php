@@ -11,74 +11,28 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-3 col-md-3">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-              <img src="{{asset('frontend/img/1.jpeg')}}" alt="Speaker 1" class="">
-              <div class="details">
-                <h3><a href="speaker-details.html">Brenden Legros</a></h3>
-                <p>Quas alias incidunt</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
+
+            @foreach ($latest_books as $book)
+
+            <div class="col-lg-3 col-md-3">
+                <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+                    @php
+                        $book->cover =  $book->cover  ?? 'awaiting_cover.jpg'
+                    @endphp
+                  <img src=" {{ asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
+                  <div class="details">
+                    <h3><a href="{{ route('admin.books.show', $book->id) }}">{{ $book->author }}</a></h3>
+                    <p>{{  \Str::slug($book->description, 100) ?? 'Book Description'}}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
-              <img src="{{asset('frontend/img/2.jpeg')}}" alt="Speaker 2" class="">
-              <div class="details">
-                <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
-                <p>Consequuntur odio aut</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
-              <img src="{{asset('frontend/img/3.jpeg')}}" alt="Speaker 3" class="">
-              <div class="details">
-                <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
-                <p>Fugiat laborum et</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-              <img src="{{asset('frontend/img/4.jpeg')}}" alt="Speaker 4" class="">
-              <div class="details">
-                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
-                <p>Debitis iure vero</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+
+            @endforeach
 
         </section><!-- End Speakers Section -->
         <a class="mt-4" href="">
           <h2 class="text-center">View all our works <i class="fa fa-arrow-right" aria-hidden="true"></i></h2>
         </a>
-
-    <!-- ======= Schedule Section ======= -->
-
     <!-- ======= Hotels Section ======= -->
     <section id="hotels" class="section-with-bg">
 
@@ -89,56 +43,24 @@
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
+            @foreach ($categories as $category)
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel">
+                  <div class="hotel-img">
+                    <img src="{{asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
+                  </div>
+                  <h3><a href="#">{{  $category->name }}</a></h3>
+                  <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <p>9000</p>
+                </div>
               </div>
-              <h3><a href="#">Book </a></h3>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-              <p>9000</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="#">Report </a></h3>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-              </div>
-              <p>400</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="{{asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
-              </div>
-              <h3><a href="#">Subject</a></h3>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-              <p>700</p>
-            </div>
-          </div>
-
+            @endforeach
         </div>subscr
       </div>
 
