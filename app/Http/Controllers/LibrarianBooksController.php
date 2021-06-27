@@ -112,6 +112,12 @@ class LibrarianBooksController extends Controller
         //
         $data = $request->validate($this->rules());
 
+        if($request->hasFile('cover')){
+            $image  =  time().'.'.$request->cover->extension();
+            $request->cover->move(public_path('uploads'), $image);
+            $data['cover'] = $image;
+        }
+
         $book->update($data);
 
         if(!is_null($book)) {
