@@ -39,7 +39,7 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
 
     Route::resource('library/borrows', BorrowedBookController::class);
 
-    Route::put('library/borrows/returned', [BorrowedBookController::class, 'returnBook'])->name('borrows.mark-as-returned');
+    Route::put('library/borrows/returned/{book}', [BorrowedBookController::class, 'returnBook'])->name('borrows.mark-as-returned');
 
 });
 
