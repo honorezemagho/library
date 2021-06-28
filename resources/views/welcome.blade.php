@@ -78,7 +78,7 @@
             <!--TESTIMONIAL 1 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                <img class="img-circle" src="{{asset('frontend/img/avatar-test.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">EMILIANO AQUILANI</div>
@@ -87,7 +87,7 @@
             <!--TESTIMONIAL 2 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                <img class="img-circle" src="{{asset('frontend/img/avatar-test1.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">ANNA ITURBE</div>
@@ -96,7 +96,7 @@
             <!--TESTIMONIAL 3 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                <img class="img-circle" src="{{asset('frontend/img/avatar-test2.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">LARA ATKINSON</div>
@@ -105,7 +105,7 @@
             <!--TESTIMONIAL 4 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg" alt="">
+                <img class="img-circle" src="http://themes.audemedia.com/html/goodgrowth/images/testimonial1.jpg" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">IAN OWEN</div>
