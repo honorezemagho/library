@@ -12,7 +12,6 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-12">
                 @foreach ($books as $book)
 
                 <div class="col-lg-3 col-md-3">
@@ -29,7 +28,6 @@
                   </div>
 
                 @endforeach
-            </div>
           </div>
 
       </div>
