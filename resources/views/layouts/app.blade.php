@@ -7,9 +7,9 @@
         <meta name="referrer" content="always">
         <link href="{{ asset('img/logo.png') }}" rel="shortcut icon">
 
-        <meta name="description" content="Help us to solve bugs">
+        <meta name="description" content="Borrow the book available">
 
-        <title>H-BUG</title>
+        <title>Library</title>
 
          <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 

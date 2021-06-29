@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bug;
 use App\Models\Book;
+use App\Models\BorrowedBook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,8 +65,9 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
-        $books = Book::get();
-        return view('dashboard.index', compact('books'));
+        $total_books = Book::count();
+        $total_borrowed_books = BorrowedBook::count();
+        return view('dashboard.index', compact('total_books','total_borrowed_books'));
     }
 
 }
