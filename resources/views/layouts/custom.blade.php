@@ -31,23 +31,27 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
+<header id="header" class="header-fixed">
     <div class="container">
 
-      <div id="logo" class="pull-left">
-        <a href="{{url('/')}}" class="scrollto h1">
-            <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-        </a>
-      </div>
+
+        <div id="logo" class="pull-left">
+            <a href="{{url('/')}}" class="scrollto h1">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+          </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
-          <li><a href="{{ route('books') }}">Works</a></li>
-          <li><a href="{{route('about')}}">About</a></li>
-          <li><a href="{{route('login')}}">Login</a></li>
+            <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
+            <li><a href="{{ route('books') }}">Works</a></li>
+            <li><a href="{{route('about')}}">About</a></li>
+            <li><a href="{{route('login')}}">Login</a></li>
         </ul>
-      </nav>
+      </nav><!-- #nav-menu-container -->
     </div>
-  </header>
+  </header><!-- End Header -->
+
+
+  @yield('content')
+  <x-frontend-footer/>

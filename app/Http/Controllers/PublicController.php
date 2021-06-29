@@ -14,4 +14,13 @@ class PublicController extends Controller
         $categories = Category::take(3)->get();
         return view('welcome', compact('latest_books', 'categories'));
     }
+
+    public function books(){
+        $books = Book::get();
+        return view('frontend.books', compact('books'));
+    }
+
+    public function about(){
+        return view('frontend.about');
+    }
 }

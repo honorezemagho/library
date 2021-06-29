@@ -30,7 +30,7 @@
             @endforeach
 
         </section><!-- End Speakers Section -->
-        <a class="mt-4" href="">
+        <a class="mt-4" href="{{ route('books') }}">
           <h2 class="text-center">View all our works <i class="fa fa-arrow-right" aria-hidden="true"></i></h2>
         </a>
     <!-- ======= Hotels Section ======= -->

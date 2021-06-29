@@ -22,9 +22,14 @@ use App\Http\Controllers\LibrarianBooksController;
 
 Route::get('/', [PublicController::class, 'welcome'])->name('welcome');
 
+Route::get('/books', [PublicController::class, 'books'])->name('books');
+
+Route::get('/about', [PublicController::class, 'about'])->name('about');
+
 Route::get('/user/report-bug', [BugController::class, 'create'])->name('create-bug');
 
 Route::post('/user/report-bug', [BugController::class, 'store'])->name('save-bug');
+
 
 require __DIR__.'/auth.php';
 
