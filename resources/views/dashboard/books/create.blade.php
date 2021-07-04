@@ -43,9 +43,7 @@
                   Description (Not required)
                 </label>
                 <div class="form-input mt-1">
-                  <textarea id="description" name="description"  rows="3" class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-400 rounded-md" placeholder="Brief Description of the book">
-                    {{ old('description') ?? null }}
-                  </textarea>
+                  <textarea id="description" name="description"  rows="3" class="shadow focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-400 rounded-md" placeholder="Brief Description of the book">{{ old('description') ?? null }}</textarea>
                 </div>
                 @error('description')<span class="mt-2 text-sm text-red-500">{{ $message }}</p>@enderror
               </div>
