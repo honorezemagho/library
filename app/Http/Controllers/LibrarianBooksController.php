@@ -16,7 +16,7 @@ class LibrarianBooksController extends Controller
     public function index()
     {
         //
-        $books = Book::get();
+        $books = Book::latest()->get();
         return view('dashboard.books.index', compact('books'));
     }
 

@@ -17,7 +17,7 @@ class BorrowedBookController extends Controller
     public function index()
     {
         //
-        $borrowed_books = BorrowedBook::get();
+        $borrowed_books = BorrowedBook::latest()->get();
         return view('dashboard.borrow.index', compact('borrowed_books'));
     }
 

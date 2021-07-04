@@ -15,7 +15,7 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-        $users = User::get();
+        $users = User::latest()->get();
 
         return view('dashboard.students.index', compact('users'));
     }
