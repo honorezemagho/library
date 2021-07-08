@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string("isbn");
             $table->string("author");
             $table->integer("pub_year");
-            $table->integer("number_copies");
+            $table->integer("number_copies")->default(1);
             $table->string("description")->nullable();
             $table->string("cover")->nullable();
             $table->integer('category_id');

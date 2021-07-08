@@ -32,6 +32,8 @@ Route::get('/user/report-bug', [BugController::class, 'create'])->name('create-b
 
 Route::post('/user/report-bug', [BugController::class, 'store'])->name('save-bug');
 
+Route::post('/user/request-book', [PublicController::class, 'requestBook'])->name('request-book');
+
 
 require __DIR__.'/auth.php';
 

@@ -38,7 +38,7 @@ class LibrarianBooksController extends Controller
             'author' => 'required|string|min:3',
             'category_id' => 'required|integer',
             'pub_year' => 'required|integer|min:1600',
-            'number_copies' => 'required|integer|min:1',
+            'number_copies' => 'required|integer',
             'description' => 'sometimes',
             'cover' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];

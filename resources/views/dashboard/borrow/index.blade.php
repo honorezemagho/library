@@ -49,13 +49,21 @@
                                             <form action="{{ route('admin.borrows.mark-as-returned', $borrowed_book->id ) }}" method="post" class="inline-flex justify-center">
                                                 @csrf
                                                 @method('PUT')
-                                                <button type="submit" class="py-2 px-2 border border-transparent shadow text-sm font-medium rounded-md text-white bg-green-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                <button type="submit" class="py-2 px-2 border border-transparent shadow text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                     Mark as returned
                                                 </button>
                                             </form>
                                         @else
                                             Returned
                                         @endif
+
+                                        <form action="{{ route('admin.borrows.destroy', $borrowed_book->id ) }}" method="post" class="inline-flex justify-center">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="py-2 px-2 border border-transparent shadow text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                               Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

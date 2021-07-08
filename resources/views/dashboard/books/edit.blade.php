@@ -69,7 +69,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="number_copies" class="block text-sm font-medium text-gray-700">Number of copies</label>
-                <input type="number" min="1" value="{{ $book->number_copies }}" required name="number_copies" id="number_copies" autocomplete="isbn" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-400 rounded-md">
+                <input type="number" value="{{ $book->number_copies }}" required name="number_copies" id="number_copies" autocomplete="isbn" class="form-input mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow sm:text-sm border-gray-400 rounded-md">
                 @error('number_copies')<span class="mt-2 text-sm text-red-500">{{ $message }}</p>@enderror
             </div>
 

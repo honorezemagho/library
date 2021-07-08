@@ -121,8 +121,19 @@ class BorrowedBookController extends Controller
      * @param  \App\Models\BorrowedBook  $borrowedBook
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BorrowedBook $borrowedBook)
+    public function destroy($id)
     {
         //
+        $borrowed_book = BorrowedBook::findOrFail($id);
+
+        $book = Book::findOrFail($borrowed_book->book_id);
+
+        $data['number_copies'] = $book->number_copies += 1;
+
+        $book->update($data);
+
+        $borrowed_book->delete();
+
+        return redirect(route('admin.borrows.index'));
     }
 }
