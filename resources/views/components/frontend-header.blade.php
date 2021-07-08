@@ -46,7 +46,14 @@
           <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
           <li><a href="{{ route('books') }}">Works</a></li>
           <li><a href="{{route('about')}}">About</a></li>
-          <li><a href="{{route('login')}}">Login</a></li>
+
+         @guest
+            <li><a href="{{route('login')}}">Login</a></li>
+         @endguest
+
+         @auth
+            <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+         @endauth
         </ul>
       </nav>
     </div>

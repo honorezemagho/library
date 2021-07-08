@@ -1,4 +1,4 @@
-          
+
 
           @foreach ($books as $book)
             <a href="{{ route('book-detail', $book->id ) }}">
@@ -9,7 +9,7 @@
                     @endphp
                   <img src=" {{ asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
                   <div class="details">
-                    <h3><a href="{{ route('admin.books.show', $book->id) }}">{{ $book->author }}</a></h3>
+                    <h3><a href="{{ route('book-detail', $book->id) }}">{{ $book->author }}</a></h3>
                     <p>{{  \Str::limit($book->description, 100) ?? 'Book Description'}}</p>
                   </div>
                 </div>

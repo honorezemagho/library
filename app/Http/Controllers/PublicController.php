@@ -23,4 +23,9 @@ class PublicController extends Controller
     public function about(){
         return view('frontend.about');
     }
+
+    public function bookDetails($id){
+        $book = Book::findOrFail($id);
+        return view('frontend.book-details', compact('book'));
+    }
 }
