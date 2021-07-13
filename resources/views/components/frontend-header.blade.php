@@ -10,22 +10,22 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
-  <link href="{{asset('frontend/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <!-- <link href="secure_assets/img/favicon.png" rel="icon"> -->
+  <link href="{{secure_asset('frontend/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('frontend/vendor/venobox/venobox.css')}}" rel="stylesheet">
-  <link href="{{ asset('frontend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link  href="{{ asset('frontend/vendor/owl.carousel/assets/owl.carousel.min.css')}}"  rel="stylesheet">
-  <link href="{{asset('frontend/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('frontend/vendor/venobox/venobox.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('frontend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link  href="{{ secure_asset('frontend/vendor/owl.carousel/secure_assets/owl.carousel.min.css')}}"  rel="stylesheet">
+  <link href="{{secure_asset('frontend/vendor/aos/aos.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset('frontend/css/style.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('frontend/css/style.css')}}" rel="stylesheet">
 
 </head>
 

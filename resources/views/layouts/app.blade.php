@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="referrer" content="always">
-        <link href="{{ asset('img/logo.png') }}" rel="shortcut icon">
+        <link href="{{ secure_asset('img/logo.png') }}" rel="shortcut icon">
 
         <meta name="description" content="Borrow the book available">
 
         <title>Library</title>
 
-         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+         <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ secure_asset('js/app.js') }}"></script>
     </head>
     <body>
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">

@@ -32,7 +32,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="hotel">
                   <div class="hotel-img">
-                    <img src="{{asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
+                    <img src="{{secure_asset('frontend/img/5.jpeg')}}" alt="" class="img-fluid">
                   </div>
                   <h3><a href="#">{{  $category->name }}</a></h3>
                   <div class="stars">
@@ -63,7 +63,7 @@
             <!--TESTIMONIAL 1 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="{{asset('frontend/img/avatar-test.png')}}" alt="">
+                <img class="img-circle" src="{{secure_asset('frontend/img/avatar-test.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">EMILIANO AQUILANI</div>
@@ -72,7 +72,7 @@
             <!--TESTIMONIAL 2 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="{{asset('frontend/img/avatar-test1.png')}}" alt="">
+                <img class="img-circle" src="{{secure_asset('frontend/img/avatar-test1.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">ANNA ITURBE</div>
@@ -81,7 +81,7 @@
             <!--TESTIMONIAL 3 -->
             <div class="item">
               <div class="shadow-effect">
-                <img class="img-circle" src="{{asset('frontend/img/avatar-test2.png')}}" alt="">
+                <img class="img-circle" src="{{secure_asset('frontend/img/avatar-test2.png')}}" alt="">
                 <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate.</p>
               </div>
               <div class="testimonial-name">LARA ATKINSON</div>
