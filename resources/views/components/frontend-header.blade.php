@@ -21,7 +21,7 @@
   <link href="{{ secure_asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{ secure_asset('frontend/vendor/venobox/venobox.css')}}" rel="stylesheet">
   <link href="{{ secure_asset('frontend/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link  href="{{ secure_asset('frontend/vendor/owl.carousel/secure_assets/owl.carousel.min.css')}}"  rel="stylesheet">
+  <link  href="{{secure_asset('frontend/vendor/owl.carousel/assets/owl.carousel.min.css')}}"  rel="stylesheet">
   <link href="{{secure_asset('frontend/vendor/aos/aos.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
