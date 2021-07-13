@@ -13,7 +13,7 @@
             @php
                 $book->cover =  $book->cover  ?? 'awaiting_cover.jpg'
             @endphp
-            <img src=" {{ asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
+            <img src=" {{ secure_asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
         </div>
       </div>
 

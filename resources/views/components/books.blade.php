@@ -7,7 +7,7 @@
                     @php
                         $book->cover =  $book->cover  ?? 'awaiting_cover.jpg'
                     @endphp
-                  <img src=" {{ asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
+                  <img src=" {{ secure_asset('uploads/'.$book->cover) }}" alt="Speaker 2" class="">
                   <div class="details">
                     <h3><a href="{{ route('book-detail', $book->id) }}">{{ $book->author }}</a></h3>
                     <p>{{  \Str::limit($book->description, 100) ?? 'Book Description'}}</p>
