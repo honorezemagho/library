@@ -10,9 +10,9 @@ services:
     image: library
     container_name: library-app
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /var/www/html/
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/html
       - ./.docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     networks:
       - library
@@ -39,7 +39,7 @@ services:
     ports:
       - 8008:80
     volumes:
-      - ./src:/var/www
+      - ./src:/var/www/html
       - ./.docker/nginx:/etc/nginx/conf.d
     networks:
       - library

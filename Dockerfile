@@ -1,38 +1,39 @@
 FROM php:7.4-fpm
 
-# Get argument defined in docker-compose file
-ARG user
-ARG uid
-
-# Install system dependencies
+# Install dependencies for the operating system software
 RUN apt-get update && apt-get install -y \
-    git \
-    curl \
+    build-essential \
     libpng-dev \
-    libonig-dev \
-    libxml2-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    locales \
     zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
+    libzip-dev \
     unzip \
-    && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install mbstring \
-    && docker-php-ext-install exif \
-    && docker-php-ext-install pcntl \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-install gd \
-    && docker-php-source delete
+    git \
+    libonig-dev \
+    curl
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Get latest Composer
+# Install composer (php package manager)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
+# Install extensions for php
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-install gd
 
-# Set working directory
-WORKDIR /var/www
 
-USER $user
+WORKDIR /var/www/html
+
+# Copy composer.json
+COPY composer.json .
+
+RUN composer install --no-scripts
+
+COPY . .
+
+#Serve the project
+CMD php artisan serve --host=0.0.0.0 --port 80
+
