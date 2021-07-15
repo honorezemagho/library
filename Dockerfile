@@ -40,8 +40,6 @@ RUN chown -R www-data:www-data \
 
 RUN composer install --no-scripts
 
-COPY . .
-
 #Serve the project
 CMD php artisan serve --host=0.0.0.0 --port=80
 
