@@ -1,5 +1,8 @@
 FROM php:7.4-fpm
 
+# Set working directory
+WORKDIR /var/www/html/
+
 # Install dependencies for the operating system software
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -25,11 +28,15 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 
 
-# Copy existing application directory contents to the working directory
-WORKDIR /library
 
-# Copy composer.json
-COPY composer.json .
+
+# Copy existing application directory contents to the working directory
+COPY . /var/www/html
+
+# Assign permissions of the working directory to the www-data user
+RUN chown -R www-data:www-data \
+        /var/www/html/storage \
+        /var/www/html/bootstrap/cache
 
 RUN composer install --no-scripts
 
@@ -37,4 +44,11 @@ COPY . .
 
 #Serve the project
 CMD php artisan serve --host=0.0.0.0 --port=80
+
+EXPOSE 80
+EXPOSE 8000
+
+# Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
+EXPOSE 9000
+CMD ["php-fpm"]
 
